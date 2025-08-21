@@ -31,7 +31,7 @@ Fonts: Unna (serif), Satoshi (sans-serif)
     --accent: 71 84% 73%; /* #d4f57f - chartreuse */
     --accent-foreground: 79 12% 22%;
     
-    --muted: 48 20% 95%;
+    --muted: 210 13% 91%; /* #dde2e8 - neutral gray */
     --muted-foreground: 79 16% 40%;
     
     --destructive: 0 84.2% 60.2%;

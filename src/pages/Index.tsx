@@ -1,7 +1,7 @@
-import { BodyWeightHero } from "@/components/BodyWeightHero";
+import { CompleteLandingPage } from "@/components/CompleteLandingPage";
 
 const Index = () => {
-  return <BodyWeightHero />;
+  return <CompleteLandingPage />;
 };
 
 export default Index;
