@@ -1,5 +1,4 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+
 import teamDoctor1 from "@/assets/team-doctor-1.jpg";
 import teamNutritionist1 from "@/assets/team-nutritionist-1.jpg";
 import doctorSaptarshi from "@/assets/dr-saptarshi.jpg";
@@ -40,65 +39,39 @@ const teamMembers: TeamMember[] = [
     title: "Clinical Nutritionist",
     credentials: "10+ Years Experience, Fortis Healthcare. Specialized in personalized nutrition therapy for metabolic conditions.",
     image: teamNutritionist1
+  },
+  {
+    id: 5,
+    name: "Drishti Bansal",
+    title: "Lead, Nutrition",
+    credentials: "8+ Years Experience in personalized nutrition coaching. Expert in creating sustainable meal plans for metabolic health.",
+    image: teamNutritionist1
+  },
+  {
+    id: 6,
+    name: "Anushi Dhiman",
+    title: "Lead, Nutrition",
+    credentials: "7+ Years Experience in clinical nutrition. Specialized in PCOS and hormonal weight management programs.",
+    image: teamNutritionist1
   }
 ];
 
 export const MedicalTeamSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % teamMembers.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-  };
-
-  const getVisibleMembers = () => {
-    const visibleCount = window.innerWidth >= 1024 ? 3 : 1;
-    const members = [];
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentIndex + i) % teamMembers.length;
-      members.push(teamMembers[index]);
-    }
-    return members;
-  };
-
   return (
     <section className="py-16 px-4 lg:px-16 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
-            The Medical Team Behind Your Diagnosis
+            Our Care Circle
           </h2>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative">
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-card shadow-lg hover:shadow-xl transition-shadow"
-          >
-            <ChevronLeft className="w-6 h-6 text-foreground" />
-          </button>
-          
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-card shadow-lg hover:shadow-xl transition-shadow"
-          >
-            <ChevronRight className="w-6 h-6 text-foreground" />
-          </button>
-
-          {/* Cards Container */}
-          <div className="overflow-hidden px-12">
-            <div className="flex gap-6 lg:gap-8 transition-transform duration-300">
-              {getVisibleMembers().map((member) => (
-                <TeamMemberCard key={member.id} member={member} />
-              ))}
-            </div>
-          </div>
+        {/* Team Grid - Mobile: 2x3, Desktop: 3x2 */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {teamMembers.map((member) => (
+            <TeamMemberCard key={member.id} member={member} />
+          ))}
         </div>
       </div>
     </section>
@@ -107,9 +80,9 @@ export const MedicalTeamSection = () => {
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   return (
-    <div className="flex-1 text-center min-w-0">
+    <div className="text-center">
       {/* Photo */}
-      <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden mx-auto mb-6">
+      <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full overflow-hidden mx-auto mb-4">
         <img
           src={member.image}
           alt={member.name}
@@ -118,17 +91,17 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       </div>
 
       {/* Name */}
-      <h3 className="font-unna text-xl lg:text-2xl text-foreground mb-2">
+      <h3 className="font-unna text-lg lg:text-xl text-foreground mb-1">
         {member.name}
       </h3>
 
       {/* Title */}
-      <p className="font-satoshi font-bold text-secondary text-base mb-4">
+      <p className="font-satoshi font-bold text-secondary text-sm mb-3">
         {member.title}
       </p>
 
       {/* Credentials */}
-      <p className="font-satoshi text-sm text-muted-foreground leading-relaxed">
+      <p className="font-satoshi text-xs text-muted-foreground leading-relaxed">
         {member.credentials}
       </p>
     </div>

@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+
 import testimonialUser1 from "@/assets/testimonial-user-1.jpg";
 
 interface Testimonial {
@@ -23,13 +23,6 @@ const testimonials: Testimonial[] = [
     name: "Priya S.",
     result: "Lost 12 kgs",
     image: testimonialUser1
-  },
-  {
-    id: 3,
-    quote: "The metabolic insights changed everything. I now know exactly why I was struggling.",
-    name: "Amit K.",
-    result: "Lost 15 kgs",
-    image: testimonialUser1
   }
 ];
 
@@ -46,15 +39,15 @@ export const TestimonialsSection = () => {
 
         {/* Mobile Layout */}
         <div className="lg:hidden space-y-6">
-          {testimonials.slice(0, 2).map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+          {testimonials.map((testimonial) => (
+            <TestimonialBubble key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8">
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8">
           {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            <TestimonialBubble key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
       </div>
@@ -62,24 +55,15 @@ export const TestimonialsSection = () => {
   );
 };
 
-const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+const TestimonialBubble = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="medical-card p-6">
-      <Quote className="w-8 h-8 text-accent mb-4" />
-      
-      <blockquote className="font-unna text-lg text-foreground leading-relaxed mb-6">
-        "{testimonial.quote}"
-      </blockquote>
-      
-      <div className="flex items-center gap-3">
-        <div className="w-12 h-12 rounded-full overflow-hidden">
-          <img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div>
+    <div className="flex items-start gap-4">
+      {/* Speech Bubble */}
+      <div className="relative bg-card rounded-2xl p-4 flex-1 shadow-lg">
+        <blockquote className="font-unna text-base text-foreground leading-relaxed mb-3">
+          "{testimonial.quote}"
+        </blockquote>
+        <div className="flex flex-col">
           <div className="font-satoshi font-semibold text-foreground text-sm">
             {testimonial.name}
           </div>
@@ -87,6 +71,17 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
             {testimonial.result}
           </div>
         </div>
+        {/* Bubble tail pointing to user */}
+        <div className="absolute top-6 -right-3 w-6 h-6 bg-card rotate-45"></div>
+      </div>
+
+      {/* User Image */}
+      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );

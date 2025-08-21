@@ -11,9 +11,11 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Hide when user scrolls past the first section (hero height)
+      // Show when user is on first page (hero section)
       const heroHeight = window.innerHeight;
-      if (window.scrollY > heroHeight * 0.8) {
+      if (window.scrollY <= heroHeight * 0.8) {
+        setIsVisible(true);
+      } else {
         setIsVisible(false);
       }
     };
@@ -23,8 +25,7 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
   }, []);
 
   const handleClick = () => {
-    // Hide the banner and scroll to next section
-    setIsVisible(false);
+    // Scroll to next section
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
 
@@ -36,7 +37,8 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
       style={{
         background: 'linear-gradient(180deg, rgba(146, 122, 158, 0.7) 0%, rgba(238, 214, 181, 0.7) 70%, rgba(156, 210, 18, 0.7) 100%)',
         borderRadius: '50% 50% 0 0',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        opacity: 0.7
       }}
       onClick={handleClick}
     >

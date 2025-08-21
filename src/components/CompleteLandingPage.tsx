@@ -1,8 +1,10 @@
+
 import { BodyWeightHero } from "./BodyWeightHero";
 import { FeaturesList } from "./FeaturesList";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { IntermediateCTA } from "./IntermediateCTA";
 import { MedicalTeamSection } from "./MedicalTeamSection";
+import { TwoStepJourneySection } from "./TwoStepJourneySection";
 import { AsSeenInSection } from "./AsSeenInSection";
 import { FinalCTASection } from "./FinalCTASection";
 import { StickyFooterCTA } from "./StickyFooterCTA";
@@ -27,6 +29,9 @@ export const CompleteLandingPage = () => {
       
       {/* Medical Team Section */}
       <MedicalTeamSection />
+      
+      {/* Two Step Journey Section */}
+      <TwoStepJourneySection />
       
       {/* Second Intermediate CTA (Desktop Only) */}
       <IntermediateCTA 

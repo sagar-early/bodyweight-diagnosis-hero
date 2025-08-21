@@ -3,7 +3,7 @@ import { FloatingCTA } from "./FloatingCTA";
 import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
-import { FamiliarProblemsSection } from "./FamiliarProblemsSection";
+import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
 
 export const BodyWeightHero = () => {
   const quote = "It's not your willpower, it's your biology. Your body is different and needs a different strategy for weight loss.";
@@ -33,8 +33,8 @@ export const BodyWeightHero = () => {
           </h3>
         </div>
 
-        {/* Familiar Problems Section */}
-        <FamiliarProblemsSection />
+        {/* Metabolic Conditions Section */}
+        <MetabolicConditionsSection />
 
         {/* Doctor Speech Bubble */}
         <div className="flex-1 flex items-center mb-20">
@@ -70,7 +70,7 @@ export const BodyWeightHero = () => {
               "Stop guessing, start testing."
             </h3>
             
-            <FamiliarProblemsSection />
+            <MetabolicConditionsSection />
             
             <p className="font-satoshi font-bold text-xl text-foreground mb-8">
               Lose up to 20% of your body weight.
