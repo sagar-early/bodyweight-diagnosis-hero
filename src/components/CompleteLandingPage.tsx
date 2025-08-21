@@ -1,49 +1,56 @@
 
 import { BodyWeightHero } from "./BodyWeightHero";
-import { FeaturesList } from "./FeaturesList";
+import { FeaturesSection } from "./FeaturesSection";
 import { TestimonialsSection } from "./TestimonialsSection";
-import { IntermediateCTA } from "./IntermediateCTA";
 import { MedicalTeamSection } from "./MedicalTeamSection";
 import { TwoStepJourneySection } from "./TwoStepJourneySection";
 import { AsSeenInSection } from "./AsSeenInSection";
-import { FinalCTASection } from "./FinalCTASection";
 import { StickyFooterCTA } from "./StickyFooterCTA";
+import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
 
 export const CompleteLandingPage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <BodyWeightHero />
+    <div className="min-h-screen">
+      {/* Hero Section - Background 1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
+        <BodyWeightHero />
+      </div>
       
-      {/* What You Get Section */}
-      <FeaturesList />
+      {/* Metabolic Conditions Section - Background 2 */}
+      <div style={{ backgroundColor: '#79855F' }} className="py-16">
+        <div className="text-white">
+          <MetabolicConditionsSection />
+        </div>
+      </div>
       
-      {/* First Intermediate CTA (Desktop Only) */}
-      <IntermediateCTA 
-        headline="Ready to understand your body?" 
-        buttonText="Unlock Clarity" 
-      />
+      {/* What You Get Section - Background 1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
+        <FeaturesSection />
+      </div>
       
-      {/* Testimonials Section */}
-      <TestimonialsSection />
+      {/* Testimonials Section - Background 2 */}
+      <div style={{ backgroundColor: '#79855F' }}>
+        <div className="text-white">
+          <TestimonialsSection />
+        </div>
+      </div>
       
-      {/* Medical Team Section */}
-      <MedicalTeamSection />
+      {/* Medical Team Section - Background 1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
+        <MedicalTeamSection />
+      </div>
       
-      {/* Two Step Journey Section */}
-      <TwoStepJourneySection />
+      {/* Two Step Journey Section - Background 2 */}
+      <div style={{ backgroundColor: '#79855F' }}>
+        <div className="text-white">
+          <TwoStepJourneySection />
+        </div>
+      </div>
       
-      {/* Second Intermediate CTA (Desktop Only) */}
-      <IntermediateCTA 
-        headline="Take the first step towards lasting results." 
-        buttonText="Start Your Diagnosis" 
-      />
-      
-      {/* As Featured In Section */}
-      <AsSeenInSection />
-      
-      {/* Final CTA Section */}
-      <FinalCTASection />
+      {/* As Featured In Section - Background 1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
+        <AsSeenInSection />
+      </div>
       
       {/* Sticky Footer CTA (Mobile Only) */}
       <StickyFooterCTA />

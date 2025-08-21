@@ -107,6 +107,16 @@ Fonts: Unna (serif), Satoshi (sans-serif)
 }
 
 @layer components {
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Bounce animation for CTA */
   .bounce-gentle {
     animation: bounce-gentle 2s infinite;
