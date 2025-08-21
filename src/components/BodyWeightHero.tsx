@@ -1,8 +1,6 @@
-
 import { FloatingCTA } from "./FloatingCTA";
 import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
-import { TrendingDown } from "lucide-react";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { FamiliarProblemsSection } from "./FamiliarProblemsSection";
 
@@ -13,28 +11,23 @@ export const BodyWeightHero = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Mobile Layout */}
-      <div className="lg:hidden flex flex-col min-h-screen p-4">
+      <div className="lg:hidden flex flex-col min-h-screen p-4 pb-32">
         {/* Header */}
-        <div className="text-left mb-8 pt-8">
+        <div className="text-left mb-6 pt-8">
           <div className="flex items-center gap-3 mb-3">
-            {/* Medical clipboard icon from uploaded image */}
-            <div className="w-8 h-8 flex-shrink-0">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <rect x="20" y="15" width="60" height="70" rx="5" fill="#d4f57f" stroke="#393f2d" strokeWidth="2"/>
-                <rect x="35" y="8" width="30" height="12" rx="3" fill="#393f2d"/>
-                <circle cx="65" cy="35" r="15" fill="none" stroke="#393f2d" strokeWidth="2"/>
-                <path d="M58 35 L62 39 L72 29" fill="none" stroke="#393f2d" strokeWidth="2"/>
-                <line x1="25" y1="50" x2="45" y2="50" stroke="#393f2d" strokeWidth="2"/>
-                <line x1="25" y1="60" x2="40" y2="60" stroke="#393f2d" strokeWidth="2"/>
-                <line x1="25" y1="70" x2="35" y2="70" stroke="#393f2d" strokeWidth="2"/>
-              </svg>
+            {/* Medical diagnosis icon from uploaded image */}
+            <div className="w-10 h-10 flex-shrink-0">
+              <img
+                src="/lovable-uploads/35ac02ad-0c4a-4a10-ba4b-95d3fea77a0d.png"
+                alt="Medical diagnosis icon"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <h1 className="font-unna text-4xl text-foreground">
+            <h1 className="font-unna text-3xl text-foreground">
               Body Weight Diagnosis
             </h1>
-            <TrendingDown className="w-8 h-8 text-primary" />
           </div>
-          <h3 className="font-satoshi text-xl text-secondary mb-6">
+          <h3 className="font-satoshi text-lg text-secondary mb-4">
             "Stop guessing, start testing."
           </h3>
         </div>
@@ -43,7 +36,7 @@ export const BodyWeightHero = () => {
         <FamiliarProblemsSection />
 
         {/* Doctor Speech Bubble */}
-        <div className="flex-1 flex items-center">
+        <div className="flex-1 flex items-center mb-16">
           <DoctorSpeechBubble quote={quote} className="w-full" />
         </div>
 

@@ -1,21 +1,40 @@
 
 import { ChevronUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface FloatingCTAProps {
   className?: string;
 }
 
 export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide when user scrolls past the first section (hero height)
+      const heroHeight = window.innerHeight;
+      if (window.scrollY > heroHeight * 0.8) {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleClick = () => {
-    // Smooth scroll to next section
+    // Hide the banner and scroll to next section
+    setIsVisible(false);
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
+
+  if (!isVisible) return null;
 
   return (
     <div 
       className={`fixed bottom-0 left-0 right-0 h-1/4 ${className}`}
       style={{
-        background: 'linear-gradient(180deg, #927A9E 0%, #EED6B5 52%, #9CD212 100%)',
+        background: 'linear-gradient(180deg, rgba(146, 122, 158, 0.7) 0%, rgba(238, 214, 181, 0.7) 70%, rgba(156, 210, 18, 0.7) 100%)',
         borderRadius: '50% 50% 0 0',
         cursor: 'pointer'
       }}

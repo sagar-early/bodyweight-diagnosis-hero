@@ -1,5 +1,5 @@
 
-import { Check } from "lucide-react";
+import { Check, Shield, Star } from "lucide-react";
 import { StarRating } from "./StarRating";
 
 interface Feature {
@@ -9,44 +9,50 @@ interface Feature {
   trustMarker: {
     text: string;
     variant: "accent" | "neutral";
+    icon: string;
+    logos?: string[];
   };
 }
 
 const features: Feature[] = [
   {
     id: 1,
-    title: "Comprehensive At-Home Test",
+    title: "At-Home Metabolic Check",
     bullets: [
-      "Uncover your root cause with 35+ metabolic markers.",
-      "Convenient at-home sample collection."
+      "Uncover your metabolic root cause with our 35+ marker test.",
+      "Fast, easy, and convenient sample collection from your home."
     ],
     trustMarker: {
-      text: "NABL Certified Labs",
-      variant: "accent"
+      text: "Trusted Diagnostic Partners",
+      variant: "accent",
+      icon: "shield",
+      logos: ["PharmEasy", "Healthians"]
     }
   },
   {
     id: 2,
-    title: "Top Endocrinologist Diagnosis",
+    title: "Diagnosis by a Top Endocrinologist",
     bullets: [
-      "1:1 video call to understand your lab results.",
-      "Get a clear medical path forward for weight loss."
+      "A 1:1 video consultation to understand the \"why\" behind your weight.",
+      "Receive a clear, personalized medical path to sustainable results."
     ],
     trustMarker: {
-      text: "100% Confidential",
-      variant: "neutral"
+      text: "Elite Medical Team",
+      variant: "neutral",
+      icon: "caduceus"
     }
   },
   {
     id: 3,
-    title: "Actionable Nutrition Plan",
+    title: "Personalized Nutrition Blueprint",
     bullets: [
-      "Translate your diagnosis into a practical lifestyle plan.",
-      "Includes a 7-day starter meal plan tailored to you."
+      "A practical nutrition plan based directly on your medical results.",
+      "Includes a 7-day starter meal plan to begin your journey."
     ],
     trustMarker: {
-      text: "Expert Nutritionist Guidance",
-      variant: "accent"
+      text: "Science-Backed Plans",
+      variant: "accent",
+      icon: "dna"
     }
   }
 ];
@@ -54,41 +60,74 @@ const features: Feature[] = [
 const FeatureBanner = ({ featureId }: { featureId: number }) => {
   const bannerImages = {
     1: (
-      // At-home test banner
-      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-12 h-12 mx-auto mb-2 bg-accent rounded-full flex items-center justify-center">
-            <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-            </svg>
+      // At-home test banner - phlebotomist and patient
+      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-green-50"></div>
+        <div className="relative flex items-center justify-between w-full px-4">
+          <div className="flex items-center">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <span className="text-xs font-satoshi text-primary font-medium">Professional</span>
           </div>
-          <p className="text-xs font-satoshi text-primary">At-Home Collection</p>
+          <div className="flex items-center">
+            <span className="text-xs font-satoshi text-primary font-medium mr-3">Comfortable</span>
+            <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+              <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     ),
     2: (
-      // Endocrinologist banner
-      <div className="w-full h-24 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-12 h-12 mx-auto mb-2 bg-primary rounded-full flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
+      // Endocrinologist consultation banner
+      <div className="w-full h-24 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50"></div>
+        <div className="relative flex items-center justify-between w-full px-4">
+          <div className="flex items-center">
+            <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center mr-3">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span className="text-xs font-satoshi text-primary font-medium">Patient</span>
           </div>
-          <p className="text-xs font-satoshi text-primary">Expert Consultation</p>
+          <div className="flex items-center">
+            <span className="text-xs font-satoshi text-primary font-medium mr-3">Doctor</span>
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     ),
     3: (
-      // Nutritionist banner
-      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-12 h-12 mx-auto mb-2 bg-secondary rounded-full flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
+      // Nutritionist consultation banner
+      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-green-50"></div>
+        <div className="relative flex items-center justify-between w-full px-4">
+          <div className="flex items-center">
+            <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center mr-3">
+              <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <span className="text-xs font-satoshi text-primary font-medium">Nutritionist</span>
           </div>
-          <p className="text-xs font-satoshi text-primary">Nutrition Planning</p>
+          <div className="flex items-center">
+            <span className="text-xs font-satoshi text-primary font-medium mr-3">Plan</span>
+            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -97,39 +136,74 @@ const FeatureBanner = ({ featureId }: { featureId: number }) => {
   return bannerImages[featureId as keyof typeof bannerImages] || null;
 };
 
+const TrustMarkerIcon = ({ icon }: { icon: string }) => {
+  switch (icon) {
+    case 'shield':
+      return (
+        <div className="relative">
+          <Shield className="w-3 h-3" />
+          <Check className="w-2 h-2 absolute top-0.5 left-0.5" />
+        </div>
+      );
+    case 'caduceus':
+      return (
+        <div className="relative">
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v20M8 6c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.1-.45 2.1-1.17 2.83L12 12l-2.83-3.17C8.45 8.1 8 7.1 8 6z" />
+          </svg>
+          <Star className="w-2 h-2 absolute -top-1 left-1" />
+        </div>
+      );
+    case 'dna':
+      return (
+        <div className="relative">
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4" />
+          </svg>
+          <svg className="w-2 h-2 absolute top-0.5 right-0.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.82 17.17 9.8 12.4 17 10.44V8z"/>
+          </svg>
+        </div>
+      );
+    default:
+      return <Check className="w-3 h-3" />;
+  }
+};
+
 export const FeaturesList = () => {
   return (
-    <section className="py-8 px-4 lg:px-16 bg-background">
+    <section className="py-6 px-4 lg:px-16 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-6">
-          <p className="font-satoshi text-sm text-secondary mb-2">Body Weight Diagnosis</p>
-          <h2 className="font-unna text-2xl lg:text-4xl text-foreground mb-4">
+        <div className="text-center mb-4">
+          <p className="font-satoshi text-xs text-secondary mb-1">Body Weight Diagnosis</p>
+          <h2 className="font-unna text-xl lg:text-4xl text-foreground mb-3">
             The First Step to Medically-Guided Weight Loss
           </h2>
           
           {/* Rating Widget */}
-          <StarRating rating={4.6} totalReviews={100} className="mb-6" />
+          <StarRating rating={4.6} totalReviews={100} className="mb-4" />
         </div>
 
         {/* Features Grid - Mobile optimized for single scroll */}
-        <div className="space-y-6 lg:space-y-8">
+        <div className="space-y-4 lg:space-y-8">
           {features.map((feature) => (
-            <div key={feature.id} className="flex flex-col gap-3">
+            <div key={feature.id} className="flex flex-col gap-2">
               {/* Banner Image */}
               <FeatureBanner featureId={feature.id} />
 
               {/* Content */}
               <div>
-                <h3 className="font-satoshi font-bold text-lg text-foreground mb-2">
+                <h3 className="font-satoshi font-bold text-base text-foreground mb-2">
                   {feature.title}
                 </h3>
                 
-                <div className="space-y-1 mb-3">
+                <div className="space-y-1 mb-2">
                   {feature.bullets.map((bullet, index) => (
                     <div key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                      <p className="font-satoshi text-foreground text-sm">
+                      <Check className="w-3 h-3 text-accent flex-shrink-0 mt-0.5" />
+                      <p className="font-satoshi text-foreground text-xs">
                         {bullet}
                       </p>
                     </div>
@@ -137,13 +211,22 @@ export const FeaturesList = () => {
                 </div>
 
                 {/* Trust Marker */}
-                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-satoshi font-medium ${
+                <div className={`inline-flex items-center gap-2 px-2 py-1 rounded-full text-xs font-satoshi font-medium ${
                   feature.trustMarker.variant === "accent" 
                     ? "bg-accent text-foreground" 
                     : "bg-muted text-muted-foreground"
                 }`}>
-                  <Check className="w-3 h-3" />
-                  {feature.trustMarker.text}
+                  <TrustMarkerIcon icon={feature.trustMarker.icon} />
+                  <div className="flex flex-col">
+                    <span>{feature.trustMarker.text}</span>
+                    {feature.trustMarker.logos && (
+                      <div className="flex gap-1 text-xs opacity-75">
+                        {feature.trustMarker.logos.map((logo, idx) => (
+                          <span key={idx}>{logo}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

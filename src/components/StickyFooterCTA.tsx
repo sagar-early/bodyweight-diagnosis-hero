@@ -7,9 +7,9 @@ export const StickyFooterCTA = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show sticky CTA only after the first section (hero)
+      // Show sticky CTA when user scrolls past the hero section
       const heroHeight = window.innerHeight;
-      setIsVisible(window.scrollY > heroHeight);
+      setIsVisible(window.scrollY > heroHeight * 0.8);
     };
 
     window.addEventListener('scroll', handleScroll);
