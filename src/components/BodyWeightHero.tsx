@@ -1,3 +1,4 @@
+
 import { FloatingCTA } from "./FloatingCTA";
 import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
@@ -13,7 +14,7 @@ export const BodyWeightHero = () => {
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-32">
         {/* Header */}
-        <div className="text-left mb-6 pt-8">
+        <div className="text-left mb-4 pt-8">
           <div className="flex items-center gap-3 mb-3">
             {/* Medical diagnosis icon from uploaded image */}
             <div className="w-10 h-10 flex-shrink-0">
@@ -36,7 +37,7 @@ export const BodyWeightHero = () => {
         <FamiliarProblemsSection />
 
         {/* Doctor Speech Bubble */}
-        <div className="flex-1 flex items-center mb-16">
+        <div className="flex-1 flex items-center mb-20">
           <DoctorSpeechBubble quote={quote} className="w-full" />
         </div>
 
@@ -64,7 +65,6 @@ export const BodyWeightHero = () => {
               <h1 className="font-unna text-5xl xl:text-6xl text-foreground">
                 Body Weight Diagnosis
               </h1>
-              <TrendingDown className="w-12 h-12 text-primary" />
             </div>
             <h3 className="font-satoshi text-2xl text-secondary mb-8">
               "Stop guessing, start testing."
