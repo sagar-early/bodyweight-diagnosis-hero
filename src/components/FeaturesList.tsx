@@ -1,11 +1,9 @@
+
 import { Check } from "lucide-react";
-import labTestIcon from "@/assets/lab-test-icon.jpg";
-import endocrinologistIcon from "@/assets/endocrinologist-icon.jpg";
-import nutritionPlanIcon from "@/assets/nutrition-plan-icon.jpg";
+import { StarRating } from "./StarRating";
 
 interface Feature {
   id: number;
-  image: string;
   title: string;
   bullets: string[];
   trustMarker: {
@@ -17,7 +15,6 @@ interface Feature {
 const features: Feature[] = [
   {
     id: 1,
-    image: labTestIcon,
     title: "Comprehensive At-Home Test",
     bullets: [
       "Uncover your root cause with 35+ metabolic markers.",
@@ -30,7 +27,6 @@ const features: Feature[] = [
   },
   {
     id: 2,
-    image: endocrinologistIcon,
     title: "Top Endocrinologist Diagnosis",
     bullets: [
       "1:1 video call to understand your lab results.",
@@ -43,7 +39,6 @@ const features: Feature[] = [
   },
   {
     id: 3,
-    image: nutritionPlanIcon,
     title: "Actionable Nutrition Plan",
     bullets: [
       "Translate your diagnosis into a practical lifestyle plan.",
@@ -56,41 +51,85 @@ const features: Feature[] = [
   }
 ];
 
+const FeatureBanner = ({ featureId }: { featureId: number }) => {
+  const bannerImages = {
+    1: (
+      // At-home test banner
+      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 mx-auto mb-2 bg-accent rounded-full flex items-center justify-center">
+            <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <p className="text-xs font-satoshi text-primary">At-Home Collection</p>
+        </div>
+      </div>
+    ),
+    2: (
+      // Endocrinologist banner
+      <div className="w-full h-24 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 mx-auto mb-2 bg-primary rounded-full flex items-center justify-center">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <p className="text-xs font-satoshi text-primary">Expert Consultation</p>
+        </div>
+      </div>
+    ),
+    3: (
+      // Nutritionist banner
+      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 mx-auto mb-2 bg-secondary rounded-full flex items-center justify-center">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <p className="text-xs font-satoshi text-primary">Nutrition Planning</p>
+        </div>
+      </div>
+    )
+  };
+
+  return bannerImages[featureId as keyof typeof bannerImages] || null;
+};
+
 export const FeaturesList = () => {
   return (
-    <section className="py-16 px-4 lg:px-16 bg-background">
+    <section className="py-8 px-4 lg:px-16 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
+        <div className="text-center mb-6">
+          <p className="font-satoshi text-sm text-secondary mb-2">Body Weight Diagnosis</p>
+          <h2 className="font-unna text-2xl lg:text-4xl text-foreground mb-4">
             The First Step to Medically-Guided Weight Loss
           </h2>
+          
+          {/* Rating Widget */}
+          <StarRating rating={4.6} totalReviews={100} className="mb-6" />
         </div>
 
-        {/* Features Grid */}
-        <div className="space-y-8 lg:space-y-12">
+        {/* Features Grid - Mobile optimized for single scroll */}
+        <div className="space-y-6 lg:space-y-8">
           {features.map((feature) => (
-            <div key={feature.id} className="flex flex-col lg:flex-row gap-6 items-start">
-              {/* Image */}
-              <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden flex-shrink-0">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div key={feature.id} className="flex flex-col gap-3">
+              {/* Banner Image */}
+              <FeatureBanner featureId={feature.id} />
 
               {/* Content */}
-              <div className="flex-1">
-                <h3 className="font-satoshi font-bold text-lg lg:text-xl text-foreground mb-3">
+              <div>
+                <h3 className="font-satoshi font-bold text-lg text-foreground mb-2">
                   {feature.title}
                 </h3>
                 
-                <div className="space-y-2 mb-4">
+                <div className="space-y-1 mb-3">
                   {feature.bullets.map((bullet, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <p className="font-satoshi text-foreground text-sm lg:text-base">
+                    <div key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                      <p className="font-satoshi text-foreground text-sm">
                         {bullet}
                       </p>
                     </div>
@@ -98,7 +137,7 @@ export const FeaturesList = () => {
                 </div>
 
                 {/* Trust Marker */}
-                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-satoshi font-medium ${
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-satoshi font-medium ${
                   feature.trustMarker.variant === "accent" 
                     ? "bg-accent text-foreground" 
                     : "bg-muted text-muted-foreground"

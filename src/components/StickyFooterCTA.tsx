@@ -1,6 +1,23 @@
+
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
 
 export const StickyFooterCTA = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show sticky CTA only after the first section (hero)
+      const heroHeight = window.innerHeight;
+      setIsVisible(window.scrollY > heroHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!isVisible) return null;
+
   return (
     <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-primary p-4 shadow-lg">
       <div className="flex items-center justify-between">

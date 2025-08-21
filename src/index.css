@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -133,5 +134,10 @@ Fonts: Unna (serif), Satoshi (sans-serif)
     background: hsl(var(--card));
     border-radius: var(--radius);
     box-shadow: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+  }
+  
+  /* Custom gradient classes for the floating CTA */
+  .gradient-cta {
+    background: linear-gradient(180deg, #927A9E 0%, #EED6B5 52%, #9CD212 100%);
   }
 }
