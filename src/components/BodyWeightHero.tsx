@@ -34,10 +34,11 @@ export const BodyWeightHero = () => {
             <h1 className="font-unna text-3xl text-foreground">
               Body Weight Diagnosis
             </h1>
-          </div>
+          <br>
           <h3 className="font-satoshi text-lg text-secondary mb-4">
             "Stop guessing, start testing."
           </h3>
+            </div>
         </div>
 
         {/* Doctor Speech Bubble */}
