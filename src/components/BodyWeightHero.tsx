@@ -3,6 +3,7 @@ import { FloatingCTA } from "./FloatingCTA";
 import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
+import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
 
 export const BodyWeightHero = () => {
   const quote = "It's not your willpower, it's your biology. Your body is different and needs a different strategy for weight loss.";
@@ -34,11 +35,10 @@ export const BodyWeightHero = () => {
             <h1 className="font-unna text-3xl text-foreground">
               Body Weight Diagnosis
             </h1>
-          <br>
+          </div>
           <h3 className="font-satoshi text-lg text-secondary mb-4">
             "Stop guessing, start testing."
           </h3>
-            </div>
         </div>
 
         {/* Doctor Speech Bubble */}
@@ -90,6 +90,11 @@ export const BodyWeightHero = () => {
         <div className="w-[45%] flex items-center justify-center p-8">
           <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg" />
         </div>
+      </div>
+
+      {/* Desktop - What's Really Behind Your Weight Gain Section */}
+      <div className="hidden lg:block">
+        <MetabolicConditionsSection />
       </div>
     </div>
   );
