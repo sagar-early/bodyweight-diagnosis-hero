@@ -11,44 +11,42 @@ import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
 export const CompleteLandingPage = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Background 1 */}
-      <div style={{ backgroundColor: '#FAF8F1' }}>
+      {/* Hero Section - Background E8E9E1 */}
+      <div style={{ backgroundColor: '#E8E9E1' }}>
         <BodyWeightHero />
       </div>
       
-      {/* Metabolic Conditions Section - Background 2 */}
+      {/* Metabolic Conditions Section - Background 79855F */}
       <div style={{ backgroundColor: '#79855F' }} className="py-16">
         <div className="text-white">
           <MetabolicConditionsSection />
         </div>
       </div>
       
-      {/* What You Get Section - Background 1 */}
-      <div style={{ backgroundColor: '#FAF8F1' }}>
+      {/* What You Get Section - Background E8E9E1 */}
+      <div style={{ backgroundColor: '#E8E9E1' }}>
         <FeaturesSection />
       </div>
       
-      {/* Testimonials Section - Background 2 */}
+      {/* Testimonials Section - Background E8E9E1 */}
+      <div style={{ backgroundColor: '#E8E9E1' }}>
+        <TestimonialsSection />
+      </div>
+      
+      {/* Medical Team Section - Background 79855F */}
       <div style={{ backgroundColor: '#79855F' }}>
         <div className="text-white">
-          <TestimonialsSection />
+          <MedicalTeamSection />
         </div>
       </div>
       
-      {/* Medical Team Section - Background 1 */}
-      <div style={{ backgroundColor: '#FAF8F1' }}>
-        <MedicalTeamSection />
+      {/* Two Step Journey Section - Background E8E9E1 */}
+      <div style={{ backgroundColor: '#E8E9E1' }}>
+        <TwoStepJourneySection />
       </div>
       
-      {/* Two Step Journey Section - Background 2 */}
-      <div style={{ backgroundColor: '#79855F' }}>
-        <div className="text-white">
-          <TwoStepJourneySection />
-        </div>
-      </div>
-      
-      {/* As Featured In Section - Background 1 */}
-      <div style={{ backgroundColor: '#FAF8F1' }}>
+      {/* As Featured In Section - Background E8E9E1 */}
+      <div style={{ backgroundColor: '#E8E9E1' }}>
         <AsSeenInSection />
       </div>
       

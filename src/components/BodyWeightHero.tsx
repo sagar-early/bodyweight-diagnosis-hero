@@ -4,6 +4,7 @@ import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
+import doctorImage from "@/assets/dr-saptarshi.jpg";
 
 export const BodyWeightHero = () => {
   const quote = "It's not your willpower, it's your biology. Your body is different and needs a different strategy for weight loss.";
@@ -18,35 +19,57 @@ export const BodyWeightHero = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-32">
-        {/* Header */}
-        <div className="text-left mb-4 pt-8">
-          <div className="flex items-center gap-3 mb-3">
-            {/* Medical diagnosis icon from uploaded image */}
-            <div className="w-10 h-10 flex-shrink-0">
-              <img
-                src="/lovable-uploads/35ac02ad-0c4a-4a10-ba4b-95d3fea77a0d.png"
-                alt="Medical diagnosis icon"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <h1 className="font-unna text-3xl text-foreground">
-              Body Weight Diagnosis
-            </h1>
-          </div>
-          <h3 className="font-satoshi text-lg text-secondary mb-4">
+        {/* Header - Center aligned */}
+        <div className="text-center mb-8 pt-8">
+          <h1 className="font-unna text-3xl text-foreground mb-2">
+            Body Weight Diagnosis
+          </h1>
+          <h3 className="font-satoshi text-lg text-secondary">
             "Stop guessing, start testing."
           </h3>
         </div>
 
-        {/* Doctor Speech Bubble */}
-        <div className="flex-1 flex items-center mb-20">
-          <DoctorSpeechBubble quote={quote} className="w-full" />
+        {/* Doctor Card with Credentials */}
+        <div className="flex items-start gap-4 mb-8">
+          {/* Large Doctor Photo */}
+          <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+            <img
+              src={doctorImage}
+              alt="Dr. Saptarshi Bhattacharya"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Doctor Credentials */}
+          <div className="flex-1">
+            <h4 className="font-satoshi font-bold text-foreground text-lg mb-1">
+              Dr. Saptarshi Bhattacharya
+            </h4>
+            <p className="font-satoshi text-secondary text-sm mb-2">
+              Top Endocrinologist
+            </p>
+            <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+              <p>AIIMS • Apollo • Indraprastha Apollo</p>
+              <p>DM Endocrinology • 120+ Research Publications</p>
+            </div>
+          </div>
         </div>
 
-        {/* Floating CTA */}
+        {/* Speech Bubble pointing upwards */}
+        <div className="relative mb-8">
+          <div className="bg-card rounded-2xl p-4 shadow-lg relative">
+            <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
+              "{quote}"
+            </blockquote>
+            {/* Bubble tail pointing up */}
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+          </div>
+        </div>
+
+        {/* Enhanced Floating CTA */}
         <FloatingCTA />
       </div>
 

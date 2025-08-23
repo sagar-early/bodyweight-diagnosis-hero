@@ -1,6 +1,6 @@
 
 import testimonialUser1 from "@/assets/testimonial-user-1.jpg";
-import { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface Testimonial {
   id: number;
@@ -45,63 +45,65 @@ const testimonials: Testimonial[] = [
     name: "Meera Reddy",
     result: "Lost 14 kgs in 7 months",
     image: testimonialUser1
+  },
+  {
+    id: 6,
+    quote: "The comprehensive approach changed my life. No more yo-yo dieting, just sustainable results.",
+    name: "Suresh Kumar",
+    result: "Lost 20 kgs in 9 months",
+    image: testimonialUser1
   }
 ];
 
 export const TestimonialsSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    const scroll = () => {
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-        scrollContainer.scrollLeft = 0;
-      } else {
-        scrollContainer.scrollLeft += 1;
-      }
-    };
-
-    const interval = setInterval(scroll, 50);
-    return () => clearInterval(interval);
-  }, []);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <section className="py-16 px-4 lg:px-16 bg-background">
+    <section className="py-16 px-4 lg:px-16">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
+          <h2 className="font-unna text-3xl lg:text-4xl text-white mb-4">
             Real Stories, Lasting Results
           </h2>
         </div>
 
-        {/* Mobile Layout */}
+        {/* Mobile Swipeable Layout */}
         <div className="lg:hidden">
-          <div 
-            ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
-            style={{ scrollBehavior: 'smooth' }}
-          >
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="flex-shrink-0 w-80">
-                <TestimonialBubble testimonial={testimonial} />
-              </div>
-            ))}
+          <div className="relative">
+            {/* Testimonial Cards Container */}
+            <div 
+              className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+              style={{ scrollBehavior: 'smooth' }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div key={testimonial.id} className="flex-shrink-0 w-80 snap-center">
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              ))}
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center mt-6 gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentIndex ? 'bg-white' : 'bg-white/30'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Desktop Layout */}
         <div className="hidden lg:block">
-          <div 
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4"
-            style={{ scrollBehavior: 'smooth' }}
-          >
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="flex-shrink-0 w-96">
-                <TestimonialBubble testimonial={testimonial} />
+          <div className="grid grid-cols-3 gap-6">
+            {testimonials.slice(0, 3).map((testimonial) => (
+              <div key={testimonial.id}>
+                <TestimonialCard testimonial={testimonial} />
               </div>
             ))}
           </div>
@@ -111,15 +113,19 @@ export const TestimonialsSection = () => {
   );
 };
 
-const TestimonialBubble = ({ testimonial }: { testimonial: Testimonial }) => {
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="flex items-start gap-4">
-      {/* Speech Bubble */}
-      <div className="relative bg-card rounded-2xl p-4 flex-1 shadow-lg">
-        <blockquote className="font-unna text-sm lg:text-base text-foreground leading-relaxed mb-3">
-          {testimonial.quote}
-        </blockquote>
-        <div className="flex flex-col">
+    <div className="bg-white rounded-2xl p-6 shadow-lg h-full flex flex-col">
+      {/* User Info */}
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
           <div className="font-satoshi font-semibold text-foreground text-sm">
             {testimonial.name}
           </div>
@@ -127,18 +133,12 @@ const TestimonialBubble = ({ testimonial }: { testimonial: Testimonial }) => {
             {testimonial.result}
           </div>
         </div>
-        {/* Bubble tail pointing to user */}
-        <div className="absolute top-6 -right-3 w-6 h-6 bg-card rotate-45"></div>
       </div>
 
-      {/* User Image */}
-      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-        <img
-          src={testimonial.image}
-          alt={testimonial.name}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      {/* Quote */}
+      <blockquote className="font-unna text-sm text-foreground leading-relaxed flex-1">
+        "{testimonial.quote}"
+      </blockquote>
     </div>
   );
 };

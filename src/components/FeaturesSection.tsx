@@ -1,67 +1,53 @@
 
-import { Check, Shield, Star } from "lucide-react";
+import { Check } from "lucide-react";
 import { StarRating } from "./StarRating";
 import { Button } from "./ui/button";
 
 interface Feature {
   id: number;
   title: string;
+  tag: string;
   bullets: string[];
-  trustMarker: {
-    text: string;
-    variant: "accent" | "neutral";
-    icon: string;
-    logos?: string[];
-  };
 }
 
 const features: Feature[] = [
   {
     id: 1,
-    title: "At-Home Metabolic Check",
+    title: "At-Home Metabolic Check.",
+    tag: "At-Home Metabolic Check.",
     bullets: [
       "Uncover your metabolic root cause with our 35+ marker test.",
       "Fast, easy, and convenient sample collection from your home."
-    ],
-    trustMarker: {
-      text: "Trusted Diagnostic Partners",
-      variant: "accent",
-      icon: "shield",
-      logos: ["PharmEasy", "Healthians"]
-    }
+    ]
   },
   {
     id: 2,
     title: "Diagnosis by a Top Endocrinologist",
+    tag: "Diagnosis by a Top Endocrinologist",
     bullets: [
       "A 1:1 video consultation to understand the \"why\" behind your weight.",
       "Receive a clear, personalized medical path to sustainable results."
-    ],
-    trustMarker: {
-      text: "Elite Medical Team",
-      variant: "neutral",
-      icon: "caduceus"
-    }
+    ]
   },
   {
     id: 3,
     title: "Personalized Nutrition Blueprint",
+    tag: "Personalized Nutrition Blueprint",
     bullets: [
       "A practical nutrition plan based directly on your medical results.",
       "Includes a 7-day starter meal plan to begin your journey."
-    ],
-    trustMarker: {
-      text: "Science-Backed Plans",
-      variant: "accent",
-      icon: "dna"
-    }
+    ]
   }
 ];
 
-const FeatureBanner = ({ featureId }: { featureId: number }) => {
+const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) => {
   const bannerImages = {
     1: (
-      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+        {/* Feature Tag */}
+        <div className="absolute top-2 left-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-satoshi font-medium shadow-lg z-10 transform -translate-y-1 -translate-x-1">
+          {tag}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-green-50"></div>
         <div className="relative flex items-center justify-between w-full px-4">
           <div className="flex items-center">
@@ -84,7 +70,11 @@ const FeatureBanner = ({ featureId }: { featureId: number }) => {
       </div>
     ),
     2: (
-      <div className="w-full h-24 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+        {/* Feature Tag */}
+        <div className="absolute top-2 left-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-satoshi font-medium shadow-lg z-10 transform -translate-y-1 -translate-x-1">
+          {tag}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50"></div>
         <div className="relative flex items-center justify-between w-full px-4">
           <div className="flex items-center">
@@ -107,7 +97,11 @@ const FeatureBanner = ({ featureId }: { featureId: number }) => {
       </div>
     ),
     3: (
-      <div className="w-full h-24 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+        {/* Feature Tag */}
+        <div className="absolute top-2 left-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-satoshi font-medium shadow-lg z-10 transform -translate-y-1 -translate-x-1">
+          {tag}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-green-50"></div>
         <div className="relative flex items-center justify-between w-full px-4">
           <div className="flex items-center">
@@ -134,141 +128,78 @@ const FeatureBanner = ({ featureId }: { featureId: number }) => {
   return bannerImages[featureId as keyof typeof bannerImages] || null;
 };
 
-const TrustMarkerIcon = ({ icon }: { icon: string }) => {
-  switch (icon) {
-    case 'shield':
-      return (
-        <div className="relative">
-          <Shield className="w-3 h-3" />
-          <Check className="w-2 h-2 absolute top-0.5 left-0.5" />
-        </div>
-      );
-    case 'caduceus':
-      return (
-        <div className="relative">
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v20M8 6c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.1-.45 2.1-1.17 2.83L12 12l-2.83-3.17C8.45 8.1 8 7.1 8 6z" />
-          </svg>
-          <Star className="w-2 h-2 absolute -top-1 left-1" />
-        </div>
-      );
-    case 'dna':
-      return (
-        <div className="relative">
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4" />
-          </svg>
-          <svg className="w-2 h-2 absolute top-0.5 right-0.5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.82 17.17 9.8 12.4 17 10.44V8z"/>
-          </svg>
-        </div>
-      );
-    default:
-      return <Check className="w-3 h-3" />;
-  }
-};
-
 export const FeaturesSection = () => {
+  const handleBookTestClick = () => {
+    // Scroll to contact or booking section
+    console.log("Book test clicked");
+  };
+
   return (
-    <section className="py-6 px-4 lg:px-16 bg-background" data-section="features">
+    <section className="py-16 px-4 lg:px-16" data-section="features">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-12">
           <p className="font-satoshi text-xs text-secondary mb-1">Body Weight Diagnosis</p>
-          <h2 className="font-unna text-xl lg:text-4xl text-foreground mb-3">
+          <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
             The First Step to Medically-Guided Weight Loss
           </h2>
           
           {/* Rating Widget */}
-          <StarRating rating={4.6} totalReviews={100} className="mb-4" />
+          <StarRating rating={4.6} totalReviews={100} className="mb-8" />
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden space-y-4">
+        <div className="lg:hidden space-y-8">
           {features.map((feature) => (
-            <div key={feature.id} className="flex flex-col gap-2">
-              <FeatureBanner featureId={feature.id} />
+            <div key={feature.id} className="flex flex-col gap-4">
+              {/* Banner Image with Tag */}
+              <FeatureBanner featureId={feature.id} tag={feature.tag} />
+
+              {/* Content */}
               <div>
-                <h3 className="font-satoshi font-bold text-base text-foreground mb-2">
+                <h3 className="font-satoshi font-bold text-lg text-foreground mb-3">
                   {feature.title}
                 </h3>
                 
-                <div className="space-y-1 mb-2">
+                <div className="space-y-2">
                   {feature.bullets.map((bullet, index) => (
-                    <div key={index} className="flex items-start gap-2">
-                      <Check className="w-3 h-3 text-accent flex-shrink-0 mt-0.5" />
-                      <p className="font-satoshi text-foreground text-xs">
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                      <p className="font-satoshi text-foreground text-sm">
                         {bullet}
                       </p>
                     </div>
                   ))}
-                </div>
-
-                <div className={`inline-flex items-center gap-2 px-2 py-1 rounded-full text-xs font-satoshi font-medium ${
-                  feature.trustMarker.variant === "accent" 
-                    ? "bg-accent text-foreground" 
-                    : "bg-muted text-muted-foreground"
-                }`}>
-                  <TrustMarkerIcon icon={feature.trustMarker.icon} />
-                  <div className="flex flex-col">
-                    <span>{feature.trustMarker.text}</span>
-                    {feature.trustMarker.logos && (
-                      <div className="flex gap-1 text-xs opacity-75">
-                        {feature.trustMarker.logos.map((logo, idx) => (
-                          <span key={idx}>{logo}</span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Desktop Layout - Zig Zag */}
+        {/* Desktop Zig-zag Layout */}
         <div className="hidden lg:block space-y-16">
           {features.map((feature, index) => (
             <div key={feature.id} className={`flex items-center gap-12 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
-              {/* Feature Image */}
-              <div className="w-1/2">
-                <FeatureBanner featureId={feature.id} />
+              {/* Image */}
+              <div className="flex-1">
+                <FeatureBanner featureId={feature.id} tag={feature.tag} />
               </div>
-              
-              {/* Feature Content */}
-              <div className="w-1/2">
-                <h3 className="font-satoshi font-bold text-2xl text-foreground mb-4">
+
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="font-satoshi font-bold text-2xl text-foreground mb-6">
                   {feature.title}
                 </h3>
                 
-                <div className="space-y-3 mb-6">
+                <div className="space-y-4">
                   {feature.bullets.map((bullet, bulletIndex) => (
-                    <div key={bulletIndex} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div key={bulletIndex} className="flex items-start gap-4">
+                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                       <p className="font-satoshi text-foreground text-lg">
                         {bullet}
                       </p>
                     </div>
                   ))}
-                </div>
-
-                <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full text-sm font-satoshi font-medium ${
-                  feature.trustMarker.variant === "accent" 
-                    ? "bg-accent text-foreground" 
-                    : "bg-muted text-muted-foreground"
-                }`}>
-                  <TrustMarkerIcon icon={feature.trustMarker.icon} />
-                  <div className="flex flex-col">
-                    <span>{feature.trustMarker.text}</span>
-                    {feature.trustMarker.logos && (
-                      <div className="flex gap-2 text-xs opacity-75">
-                        {feature.trustMarker.logos.map((logo, idx) => (
-                          <span key={idx}>{logo}</span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
                 </div>
               </div>
             </div>
@@ -276,19 +207,40 @@ export const FeaturesSection = () => {
         </div>
 
         {/* CTA Section - Connected to Features */}
-        <div className="hidden lg:block mt-12 pt-8 border-t border-border">
-          <div className="text-center bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl p-8">
-            <h3 className="font-unna text-3xl text-foreground mb-4">
-              Ready to Understand Your Body?
+        <div className="mt-16 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
+          <div className="text-center">
+            <h3 className="font-unna text-2xl lg:text-3xl text-foreground mb-4">
+              Ready to Start Your Diagnosis?
             </h3>
-            <p className="font-satoshi text-lg text-secondary mb-6">
-              Get the complete Body Weight Diagnosis for just{" "}
-              <span className="font-bold text-foreground">₹1,499</span>
-              {" "}(MRP ₹4,999)
+            <p className="font-satoshi text-foreground mb-6 text-lg">
+              Book your comprehensive metabolic test today and take the first step towards sustainable weight loss.
             </p>
-            <Button variant="medical" size="lg" className="text-lg px-8 py-6" id="book-test-cta">
-              Book Your Test Now
-            </Button>
+            
+            {/* Pricing */}
+            <div className="bg-white rounded-xl p-6 mb-6 inline-block shadow-lg">
+              <div className="flex items-center justify-center gap-4">
+                <div className="text-center">
+                  <p className="font-satoshi text-2xl font-bold text-primary">₹2,999</p>
+                  <p className="font-satoshi text-sm text-muted-foreground line-through">₹4,999</p>
+                </div>
+                <div className="text-left">
+                  <p className="font-satoshi font-semibold text-foreground">Complete Diagnosis Package</p>
+                  <p className="font-satoshi text-sm text-secondary">35+ Metabolic Markers + Doctor Consultation</p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <Button 
+                variant="medical" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={handleBookTestClick}
+                id="book-test-cta"
+              >
+                Book Your Test Now
+              </Button>
+            </div>
           </div>
         </div>
       </div>
