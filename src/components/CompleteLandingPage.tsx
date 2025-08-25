@@ -6,6 +6,7 @@ import { MedicalTeamSection } from "./MedicalTeamSection";
 import { TwoStepJourneySection } from "./TwoStepJourneySection";
 import { AsSeenInSection } from "./AsSeenInSection";
 import { StickyFooterCTA } from "./StickyFooterCTA";
+import { FinalCTASection } from "./FinalCTASection";
 
 export const CompleteLandingPage = () => {
   return (
@@ -40,6 +41,11 @@ export const CompleteLandingPage = () => {
       {/* As Featured In Section - Background E8E9E1 */}
       <div style={{ backgroundColor: '#E8E9E1' }}>
         <AsSeenInSection />
+      </div>
+
+      {/* Final CTA Section - Desktop Only */}
+      <div className="hidden lg:block" style={{ backgroundColor: '#E8E9E1' }}>
+        <FinalCTASection />
       </div>
       
       {/* Sticky Footer CTA (Mobile Only) */}

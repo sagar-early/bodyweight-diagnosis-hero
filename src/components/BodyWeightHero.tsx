@@ -21,19 +21,21 @@ export const BodyWeightHero = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
       {/* Mobile Layout */}
-      <div className="lg:hidden flex flex-col min-h-screen p-4 pb-32">
-        {/* Header - Center aligned */}
-        <div className="text-center mb-8 pt-8">
-          <h1 className="font-unna text-3xl text-foreground mb-2">
-            Weight Diagnosis Plum
-          </h1>
-          <h3 className="font-satoshi text-lg text-secondary">
-            "Weight loss starts with a diagnosis"
-          </h3>
+      <div className="lg:hidden flex flex-col min-h-screen p-4 pb-20">
+        {/* Header Card - Center aligned */}
+        <div className="text-center mb-6 pt-8">
+          <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <h1 className="font-unna text-3xl text-foreground mb-2">
+              Weight Diagnosis Plan
+            </h1>
+            <h3 className="font-satoshi text-lg text-secondary">
+              Weight loss starts with a diagnosis
+            </h3>
+          </div>
         </div>
 
         {/* Doctor Card with Credentials */}
-        <div className="flex items-start gap-4 mb-6">
+        <div className="flex items-start gap-4 mb-4">
           {/* Large Doctor Photo */}
           <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
             <img
@@ -59,7 +61,7 @@ export const BodyWeightHero = () => {
         </div>
 
         {/* Speech Bubble pointing upwards */}
-        <div className="relative mb-6">
+        <div className="relative mb-4">
           <div className="bg-card rounded-2xl p-4 shadow-lg relative">
             <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
               "{quote}"
@@ -68,6 +70,9 @@ export const BodyWeightHero = () => {
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
           </div>
         </div>
+
+        {/* Space above Medical Conditions */}
+        <div className="mb-4"></div>
 
         {/* Moving Conditions Strip */}
         <MovingConditionsStrip />
@@ -81,21 +86,23 @@ export const BodyWeightHero = () => {
         {/* Left Column */}
         <div className="w-[55%] flex flex-col justify-center px-12 xl:px-16">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 flex-shrink-0">
-                <img
-                  src="/lovable-uploads/dcdad922-7ea1-4d7e-be18-90f62ced083f.png"
-                  alt="Weight Diagnosis Plum"
-                  className="w-full h-full object-contain"
-                />
+            <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 flex-shrink-0">
+                  <img
+                    src="/lovable-uploads/dcdad922-7ea1-4d7e-be18-90f62ced083f.png"
+                    alt="Weight Diagnosis Plan"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h1 className="font-unna text-4xl xl:text-5xl text-foreground">
+                  Weight Diagnosis Plan
+                </h1>
               </div>
-              <h1 className="font-unna text-5xl xl:text-6xl text-foreground">
-                Weight Diagnosis Plum
-              </h1>
+              <h3 className="font-satoshi text-xl text-secondary">
+                Weight loss starts with a diagnosis
+              </h3>
             </div>
-            <h3 className="font-satoshi text-2xl text-secondary mb-8">
-              "Weight loss starts with a diagnosis"
-            </h3>
             
             <p className="font-satoshi font-bold text-xl text-foreground mb-8">
               Lose up to 20% of your body weight.
@@ -109,17 +116,20 @@ export const BodyWeightHero = () => {
             >
               Start Your Diagnosis Journey
             </Button>
+
+            {/* Space above Medical Conditions */}
+            <div className="mt-12 mb-4"></div>
+
+            {/* Moving Conditions Strip for Desktop */}
+            <div className="w-full max-w-lg">
+              <MovingConditionsStrip />
+            </div>
           </div>
         </div>
 
         {/* Right Column */}
         <div className="w-[45%] flex flex-col items-center justify-center p-8">
           <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg mb-6" />
-          
-          {/* Moving Conditions Strip for Desktop */}
-          <div className="w-full max-w-lg">
-            <MovingConditionsStrip />
-          </div>
         </div>
       </div>
     </div>

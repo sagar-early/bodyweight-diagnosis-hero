@@ -38,22 +38,25 @@ export const MovingConditionsStrip = () => {
   return (
     <div className="w-full mb-6">
       {/* Headline */}
-      <h3 className="font-satoshi text-sm lg:text-base text-foreground mb-3 text-center">
+      <h3 className="font-satoshi text-sm lg:text-base text-white mb-3 text-center">
         Medical Conditions That Could Possibly Be Behind Your Weight Gain
       </h3>
 
-      {/* Moving Strip */}
-      <div className="overflow-hidden">
-        <div className="flex animate-scroll">
+      {/* Moving Strip with Background */}
+      <div 
+        className="overflow-hidden rounded-lg p-3"
+        style={{ backgroundColor: '#434a35' }}
+      >
+        <div className="flex animate-scroll-fast">
           {/* First set */}
           {metabolicConditions.map((condition) => {
             const IconComponent = condition.icon;
             return (
               <div key={condition.id} className="flex items-center gap-2 mx-4 flex-shrink-0">
                 <div className="w-6 h-6 flex items-center justify-center">
-                  <IconComponent className="w-4 h-4 text-secondary" />
+                  <IconComponent className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-satoshi text-xs text-secondary whitespace-nowrap">
+                <span className="font-satoshi text-xs text-white whitespace-nowrap">
                   {condition.name}
                 </span>
               </div>
@@ -65,9 +68,9 @@ export const MovingConditionsStrip = () => {
             return (
               <div key={`duplicate-${condition.id}`} className="flex items-center gap-2 mx-4 flex-shrink-0">
                 <div className="w-6 h-6 flex items-center justify-center">
-                  <IconComponent className="w-4 h-4 text-secondary" />
+                  <IconComponent className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-satoshi text-xs text-secondary whitespace-nowrap">
+                <span className="font-satoshi text-xs text-white whitespace-nowrap">
                   {condition.name}
                 </span>
               </div>

@@ -48,7 +48,7 @@ const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) =
       <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg relative overflow-visible">
         {/* Feature Tag - positioned to overflow outside */}
         <div 
-          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg text-sm font-satoshi font-medium shadow-lg z-10 text-white text-base"
+          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
           style={{ backgroundColor: '#393f2d' }}
         >
           {tag}
@@ -78,7 +78,7 @@ const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) =
       <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg relative overflow-visible">
         {/* Feature Tag - positioned to overflow outside */}
         <div 
-          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg text-sm font-satoshi font-medium shadow-lg z-10 text-white text-base"
+          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
           style={{ backgroundColor: '#393f2d' }}
         >
           {tag}
@@ -108,7 +108,7 @@ const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) =
       <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg relative overflow-visible">
         {/* Feature Tag - positioned to overflow outside */}
         <div 
-          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg text-sm font-satoshi font-medium shadow-lg z-10 text-white text-base"
+          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
           style={{ backgroundColor: '#393f2d' }}
         >
           {tag}
@@ -149,14 +149,14 @@ export const FeaturesSection = () => {
     <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-6">
-          <p className="font-satoshi text-xs text-secondary mb-1">Weight Diagnosis Plum</p>
+        <div className="text-center mb-4">
+          <p className="font-satoshi text-xs text-secondary mb-1">Weight Diagnosis Plan</p>
           <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
             The First Step to Medically-Guided Weight Loss
           </h2>
           
           {/* Rating Widget with updated colors */}
-          <div className="flex items-center justify-center gap-1 mb-8">
+          <div className="flex items-center justify-center gap-1 mb-6">
             <div className="flex items-center gap-0.5">
               {Array.from({ length: 5 }, (_, i) => (
                 <svg key={i} className="w-4 h-4" fill={i < 4 ? "#9cd312" : "#c6f15b"} stroke={i < 4 ? "#9cd312" : "#c6f15b"} viewBox="0 0 24 24">
@@ -217,8 +217,8 @@ export const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* CTA Section - Connected to Features */}
-        <div className="mt-8 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
+        {/* Hide CTA Section on Mobile */}
+        <div className="hidden lg:block mt-8 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
           <div className="text-center">
             <h3 className="font-unna text-2xl lg:text-3xl text-foreground mb-4">
               Ready to Start Your Diagnosis?

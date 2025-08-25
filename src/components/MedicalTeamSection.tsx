@@ -1,7 +1,4 @@
 
-import teamDoctor1 from "@/assets/team-doctor-1.jpg";
-import teamNutritionist1 from "@/assets/team-nutritionist-1.jpg";
-import doctorSaptarshi from "@/assets/dr-saptarshi.jpg";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -16,45 +13,38 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Dr. Saptarshi Bhattacharya",
-    title: "Chief Medical Advisor",
-    credentials: "Senior Consultant, Department of Endocrinology, Indraprastha Apollo Hospitals (Delhi), previously at Max Hospitals. Trained at AIIMS (DM in Endocrinology) and MAMC (MD in Medicine). Co-authored 120+ research publications.",
-    image: doctorSaptarshi
+    name: "Dr. Savita Jain",
+    title: "Consultant Endocrinologist",
+    credentials: "Previously worked at Apollo Hospital, DMC Ludhiana, and Mohan Dai Oswal Hospital. She completed her DNB in Endocrinology from Apollo Delhi and her MD in Medicine from DMC Ludhiana.",
+    image: "/lovable-uploads/2e8263f8-69fd-4d48-986f-0083fef5a145.png"
   },
   {
     id: 2,
-    name: "Dr. Anjali Mehta",
-    title: "Senior Nutritionist",
-    credentials: "12+ Years Experience, Ex-Max Healthcare. Specialized in metabolic nutrition and weight management with 1000+ successful patient transformations.",
-    image: teamNutritionist1
+    name: "Anushi Dhiman",
+    title: "Lead, Nutrition",
+    credentials: "An experienced dietician who has worked with VLCC, HCL Healthcare, and Mamily Technology. She holds a Master's in Nutrition & Dietetics from Delhi University (DU).",
+    image: "/lovable-uploads/07969a95-c2f8-4906-9963-5f41136444e7.png"
   },
   {
     id: 3,
-    name: "Dr. Vikram Singh",
-    title: "Endocrinology Specialist",
-    credentials: "15+ Years Experience, Apollo Hospitals. Expert in diabetes and metabolic disorders with extensive research in obesity management.",
-    image: teamDoctor1
+    name: "Dr. Saptarshi Bhattacharya",
+    title: "Chief Medical Advisor",
+    credentials: "Associated with Indraprastha Apollo Hospitals (Delhi) and previously with Max Hospitals. He trained at AIIMS (DM in Endocrinology) and MAMC (MD in Medicine). He has co-authored over 120 research publications.",
+    image: "/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
   },
   {
     id: 4,
-    name: "Dr. Kavya Reddy",
-    title: "Clinical Nutritionist",
-    credentials: "10+ Years Experience, Fortis Healthcare. Specialized in personalized nutrition therapy for metabolic conditions.",
-    image: teamNutritionist1
+    name: "Dr. Ankita Aneja",
+    title: "Consultant Endocrinologist",
+    credentials: "Previously worked at Safdarjung Hospital, Ganga Ram Hospital, and RML Hospital. She completed her DrNB in Endocrinology from Safdarjung and her MD in Medicine from Jawaharlal Nehru Medical College.",
+    image: "/lovable-uploads/b17a32a9-9c21-4099-a8dd-b7ff2b42e847.png"
   },
   {
     id: 5,
     name: "Drishti Bansal",
     title: "Lead, Nutrition",
-    credentials: "8+ Years Experience in personalized nutrition coaching. Expert in creating sustainable meal plans for metabolic health.",
-    image: teamNutritionist1
-  },
-  {
-    id: 6,
-    name: "Anushi Dhiman",
-    title: "Lead, Nutrition",
-    credentials: "7+ Years Experience in clinical nutrition. Specialized in PCOS and hormonal weight management programs.",
-    image: teamNutritionist1
+    credentials: "With over 10 years of experience, she has worked at HealthifyMe, Fitelo, and Breathe Wellbeing. She holds a Master's in Nutrition and Dietetics from Delhi University (DU).",
+    image: "/lovable-uploads/35596b19-5162-4746-b39a-e843a757732b.png"
   }
 ];
 
@@ -76,14 +66,14 @@ export const MedicalTeamSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 lg:px-16">
+    <section className="py-16 px-4 lg:px-16" style={{ backgroundColor: '#79855F' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
-            Our Care Circle
+          <h2 className="font-unna text-3xl lg:text-4xl text-white mb-4">
+            Medically-Guided, Expert-Led
           </h2>
-          <p className="font-satoshi text-lg text-secondary">
+          <p className="font-satoshi text-lg text-white/80">
             A dedicated team of experts committed to your health journey
           </p>
         </div>
@@ -111,14 +101,14 @@ export const MedicalTeamSection = () => {
               onClick={prevSlide}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
-              <ChevronLeft className="w-6 h-6 text-primary" />
+              <ChevronLeft className="w-6 h-6" style={{ color: '#393f2d' }} />
             </button>
             
             <button
               onClick={nextSlide}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
-              <ChevronRight className="w-6 h-6 text-primary" />
+              <ChevronRight className="w-6 h-6" style={{ color: '#393f2d' }} />
             </button>
 
             {/* Team Members Grid */}
@@ -135,7 +125,7 @@ export const MedicalTeamSection = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/30'
+                    index === currentIndex ? 'bg-white' : 'bg-white/30'
                   }`}
                 />
               ))}
@@ -160,17 +150,17 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       </div>
 
       {/* Name */}
-      <h3 className="font-unna text-lg lg:text-xl text-foreground mb-1">
+      <h3 className="font-unna text-lg lg:text-xl mb-1" style={{ color: '#393f2d' }}>
         {member.name}
       </h3>
 
       {/* Title */}
-      <p className="font-satoshi font-bold text-secondary text-sm mb-3">
+      <p className="font-satoshi font-bold text-sm mb-3" style={{ color: '#798660' }}>
         {member.title}
       </p>
 
       {/* Credentials */}
-      <p className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+      <p className="font-satoshi text-xs leading-relaxed" style={{ color: '#434a35' }}>
         {member.credentials}
       </p>
     </div>
