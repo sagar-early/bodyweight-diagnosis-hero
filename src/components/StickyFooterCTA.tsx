@@ -19,17 +19,20 @@ export const StickyFooterCTA = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-primary p-4 shadow-lg">
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white p-4 shadow-lg">
       <div className="flex items-center justify-between">
         {/* Price Details */}
-        <div className="text-primary-foreground">
-          <div className="font-satoshi font-bold text-lg">₹1,499</div>
+        <div style={{ color: '#434a35' }}>
+          <div className="font-satoshi font-bold text-lg">₹1,799</div>
           <div className="font-satoshi text-sm line-through opacity-70">MRP ₹4,999</div>
         </div>
         
         {/* CTA Button */}
-        <Button variant="outline" className="bg-accent text-foreground border-accent hover:bg-accent/90">
-          Book Your Test Now
+        <Button 
+          className="text-white font-satoshi rounded-full px-6 py-3"
+          style={{ backgroundColor: '#434a35' }}
+        >
+          Book Now
         </Button>
       </div>
     </div>

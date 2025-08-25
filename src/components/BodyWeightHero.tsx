@@ -3,12 +3,12 @@ import { FloatingCTA } from "./FloatingCTA";
 import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
-import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
+import { MovingConditionsStrip } from "./MovingConditionsStrip";
 import doctorImage from "@/assets/dr-saptarshi.jpg";
 
 export const BodyWeightHero = () => {
-  const quote = "It's not your willpower, it's your biology. Your body is different and needs a different strategy for weight loss.";
-  const desktopQuote = "It's not your willpower, it's your biology. Your body is different and needs a different strategy for weight loss.";
+  const quote = "For many with a BMI over 27, the first step isn't another diet, but a diagnosis";
+  const desktopQuote = "For many with a BMI over 27, the first step isn't another diet, but a diagnosis";
 
   const handleDesktopCTAClick = () => {
     // Scroll to features section
@@ -19,25 +19,25 @@ export const BodyWeightHero = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-32">
         {/* Header - Center aligned */}
         <div className="text-center mb-8 pt-8">
           <h1 className="font-unna text-3xl text-foreground mb-2">
-            Body Weight Diagnosis
+            Weight Diagnosis Plum
           </h1>
           <h3 className="font-satoshi text-lg text-secondary">
-            "Stop guessing, start testing."
+            "Weight loss starts with a diagnosis"
           </h3>
         </div>
 
         {/* Doctor Card with Credentials */}
-        <div className="flex items-start gap-4 mb-8">
+        <div className="flex items-start gap-4 mb-6">
           {/* Large Doctor Photo */}
-          <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+          <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
             <img
-              src={doctorImage}
+              src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
               alt="Dr. Saptarshi Bhattacharya"
               className="w-full h-full object-cover"
             />
@@ -49,17 +49,17 @@ export const BodyWeightHero = () => {
               Dr. Saptarshi Bhattacharya
             </h4>
             <p className="font-satoshi text-secondary text-sm mb-2">
-              Top Endocrinologist
+              Chief Medical Advisor, EarlyFit
             </p>
             <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
-              <p>AIIMS • Apollo • Indraprastha Apollo</p>
-              <p>DM Endocrinology • 120+ Research Publications</p>
+              <p>DM Endocrinology (AIIMS)</p>
+              <p>MD (MAMC) & Apollo Hospital</p>
             </div>
           </div>
         </div>
 
         {/* Speech Bubble pointing upwards */}
-        <div className="relative mb-8">
+        <div className="relative mb-6">
           <div className="bg-card rounded-2xl p-4 shadow-lg relative">
             <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
               "{quote}"
@@ -68,6 +68,9 @@ export const BodyWeightHero = () => {
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
           </div>
         </div>
+
+        {/* Moving Conditions Strip */}
+        <MovingConditionsStrip />
 
         {/* Enhanced Floating CTA */}
         <FloatingCTA />
@@ -82,16 +85,16 @@ export const BodyWeightHero = () => {
               <div className="w-12 h-12 flex-shrink-0">
                 <img
                   src="/lovable-uploads/dcdad922-7ea1-4d7e-be18-90f62ced083f.png"
-                  alt="Body Weight Diagnosis"
+                  alt="Weight Diagnosis Plum"
                   className="w-full h-full object-contain"
                 />
               </div>
               <h1 className="font-unna text-5xl xl:text-6xl text-foreground">
-                Body Weight Diagnosis
+                Weight Diagnosis Plum
               </h1>
             </div>
             <h3 className="font-satoshi text-2xl text-secondary mb-8">
-              "Stop guessing, start testing."
+              "Weight loss starts with a diagnosis"
             </h3>
             
             <p className="font-satoshi font-bold text-xl text-foreground mb-8">
@@ -110,14 +113,14 @@ export const BodyWeightHero = () => {
         </div>
 
         {/* Right Column */}
-        <div className="w-[45%] flex items-center justify-center p-8">
-          <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg" />
+        <div className="w-[45%] flex flex-col items-center justify-center p-8">
+          <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg mb-6" />
+          
+          {/* Moving Conditions Strip for Desktop */}
+          <div className="w-full max-w-lg">
+            <MovingConditionsStrip />
+          </div>
         </div>
-      </div>
-
-      {/* Desktop - What's Really Behind Your Weight Gain Section */}
-      <div className="hidden lg:block">
-        <MetabolicConditionsSection />
       </div>
     </div>
   );

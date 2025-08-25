@@ -6,25 +6,17 @@ import { MedicalTeamSection } from "./MedicalTeamSection";
 import { TwoStepJourneySection } from "./TwoStepJourneySection";
 import { AsSeenInSection } from "./AsSeenInSection";
 import { StickyFooterCTA } from "./StickyFooterCTA";
-import { MetabolicConditionsSection } from "./MetabolicConditionsSection";
 
 export const CompleteLandingPage = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Background E8E9E1 */}
-      <div style={{ backgroundColor: '#E8E9E1' }}>
+      {/* Hero Section - Background FAF8F1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
         <BodyWeightHero />
       </div>
       
-      {/* Metabolic Conditions Section - Background 79855F */}
-      <div style={{ backgroundColor: '#79855F' }} className="py-16">
-        <div className="text-white">
-          <MetabolicConditionsSection />
-        </div>
-      </div>
-      
-      {/* What You Get Section - Background E8E9E1 */}
-      <div style={{ backgroundColor: '#E8E9E1' }}>
+      {/* What You Get Section - Background FAF8F1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
         <FeaturesSection />
       </div>
       

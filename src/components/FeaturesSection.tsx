@@ -1,5 +1,4 @@
 
-import { Check } from "lucide-react";
 import { StarRating } from "./StarRating";
 import { Button } from "./ui/button";
 
@@ -13,29 +12,32 @@ interface Feature {
 const features: Feature[] = [
   {
     id: 1,
-    title: "At-Home Metabolic Check.",
-    tag: "At-Home Metabolic Check.",
+    title: "Full Body Check-up at Home",
+    tag: "1. Full Body Check-up at Home",
     bullets: [
-      "Uncover your metabolic root cause with our 35+ marker test.",
-      "Fast, easy, and convenient sample collection from your home."
+      "Find the real reason for your weight gain.",
+      "Easy sample collection from your home.",
+      "Checks 35+ important health signs."
     ]
   },
   {
     id: 2,
-    title: "Diagnosis by a Top Endocrinologist",
-    tag: "Diagnosis by a Top Endocrinologist",
+    title: "The Doctor's Advice",
+    tag: "2. The Doctor's Advice",
     bullets: [
-      "A 1:1 video consultation to understand the \"why\" behind your weight.",
-      "Receive a clear, personalized medical path to sustainable results."
+      "Understand the 'why' behind your weight.",
+      "A personal video call with our doctor.",
+      "Get a clear weight loss plan."
     ]
   },
   {
     id: 3,
     title: "Personalized Nutrition Blueprint",
-    tag: "Personalized Nutrition Blueprint",
+    tag: "3. Personalized Nutrition Blueprint",
     bullets: [
-      "A practical nutrition plan based directly on your medical results.",
-      "Includes a 7-day starter meal plan to begin your journey."
+      "A diet plan made just for you.",
+      "Turns your health report into daily meals.",
+      "Includes a 7-day starter meal plan."
     ]
   }
 ];
@@ -43,13 +45,16 @@ const features: Feature[] = [
 const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) => {
   const bannerImages = {
     1: (
-      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-        {/* Feature Tag */}
-        <div className="absolute top-2 left-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-satoshi font-medium shadow-lg z-10 transform -translate-y-1 -translate-x-1">
+      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg relative overflow-visible">
+        {/* Feature Tag - positioned to overflow outside */}
+        <div 
+          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg text-sm font-satoshi font-medium shadow-lg z-10 text-white text-base"
+          style={{ backgroundColor: '#393f2d' }}
+        >
           {tag}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-green-50"></div>
-        <div className="relative flex items-center justify-between w-full px-4">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg"></div>
+        <div className="relative flex items-center justify-between w-full px-4 h-full">
           <div className="flex items-center">
             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,13 +75,16 @@ const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) =
       </div>
     ),
     2: (
-      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-        {/* Feature Tag */}
-        <div className="absolute top-2 left-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-satoshi font-medium shadow-lg z-10 transform -translate-y-1 -translate-x-1">
+      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg relative overflow-visible">
+        {/* Feature Tag - positioned to overflow outside */}
+        <div 
+          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg text-sm font-satoshi font-medium shadow-lg z-10 text-white text-base"
+          style={{ backgroundColor: '#393f2d' }}
+        >
           {tag}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50"></div>
-        <div className="relative flex items-center justify-between w-full px-4">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg"></div>
+        <div className="relative flex items-center justify-between w-full px-4 h-full">
           <div className="flex items-center">
             <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center mr-3">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,13 +105,16 @@ const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) =
       </div>
     ),
     3: (
-      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-        {/* Feature Tag */}
-        <div className="absolute top-2 left-2 bg-secondary text-white px-3 py-1 rounded-full text-xs font-satoshi font-medium shadow-lg z-10 transform -translate-y-1 -translate-x-1">
+      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg relative overflow-visible">
+        {/* Feature Tag - positioned to overflow outside */}
+        <div 
+          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg text-sm font-satoshi font-medium shadow-lg z-10 text-white text-base"
+          style={{ backgroundColor: '#393f2d' }}
+        >
           {tag}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-green-50"></div>
-        <div className="relative flex items-center justify-between w-full px-4">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-green-50 rounded-lg"></div>
+        <div className="relative flex items-center justify-between w-full px-4 h-full">
           <div className="flex items-center">
             <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center mr-3">
               <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,17 +146,27 @@ export const FeaturesSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 lg:px-16" data-section="features">
+    <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="font-satoshi text-xs text-secondary mb-1">Body Weight Diagnosis</p>
+        <div className="text-center mb-6">
+          <p className="font-satoshi text-xs text-secondary mb-1">Weight Diagnosis Plum</p>
           <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
             The First Step to Medically-Guided Weight Loss
           </h2>
           
-          {/* Rating Widget */}
-          <StarRating rating={4.6} totalReviews={100} className="mb-8" />
+          {/* Rating Widget with updated colors */}
+          <div className="flex items-center justify-center gap-1 mb-8">
+            <div className="flex items-center gap-0.5">
+              {Array.from({ length: 5 }, (_, i) => (
+                <svg key={i} className="w-4 h-4" fill={i < 4 ? "#9cd312" : "#c6f15b"} stroke={i < 4 ? "#9cd312" : "#c6f15b"} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+              ))}
+            </div>
+            <span className="font-satoshi text-sm text-foreground ml-2">4.6</span>
+            <span className="font-satoshi text-xs text-secondary ml-1">(based on 100+ reviews)</span>
+          </div>
         </div>
 
         {/* Mobile Layout */}
@@ -155,29 +176,23 @@ export const FeaturesSection = () => {
               {/* Banner Image with Tag */}
               <FeatureBanner featureId={feature.id} tag={feature.tag} />
 
-              {/* Content */}
-              <div>
-                <h3 className="font-satoshi font-bold text-lg text-foreground mb-3">
-                  {feature.title}
-                </h3>
-                
-                <div className="space-y-2">
-                  {feature.bullets.map((bullet, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                      <p className="font-satoshi text-foreground text-sm">
-                        {bullet}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              {/* Content - No heading, just bullet points */}
+              <div className="space-y-2">
+                {feature.bullets.map((bullet, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full flex-shrink-0 mt-2" style={{ backgroundColor: '#927b9e' }}></div>
+                    <p className="font-satoshi text-foreground text-sm">
+                      {bullet}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
 
         {/* Desktop Zig-zag Layout */}
-        <div className="hidden lg:block space-y-16">
+        <div className="hidden lg:block space-y-8">
           {features.map((feature, index) => (
             <div key={feature.id} className={`flex items-center gap-12 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
               {/* Image */}
@@ -185,16 +200,12 @@ export const FeaturesSection = () => {
                 <FeatureBanner featureId={feature.id} tag={feature.tag} />
               </div>
 
-              {/* Content */}
+              {/* Content - No heading, just bullet points */}
               <div className="flex-1">
-                <h3 className="font-satoshi font-bold text-2xl text-foreground mb-6">
-                  {feature.title}
-                </h3>
-                
                 <div className="space-y-4">
                   {feature.bullets.map((bullet, bulletIndex) => (
                     <div key={bulletIndex} className="flex items-start gap-4">
-                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                      <div className="w-3 h-3 rounded-full flex-shrink-0 mt-1" style={{ backgroundColor: '#927b9e' }}></div>
                       <p className="font-satoshi text-foreground text-lg">
                         {bullet}
                       </p>
@@ -207,7 +218,7 @@ export const FeaturesSection = () => {
         </div>
 
         {/* CTA Section - Connected to Features */}
-        <div className="mt-16 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
+        <div className="mt-8 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
           <div className="text-center">
             <h3 className="font-unna text-2xl lg:text-3xl text-foreground mb-4">
               Ready to Start Your Diagnosis?
