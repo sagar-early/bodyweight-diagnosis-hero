@@ -21,14 +21,24 @@ export const BodyWeightHero = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
       {/* Mobile Layout */}
-      <div className="lg:hidden flex flex-col min-h-screen p-4 pb-20">
-        {/* Header Card - Center aligned */}
-        <div className="text-center mb-6 pt-8">
-          <div className="bg-white rounded-2xl p-6 shadow-lg">
-            <h1 className="font-unna text-3xl text-foreground mb-2">
+      <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
+        {/* Beautiful Header Section - Redesigned */}
+        <div className="text-center mb-8 pt-8">
+          <div 
+            className="relative rounded-3xl p-8 shadow-2xl border-2 border-white/20 backdrop-blur-sm"
+            style={{
+              background: 'linear-gradient(135deg, #927A9E 0%, #EED6B5 52%, #9CD212 99%)',
+            }}
+          >
+            {/* Decorative elements */}
+            <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-white/30"></div>
+            <div className="absolute bottom-2 left-2 w-3 h-3 rounded-full bg-white/20"></div>
+            
+            <h1 className="font-unna text-4xl mb-3" style={{ color: '#393f2d' }}>
               Weight Diagnosis Plan
             </h1>
-            <h3 className="font-satoshi text-lg text-secondary">
+            <div className="h-px bg-white/30 mx-8 mb-3"></div>
+            <h3 className="font-satoshi text-lg" style={{ color: '#434a35' }}>
               Weight loss starts with a diagnosis
             </h3>
           </div>
@@ -61,7 +71,7 @@ export const BodyWeightHero = () => {
         </div>
 
         {/* Speech Bubble pointing upwards */}
-        <div className="relative mb-4">
+        <div className="relative mb-6">
           <div className="bg-card rounded-2xl p-4 shadow-lg relative">
             <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
               "{quote}"
@@ -71,11 +81,10 @@ export const BodyWeightHero = () => {
           </div>
         </div>
 
-        {/* Space above Medical Conditions */}
-        <div className="mb-4"></div>
-
-        {/* Moving Conditions Strip */}
-        <MovingConditionsStrip />
+        {/* Moving Conditions Strip with more spacing above */}
+        <div className="mt-6">
+          <MovingConditionsStrip />
+        </div>
 
         {/* Enhanced Floating CTA */}
         <FloatingCTA />
@@ -86,7 +95,16 @@ export const BodyWeightHero = () => {
         {/* Left Column */}
         <div className="w-[55%] flex flex-col justify-center px-12 xl:px-16">
           <div className="max-w-2xl">
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
+            <div 
+              className="relative rounded-3xl p-8 shadow-2xl border-2 border-white/20 backdrop-blur-sm mb-8"
+              style={{
+                background: 'linear-gradient(135deg, #927A9E 0%, #EED6B5 52%, #9CD212 99%)',
+              }}
+            >
+              {/* Decorative elements */}
+              <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-white/30"></div>
+              <div className="absolute bottom-3 left-3 w-4 h-4 rounded-full bg-white/20"></div>
+              
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 flex-shrink-0">
                   <img
@@ -95,11 +113,12 @@ export const BodyWeightHero = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h1 className="font-unna text-4xl xl:text-5xl text-foreground">
+                <h1 className="font-unna text-4xl xl:text-5xl" style={{ color: '#393f2d' }}>
                   Weight Diagnosis Plan
                 </h1>
               </div>
-              <h3 className="font-satoshi text-xl text-secondary">
+              <div className="h-px bg-white/30 mx-4 mb-4"></div>
+              <h3 className="font-satoshi text-xl" style={{ color: '#434a35' }}>
                 Weight loss starts with a diagnosis
               </h3>
             </div>
@@ -117,12 +136,11 @@ export const BodyWeightHero = () => {
               Start Your Diagnosis Journey
             </Button>
 
-            {/* Space above Medical Conditions */}
-            <div className="mt-12 mb-4"></div>
-
-            {/* Moving Conditions Strip for Desktop */}
-            <div className="w-full max-w-lg">
-              <MovingConditionsStrip />
+            {/* Moving Conditions Strip for Desktop with more spacing */}
+            <div className="mt-16 mb-4">
+              <div className="w-full max-w-lg">
+                <MovingConditionsStrip />
+              </div>
             </div>
           </div>
         </div>

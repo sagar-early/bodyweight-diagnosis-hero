@@ -73,9 +73,6 @@ export const MedicalTeamSection = () => {
           <h2 className="font-unna text-3xl lg:text-4xl text-white mb-4">
             Medically-Guided, Expert-Led
           </h2>
-          <p className="font-satoshi text-lg text-white/80">
-            A dedicated team of experts committed to your health journey
-          </p>
         </div>
 
         {/* Mobile Carousel */}

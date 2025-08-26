@@ -1,4 +1,3 @@
-
 import { StarRating } from "./StarRating";
 import { Button } from "./ui/button";
 
@@ -16,8 +15,7 @@ const features: Feature[] = [
     tag: "1. Full Body Check-up at Home",
     bullets: [
       "Find the real reason for your weight gain.",
-      "Easy sample collection from your home.",
-      "Checks 35+ important health signs."
+      "Easy sample collection from your home."
     ]
   },
   {
@@ -26,8 +24,7 @@ const features: Feature[] = [
     tag: "2. The Doctor's Advice",
     bullets: [
       "Understand the 'why' behind your weight.",
-      "A personal video call with our doctor.",
-      "Get a clear weight loss plan."
+      "A personal video call with our doctor."
     ]
   },
   {
@@ -36,8 +33,7 @@ const features: Feature[] = [
     tag: "3. Personalized Nutrition Blueprint",
     bullets: [
       "A diet plan made just for you.",
-      "Turns your health report into daily meals.",
-      "Includes a 7-day starter meal plan."
+      "Turns your health report into daily meals."
     ]
   }
 ];
@@ -149,7 +145,7 @@ export const FeaturesSection = () => {
     <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-2">
           <p className="font-satoshi text-xs text-secondary mb-1">Weight Diagnosis Plan</p>
           <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
             The First Step to Medically-Guided Weight Loss

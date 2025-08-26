@@ -3,10 +3,10 @@ import { BodyWeightHero } from "./BodyWeightHero";
 import { FeaturesSection } from "./FeaturesSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { MedicalTeamSection } from "./MedicalTeamSection";
-import { TwoStepJourneySection } from "./TwoStepJourneySection";
 import { AsSeenInSection } from "./AsSeenInSection";
 import { StickyFooterCTA } from "./StickyFooterCTA";
 import { FinalCTASection } from "./FinalCTASection";
+import { FAQSection } from "./FAQSection";
 
 export const CompleteLandingPage = () => {
   return (
@@ -21,8 +21,8 @@ export const CompleteLandingPage = () => {
         <FeaturesSection />
       </div>
       
-      {/* Testimonials Section - Background E8E9E1 */}
-      <div style={{ backgroundColor: '#E8E9E1' }}>
+      {/* Testimonials Section - Background 434a35 */}
+      <div style={{ backgroundColor: '#434a35' }}>
         <TestimonialsSection />
       </div>
       
@@ -33,9 +33,9 @@ export const CompleteLandingPage = () => {
         </div>
       </div>
       
-      {/* Two Step Journey Section - Background E8E9E1 */}
-      <div style={{ backgroundColor: '#E8E9E1' }}>
-        <TwoStepJourneySection />
+      {/* FAQ Section - Background FAF8F1 */}
+      <div style={{ backgroundColor: '#FAF8F1' }}>
+        <FAQSection />
       </div>
       
       {/* As Featured In Section - Background E8E9E1 */}
