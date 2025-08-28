@@ -144,12 +144,11 @@ export const TestimonialsSection = () => {
 };
 
 
-// TestimonialCard component with corrected image positioning
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible min-h-fit">
-      {/* User Profile Image with corrected left positioning */}
-      <div className="absolute -top-8 -left-8 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white"> {/* <-- CHANGE IS HERE */}
+      {/* User Profile Image with new positioning */}
+      <div className="absolute -top-6 -left-2 lg:-top-7 lg:-left-3 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white">
         <img
           src={testimonial.image}
           alt={testimonial.name}
