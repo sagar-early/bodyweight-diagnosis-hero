@@ -30,7 +30,7 @@ export const DoctorSpeechBubble = ({ quote, className = "", layout = "mobile" }:
           </div>
           <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
             <p>DM Endocrinology (AIIMS)</p>
-            <p>MD (MAMC) & Apollo Hospital</p>
+            <p>MD (MAMC), MBBS</p>
           </div>
         </div>
 
