@@ -19,7 +19,7 @@ export const StickyFooterCTA = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white p-4 shadow-lg">
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white p-4 shadow-lg">
       <div className="flex items-center justify-between">
         {/* Price Details */}
         <div style={{ color: '#434a35' }}>

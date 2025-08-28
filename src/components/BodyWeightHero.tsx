@@ -22,7 +22,7 @@ export const BodyWeightHero = () => {
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
       {/* Simple Header Section with increased bottom margin */}
-      <div className="text-center mb-8 pt-2">
+      <div className="text-center mb-4 pt-2">
         <div className="px-4">
           <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
             Weight Diagnosis Plan
@@ -42,7 +42,7 @@ export const BodyWeightHero = () => {
       </div>
 
       {/* Doctor Card with increased bottom margin */}
-      <div className="flex items-start gap-4 mb-10">
+      <div className="flex items-start gap-4 mb-6">
         {/* Large Doctor Photo */}
         <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
           <img
@@ -94,11 +94,6 @@ export const BodyWeightHero = () => {
                 <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
                   Weight loss starts with a diagnosis
                 </h3>
-              </div>
-
-              {/* Moving Conditions Strip for Desktop - moved to hero */}
-              <div className="mb-8">
-                <MovingConditionsStrip />
               </div>
 
               <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
@@ -157,6 +152,11 @@ export const BodyWeightHero = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Desktop Medical Conditions Strip - Full width below hero */}
+      <div className="hidden lg:block" style={{ backgroundColor: '#798660' }}>
+        <MovingConditionsStrip />
       </div>
     </div>
   );

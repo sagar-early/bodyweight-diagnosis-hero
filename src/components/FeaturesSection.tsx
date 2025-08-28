@@ -7,7 +7,8 @@ interface Feature {
   title: string;
   tag: string;
   bullets: string[];
-  image: string;
+  desktopImage: string;
+  mobileImage: string;
 }
 
 const features: Feature[] = [
@@ -18,7 +19,8 @@ const features: Feature[] = [
     bullets: [
       "Find the real reason for your weight gain."
     ],
-    image: "/lovable-uploads/5406704c-cba5-4b09-84c3-70707de745c2.png"
+    desktopImage: "/lovable-uploads/5406704c-cba5-4b09-84c3-70707de745c2.png",
+    mobileImage: "/lovable-uploads/5406704c-cba5-4b09-84c3-70707de745c2.png"
   },
   {
     id: 2,
@@ -27,7 +29,8 @@ const features: Feature[] = [
     bullets: [
       "Understand the 'why' behind your weight."
     ],
-    image: "/lovable-uploads/ea7fc330-9e2f-4f3c-aa02-4e6478f3e341.png"
+    desktopImage: "/lovable-uploads/ea7fc330-9e2f-4f3c-aa02-4e6478f3e341.png",
+    mobileImage: "/lovable-uploads/ea7fc330-9e2f-4f3c-aa02-4e6478f3e341.png"
   },
   {
     id: 3,
@@ -36,7 +39,8 @@ const features: Feature[] = [
     bullets: [
       "A diet plan made just for you."
     ],
-    image: "/lovable-uploads/b181c7c1-696d-4a00-9b73-89cafe154488.png"
+    desktopImage: "/lovable-uploads/b181c7c1-696d-4a00-9b73-89cafe154488.png",
+    mobileImage: "/lovable-uploads/b181c7c1-696d-4a00-9b73-89cafe154488.png"
   }
 ];
 
@@ -54,7 +58,7 @@ const FeatureBanner = ({ feature }: { feature: Feature }) => {
       {/* Feature Image */}
       <div className="w-full h-full rounded-lg overflow-hidden">
         <img
-          src={feature.image}
+          src={window.innerWidth >= 1024 ? feature.desktopImage : feature.mobileImage}
           alt={feature.title}
           className="w-full h-full object-cover"
         />
@@ -67,10 +71,15 @@ export const FeaturesSection = () => {
   return (
     <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
+        {/* Floating CTA Space Placeholder for Desktop */}
+        <div className="hidden lg:block h-48 mb-8" id="floating-cta-space">
+          {/* This space is reserved for the floating CTA when it transforms */}
+        </div>
+
         {/* Section Header */}
         <div className="text-center mb-4">
           <p className="font-satoshi text-xs text-secondary mb-1" style={{ color: '#000000' }}>Weight Diagnosis Plan</p>
-          <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
+          <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4" style={{ color: '#000000' }}>
             The First Step to Medically-Guided Weight Loss
           </h2>
           
@@ -139,14 +148,14 @@ export const FeaturesSection = () => {
         {/* New CTA Section - Moved from bottom */}
         <div className="hidden lg:block mt-16">
           <div 
-            className="relative rounded-2xl shadow-lg p-8 text-center"
+            className="relative rounded-2xl shadow-lg p-6 text-center"
             style={{
               background: 'linear-gradient(135deg, #927A9E 0%, #EED6B5 52%, #9CD212 99%)'
             }}
           >
             {/* Header Text */}
-            <div className="mb-6">
-              <h2 className="font-unna text-3xl lg:text-4xl mb-4" style={{ color: '#393f2d' }}>
+            <div className="mb-4">
+              <h2 className="font-unna text-3xl lg:text-4xl mb-2" style={{ color: '#393f2d' }}>
                 Ready to Take the First Step?
               </h2>
               <p className="font-satoshi text-lg" style={{ color: '#434a35' }}>
@@ -155,7 +164,7 @@ export const FeaturesSection = () => {
             </div>
 
             {/* Inner White Card with reduced padding */}
-            <div className="bg-white rounded-xl shadow-xl p-4 mb-6 max-w-2xl mx-auto">
+            <div className="bg-white rounded-xl shadow-xl p-4 mb-4 max-w-2xl mx-auto">
               <div className="lg:flex lg:items-center lg:justify-between lg:gap-6">
                 {/* Left Side - Pricing */}
                 <div className="lg:flex-1 mb-4 lg:mb-0">

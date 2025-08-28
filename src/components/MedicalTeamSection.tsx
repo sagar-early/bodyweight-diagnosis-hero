@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -15,35 +16,35 @@ const teamMembers: TeamMember[] = [
     name: "Dr. Savita Jain",
     title: "Consultant Endocrinologist",
     credentials: "Previously worked at Apollo Hospital, DMC Ludhiana, and Mohan Dai Oswal Hospital. She completed her DNB in Endocrinology from Apollo Delhi and her MD in Medicine from DMC Ludhiana.",
-    image: "/lovable-uploads/2e8263f8-69fd-4d48-986f-0083fef5a145.png"
+    image: "/lovable-uploads/491a6843-dfce-4187-a975-41499193a126.png"
   },
   {
     id: 2,
     name: "Anushi Dhiman",
     title: "Lead, Nutrition",
     credentials: "An experienced dietician who has worked with VLCC, HCL Healthcare, and Mamily Technology. She holds a Master's in Nutrition & Dietetics from Delhi University (DU).",
-    image: "/lovable-uploads/07969a95-c2f8-4906-9963-5f41136444e7.png"
+    image: "/lovable-uploads/2f95c7d5-58cb-420b-83a7-3ae0d6085a5c.png"
   },
   {
     id: 3,
     name: "Dr. Saptarshi Bhattacharya",
     title: "Chief Medical Advisor",
     credentials: "Associated with Indraprastha Apollo Hospitals (Delhi) and previously with Max Hospitals. He trained at AIIMS (DM in Endocrinology) and MAMC (MD in Medicine). He has co-authored over 120 research publications.",
-    image: "/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
+    image: "/lovable-uploads/4658e62f-fad0-42a1-bffa-5714498a5dbd.png"
   },
   {
     id: 4,
     name: "Dr. Ankita Aneja",
     title: "Consultant Endocrinologist",
     credentials: "Previously worked at Safdarjung Hospital, Ganga Ram Hospital, and RML Hospital. She completed her DrNB in Endocrinology from Safdarjung and her MD in Medicine from Jawaharlal Nehru Medical College.",
-    image: "/lovable-uploads/b17a32a9-9c21-4099-a8dd-b7ff2b42e847.png"
+    image: "/lovable-uploads/d0364617-83e6-4bae-9232-5dd11922d3c5.png"
   },
   {
     id: 5,
     name: "Drishti Bansal",
     title: "Lead, Nutrition",
     credentials: "With over 10 years of experience, she has worked at HealthifyMe, Fitelo, and Breathe Wellbeing. She holds a Master's in Nutrition and Dietetics from Delhi University (DU).",
-    image: "/lovable-uploads/35596b19-5162-4746-b39a-e843a757732b.png"
+    image: "/lovable-uploads/503a97a3-9be1-4671-8ccb-833a5f00db0d.png"
   }
 ];
 
@@ -65,7 +66,7 @@ export const MedicalTeamSection = () => {
   };
 
   return (
-    <section className="py-3 px-4 lg:px-16" style={{ backgroundColor: '#FAF8F1' }}>
+    <section className="py-2 px-4 lg:px-16" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-6">
