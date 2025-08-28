@@ -50,19 +50,18 @@ const testimonials: Testimonial[] = [
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Update current index based on scroll position for mobile
+  // Effect to handle scroll detection
   useEffect(() => {
     const handleScroll = (event: Event) => {
       const container = event.target as HTMLElement;
-      if (container?.classList?.contains('testimonial-scroll')) {
+      if (container?.classList.contains('testimonial-scroll')) {
         const scrollLeft = container.scrollLeft;
-        // Adjust cardWidth to include the gap for more accurate index calculation
         const card = container.children[0] as HTMLElement;
         const cardWidth = card?.offsetWidth || 0;
-        const gap = parseInt(window.getComputedStyle(container).gap) || 24; // 24px is gap-6
+        const gap = parseInt(window.getComputedStyle(container).gap) || 24;
         const totalCardWidth = cardWidth + gap;
         const newIndex = Math.round(scrollLeft / totalCardWidth);
-        
+
         if (newIndex !== currentIndex) {
           setCurrentIndex(newIndex);
         }
@@ -75,9 +74,9 @@ export const TestimonialsSection = () => {
     return () => {
       scrollContainer?.removeEventListener('scroll', handleScroll);
     };
-  }, [currentIndex]); // Add currentIndex to dependency array
+  }, [currentIndex]);
 
-  // Function to scroll to the selected testimonial
+  // Function to scroll to a specific card
   const scrollToTestimonial = (index: number) => {
     const scrollContainer = document.querySelector('.testimonial-scroll');
     if (scrollContainer) {
@@ -90,21 +89,21 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-6 px-4 lg:px-16" style={{ backgroundColor: '#798660' }}>
+    <section className="py-6 lg:px-16" style={{ backgroundColor: '#798660' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 px-4">
           <h2 className="font-unna text-3xl lg:text-4xl mb-4 text-white">
             Real Stories, Real Results
           </h2>
         </div>
 
-        {/* Mobile Layout with increased spacing and padding fix */}
+        {/* Mobile Layout */}
         <div className="lg:hidden">
           <div className="relative">
-            {/* Testimonial Cards Container with top padding and adjusted gap */}
+            {/* Testimonial Cards Container with corrected padding */}
             <div
-              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-4 pt-10" // <-- CHANGE IS HERE
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-10 pt-10" // <-- CHANGE IS HERE
               style={{ scrollBehavior: 'smooth' }}
             >
               {testimonials.map((testimonial) => (
@@ -119,7 +118,7 @@ export const TestimonialsSection = () => {
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => scrollToTestimonial(index)} // <-- UPDATED to scroll
+                  onClick={() => scrollToTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
                     index === currentIndex ? 'bg-white' : 'bg-white/30'
                   }`}
@@ -129,9 +128,9 @@ export const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Desktop Layout with increased gap */}
-        <div className="hidden lg:block">
-          <div className="grid grid-cols-3 gap-10"> {/* <-- CHANGE IS HERE */}
+        {/* Desktop Layout */}
+        <div className="hidden lg:block px-4">
+          <div className="grid grid-cols-3 gap-10">
             {testimonials.slice(0, 3).map((testimonial) => (
               <div key={testimonial.id}>
                 <TestimonialCard testimonial={testimonial} />
@@ -144,12 +143,13 @@ export const TestimonialsSection = () => {
   );
 };
 
-// The TestimonialCard component remains the same
+
+// TestimonialCard component with corrected image positioning
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible min-h-fit">
-      {/* User Profile Image as Tag - bigger square with rounded corners and proper mobile spacing */}
-      <div className="absolute -top-8 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white">
+      {/* User Profile Image with corrected left positioning */}
+      <div className="absolute -top-8 -left-8 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white"> {/* <-- CHANGE IS HERE */}
         <img
           src={testimonial.image}
           alt={testimonial.name}
@@ -157,9 +157,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         />
       </div>
 
-      {/* Content with top padding to account for image tag */}
+      {/* Content */}
       <div className="pt-12 lg:pt-14">
-        {/* User Details - right aligned */}
+        {/* User Details */}
         <div className="mb-4 text-right">
           <div className="font-satoshi font-bold text-sm mb-1" style={{ color: '#393f2d' }}>
             {testimonial.name}
@@ -169,7 +169,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
           </div>
         </div>
 
-        {/* Quote with stylized quotation marks */}
+        {/* Quote */}
         <blockquote className="font-satoshi italic text-base lg:text-lg leading-relaxed relative" style={{ color: '#434a35' }}>
           <span className="text-3xl lg:text-4xl absolute -left-2 -top-2 text-gray-300">"</span>
           <span className="relative z-10">{testimonial.quote}</span>
