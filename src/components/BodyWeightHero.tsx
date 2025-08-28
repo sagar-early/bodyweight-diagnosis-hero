@@ -21,60 +21,60 @@ export const BodyWeightHero = () => {
     <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
-      {/* Simple Header Section with increased bottom margin */}
-      <div className="text-center mb-8 pt-2">
-        <div className="px-4">
-          <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
-            Weight Diagnosis Plan
-          </h2>
-        </div>
-      </div>
-
-      {/* Speech Bubble pointing leftwards */}
-      <div className="relative mb-8">
-        <div className="bg-card rounded-2xl p-4 shadow-lg relative">
-          <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center mb-4">
-            "{quote}"
-          </blockquote>
-          {/* Bubble tail pointing down and moved to the left */}
-          <div className="absolute -bottom-3 left-12 w-6 h-6 bg-card rotate-45"></div>
-        </div>
-      </div>
-
-      {/* Doctor Card with increased bottom margin */}
-      <div className="flex items-start gap-4 mb-10">
-        {/* Large Doctor Photo */}
-        <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
-          <img
-            src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
-            alt="Dr. Saptarshi Bhattacharya"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Doctor Credentials */}
-        <div className="flex-1">
-          <h4 className="font-satoshi font-bold text-foreground text-lg mb-1">
-            Dr. Saptarshi Bhattacharya
-          </h4>
-          <p className="font-satoshi text-sm mb-2" style={{ color: '#000000' }}>
-            Chief Medical Advisor, EarlyFit
-          </p>
-          <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
-            <p>DM Endocrinology (AIIMS)</p>
-            <p>MD (MAMC) & Apollo Hospital</p>
+        {/* Simple Header Section with reduced padding */}
+        <div className="text-center mb-3 pt-2">
+          <div className="px-4">
+            <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
+              Weight Diagnosis Plan
+            </h2>
           </div>
         </div>
-      </div>
 
-      {/* Moving Conditions Strip with spacing (margin top is handled by section above) */}
-      <div className="mb-6">
-        <MovingConditionsStrip />
-      </div>
+        {/* Speech Bubble pointing downwards */}
+        <div className="relative mb-4">
+          <div className="bg-card rounded-2xl p-4 shadow-lg relative">
+            <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center mb-4">
+              "{quote}"
+            </blockquote>
+            {/* Bubble tail pointing down */}
+            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+          </div>
+        </div>
 
-      {/* Enhanced Floating CTA */}
-      <FloatingCTA />
-    </div>
+        {/* Doctor Card with Credentials */}
+        <div className="flex items-start gap-4 mb-6">
+          {/* Large Doctor Photo */}
+          <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
+            <img
+              src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
+              alt="Dr. Saptarshi Bhattacharya"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Doctor Credentials */}
+          <div className="flex-1">
+            <h4 className="font-satoshi font-bold text-foreground text-lg mb-1">
+              Dr. Saptarshi Bhattacharya
+            </h4>
+            <p className="font-satoshi text-sm mb-2" style={{ color: '#000000' }}>
+              Chief Medical Advisor, EarlyFit
+            </p>
+            <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+              <p>DM Endocrinology (AIIMS)</p>
+              <p>MD (MAMC), MBBS</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Moving Conditions Strip with spacing */}
+        <div className="mb-6">
+          <MovingConditionsStrip />
+        </div>
+
+        {/* Enhanced Floating CTA */}
+        <FloatingCTA />
+      </div>
 
       {/* Desktop Layout - New Structure */}
       <div className="hidden lg:block">
