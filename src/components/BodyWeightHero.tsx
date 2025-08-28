@@ -24,13 +24,9 @@ export const BodyWeightHero = () => {
         {/* Simple Header Section with reduced padding */}
         <div className="text-center mb-3 pt-2">
           <div className="px-4">
-            <h1 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
+            <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
               Weight Diagnosis Plan
-            </h1>
-            <div className="w-16 h-px mx-auto mb-2" style={{ backgroundColor: '#393f2d' }}></div>
-            <h3 className="font-satoshi text-base" style={{ color: '#798660' }}>
-              Weight loss starts with a diagnosis
-            </h3>
+            </h2>
           </div>
         </div>
 
