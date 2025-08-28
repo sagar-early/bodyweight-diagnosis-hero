@@ -43,7 +43,7 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
 
   return (
     <div 
-      className={`fixed transition-all duration-300 ease-in-out ${className} cursor-pointer z-40 animate-bounce-slow`}
+      className={`fixed transition-all duration-300 ease-in-out ${className} cursor-pointer z-40 ${!isCircle ? 'animate-bounce-slow' : ''}`}
       style={{
         background: 'linear-gradient(180deg, rgba(146, 122, 158, 0.8) 0%, rgba(238, 214, 181, 0.8) 70%, rgba(156, 210, 18, 0.8) 100%)',
         borderRadius: isCircle ? '50%' : '50% 50% 0 0',

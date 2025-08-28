@@ -54,10 +54,10 @@ export const GetCallbackSection = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed left-0 right-0 z-40 transition-all duration-400 ease-in-out bottom-0">
+    <div className="fixed left-0 right-0 z-50 transition-all duration-400 ease-in-out lg:bottom-0" style={{ bottom: window.innerWidth < 1024 ? '80px' : '0px' }}>
       {state === 'compact' && (
         <div 
-          className="px-6 py-3 shadow-2xl cursor-pointer"
+          className="px-6 py-3 shadow-2xl cursor-pointer lg:bottom-0"
           style={{ backgroundColor: '#dbdfd2' }}
           onClick={() => setState('form')}
         >

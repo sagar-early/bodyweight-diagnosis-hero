@@ -22,7 +22,7 @@ export const BodyWeightHero = () => {
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
         {/* Simple Header Section with reduced padding */}
-        <div className="text-center mb-4 pt-4">
+        <div className="text-center mb-3 pt-2">
           <div className="px-4">
             <h1 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
               Weight Diagnosis Plan
@@ -81,86 +81,83 @@ export const BodyWeightHero = () => {
       </div>
 
       {/* Desktop Layout - New Structure */}
-      <div className="hidden lg:flex min-h-screen">
-        {/* Left Column - 50% width */}
-        <div className="w-1/2 flex flex-col justify-center px-12 xl:px-16">
-          <div className="max-w-2xl">
-            {/* Weight Diagnosis Plan - Non-card with line separator */}
-            <div className="text-center mb-8">
-              <div className="flex items-center gap-4 mb-4 justify-center">
-                <div className="w-10 h-10 flex-shrink-0">
-                  <img
-                    src="/lovable-uploads/dcdad922-7ea1-4d7e-be18-90f62ced083f.png"
-                    alt="Weight Diagnosis Plan"
-                    className="w-full h-full object-contain"
-                  />
+      <div className="hidden lg:block">
+        {/* Hero Section */}
+        <div className="min-h-screen flex">
+          {/* Left Column - 50% width */}
+          <div className="w-1/2 flex flex-col justify-center px-12 xl:px-16">
+            <div className="max-w-2xl">
+              {/* Weight Diagnosis Plan - Non-card with line separator, NO ICON */}
+              <div className="text-center mb-8">
+                <div className="flex items-center gap-4 mb-4 justify-center">
+                  <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
+                    Weight Diagnosis Plan
+                  </h1>
                 </div>
-                <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
-                  Weight Diagnosis Plan
-                </h1>
+                <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
+                <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
+                  Weight loss starts with a diagnosis
+                </h3>
               </div>
-              <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
-              <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
-                Weight loss starts with a diagnosis
-              </h3>
-            </div>
 
-            {/* Moving Conditions Strip for Desktop */}
-            <div className="mb-8">
-              <MovingConditionsStrip />
-            </div>
+              {/* Moving Conditions Strip for Desktop - moved to hero */}
+              <div className="mb-8">
+                <MovingConditionsStrip />
+              </div>
 
-            <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
-              Lose up to 20% of your body weight.
-            </p>
-            
-            <div className="text-center mb-8">
-              <Button 
-                variant="medical" 
-                size="lg" 
-                className="text-lg px-8 py-6"
-                onClick={handleDesktopCTAClick}
-              >
-                Start Your Diagnosis Journey
-              </Button>
+              <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
+                Lose up to 20% of your body weight.
+              </p>
+              
+              <div className="text-center mb-8">
+                <Button 
+                  variant="medical" 
+                  size="lg" 
+                  className="text-lg px-8 py-6 text-white"
+                  style={{ backgroundColor: '#434a35' }}
+                  onClick={handleDesktopCTAClick}
+                >
+                  Start Your Diagnosis Journey
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right Column - 50% width */}
-        <div className="w-1/2 flex flex-col items-center justify-center p-8">
-          {/* Doctor Section */}
-          <div className="flex flex-col items-center">
-            {/* Doctor Image */}
-            <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
-              <img
-                src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
-                alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* Credentials */}
-            <div className="text-center mb-6">
-              <div className="font-satoshi font-bold text-foreground text-lg">
-                Dr. Saptarshi Bhattacharya
+          {/* Right Column - 50% width */}
+          <div className="w-1/2 flex flex-col items-center justify-center p-8">
+            {/* Doctor Section */}
+            <div className="flex flex-col items-center">
+              {/* Doctor Image */}
+              <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
+                <img
+                  src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
+                  alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="font-satoshi text-sm" style={{ color: '#000000' }}>
-                Chief Medical Advisor, EarlyFit
+              
+              {/* Credentials */}
+              <div className="text-center mb-6">
+                <div className="font-satoshi font-bold text-foreground text-lg">
+                  Dr. Saptarshi Bhattacharya
+                </div>
+                <div className="font-satoshi text-sm" style={{ color: '#000000' }}>
+                  Chief Medical Advisor, EarlyFit
+                </div>
+                <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+                  <p>DM Endocrinology (AIIMS)</p>
+                  <p>MD (MAMC) & Apollo Hospital</p>
+                </div>
               </div>
-              <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
-                <p>DM Endocrinology (AIIMS)</p>
-                <p>MD (MAMC) & Apollo Hospital</p>
-              </div>
-            </div>
 
-            {/* Speech Bubble pointing down from doctor */}
-            <div className="relative bg-card rounded-2xl p-6 shadow-lg max-w-md">
-              <blockquote className="font-unna text-lg text-foreground leading-relaxed">
-                "{desktopQuote}"
-              </blockquote>
-              {/* Bubble tail pointing up to doctor */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+              {/* Speech Bubble pointing down from doctor */}
+              <div className="relative bg-card rounded-2xl p-6 shadow-lg max-w-md">
+                <blockquote className="font-unna text-lg text-foreground leading-relaxed">
+                  "{desktopQuote}"
+                </blockquote>
+                {/* Bubble tail pointing up to doctor */}
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+              </div>
             </div>
           </div>
         </div>

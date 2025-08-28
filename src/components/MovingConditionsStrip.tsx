@@ -64,11 +64,11 @@ export const MovingConditionsStrip = () => {
     <div className="w-full mb-4">
       {/* Complete section with updated background color */}
       <div 
-        className="rounded-lg p-6"
-        style={{ backgroundColor: '#434a35' }}
+        className="rounded-lg p-3 lg:p-2"
+        style={{ backgroundColor: '#798660' }}
       >
         {/* Headline */}
-        <h3 className="font-satoshi text-sm lg:text-base text-white mb-4 text-center">
+        <h3 className="font-satoshi text-sm lg:text-base text-white mb-2 lg:mb-3 text-center">
           Medical Conditions That Could Possibly Be Behind Your Weight Gain
         </h3>
 
@@ -79,9 +79,9 @@ export const MovingConditionsStrip = () => {
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
               return (
-                <div key={condition.id} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-3">
-                    <IconComponent className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
+                <div key={condition.id} className="flex flex-col items-center justify-center mx-2 lg:mx-3 flex-shrink-0 min-w-[80px] lg:min-w-[100px]">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center mb-2">
+                    <IconComponent className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                   </div>
                   <span className="font-satoshi text-xs text-white whitespace-nowrap text-center leading-tight">
                     {condition.name}
@@ -93,9 +93,9 @@ export const MovingConditionsStrip = () => {
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
               return (
-                <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-3">
-                    <IconComponent className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
+                <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-2 lg:mx-3 flex-shrink-0 min-w-[80px] lg:min-w-[100px]">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center mb-2">
+                    <IconComponent className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                   </div>
                   <span className="font-satoshi text-xs text-white whitespace-nowrap text-center leading-tight">
                     {condition.name}
