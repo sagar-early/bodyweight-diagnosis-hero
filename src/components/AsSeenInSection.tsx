@@ -22,10 +22,10 @@ const AsSeenInSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 lg:px-16 pb-24 lg:pb-16" style={{ backgroundColor: '#FAF8F1' }}>
+    <section className="py-8 px-4 lg:px-16 pb-32 lg:pb-8" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="font-unna text-3xl lg:text-4xl mb-4" style={{ color: '#393f2d' }}>
             As Featured In
           </h2>
@@ -33,8 +33,8 @@ const AsSeenInSection = () => {
 
         {/* Mobile Layout - Horizontal Scroll */}
         <div className="lg:hidden">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-4 pb-4">
+          <div className="overflow-x-scroll scrollbar-hide">
+            <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
               {newsItems.map((item) => (
                 <div key={item.id} className="flex-shrink-0 w-72">
                   <NewsCard item={item} />

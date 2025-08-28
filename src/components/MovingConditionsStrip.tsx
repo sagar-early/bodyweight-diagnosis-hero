@@ -1,36 +1,61 @@
 
-import { Scale, Shield, User, Zap, Activity, Circle } from "lucide-react";
+import { Scale, Shield, User, Zap, Activity, Circle, Flame, Heart, Clock, Target, Microscope } from "lucide-react";
 
 const metabolicConditions = [
   {
     id: 1,
-    name: "Hormonal Imbalance",
-    icon: Scale,
+    name: "Inflammation",
+    icon: Flame,
   },
   {
     id: 2,
-    name: "Insulin Resistance", 
-    icon: Shield,
+    name: "Pre Diabetic", 
+    icon: Target,
   },
   {
     id: 3,
-    name: "Slow Metabolism",
-    icon: User,
-  },
-  {
-    id: 4,
-    name: "PCOS/PCOD",
+    name: "Thyroid",
     icon: Circle,
   },
   {
+    id: 4,
+    name: "Lifestyle Disorders",
+    icon: User,
+  },
+  {
     id: 5,
-    name: "Stress & Cortisol",
+    name: "Stress Hyper Tension",
     icon: Zap,
   },
   {
     id: 6,
-    name: "Thyroid Issues",
+    name: "Eating Disorders",
+    icon: Heart,
+  },
+  {
+    id: 7,
+    name: "Genetics Hereditary",
+    icon: Microscope,
+  },
+  {
+    id: 8,
+    name: "PCOS PCOD",
     icon: Activity,
+  },
+  {
+    id: 9,
+    name: "Fatty Liver",
+    icon: Shield,
+  },
+  {
+    id: 10,
+    name: "Hypogonadism",
+    icon: Scale,
+  },
+  {
+    id: 11,
+    name: "Diabetes",
+    icon: Clock,
   },
 ];
 
@@ -39,11 +64,11 @@ export const MovingConditionsStrip = () => {
     <div className="w-full mb-4">
       {/* Complete section with updated background color */}
       <div 
-        className="rounded-lg p-4"
+        className="rounded-lg p-6"
         style={{ backgroundColor: '#434a35' }}
       >
         {/* Headline */}
-        <h3 className="font-satoshi text-sm lg:text-base text-white mb-3 text-center">
+        <h3 className="font-satoshi text-sm lg:text-base text-white mb-4 text-center">
           Medical Conditions That Could Possibly Be Behind Your Weight Gain
         </h3>
 
@@ -54,11 +79,11 @@ export const MovingConditionsStrip = () => {
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
               return (
-                <div key={condition.id} className="flex items-center gap-2 mx-4 flex-shrink-0">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <IconComponent className="w-4 h-4 text-white" />
+                <div key={condition.id} className="flex flex-col items-center justify-center mx-6 flex-shrink-0 min-w-[120px]">
+                  <div className="w-12 h-12 flex items-center justify-center mb-2">
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <span className="font-satoshi text-xs text-white whitespace-nowrap">
+                  <span className="font-satoshi text-xs text-white whitespace-nowrap text-center leading-tight">
                     {condition.name}
                   </span>
                 </div>
@@ -68,11 +93,11 @@ export const MovingConditionsStrip = () => {
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
               return (
-                <div key={`duplicate-${condition.id}`} className="flex items-center gap-2 mx-4 flex-shrink-0">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <IconComponent className="w-4 h-4 text-white" />
+                <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-6 flex-shrink-0 min-w-[120px]">
+                  <div className="w-12 h-12 flex items-center justify-center mb-2">
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <span className="font-satoshi text-xs text-white whitespace-nowrap">
+                  <span className="font-satoshi text-xs text-white whitespace-nowrap text-center leading-tight">
                     {condition.name}
                   </span>
                 </div>

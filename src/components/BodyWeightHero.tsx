@@ -22,32 +22,31 @@ export const BodyWeightHero = () => {
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
         {/* Simple Header Section */}
-        <div className="text-center mb-4 pt-8">
-          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-            <h1 className="font-unna text-3xl mb-2" style={{ color: '#393f2d' }}>
+        <div className="text-center mb-6 pt-8">
+          <div className="px-4">
+            <h1 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
               Weight Diagnosis Plan
             </h1>
+            <div className="w-16 h-px mx-auto mb-3" style={{ backgroundColor: '#393f2d' }}></div>
             <h3 className="font-satoshi text-base" style={{ color: '#798660' }}>
               Weight loss starts with a diagnosis
             </h3>
           </div>
         </div>
 
-        
-
-        {/* Speech Bubble pointing upwards */}
+        {/* Speech Bubble pointing downwards */}
         <div className="relative mb-4">
           <div className="bg-card rounded-2xl p-4 shadow-lg relative">
-            <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
+            <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center mb-4">
               "{quote}"
             </blockquote>
-            {/* Bubble tail pointing up */}
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+            {/* Bubble tail pointing down */}
+            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
           </div>
         </div>
 
         {/* Doctor Card with Credentials */}
-        <div className="flex items-start gap-4 mb-4">
+        <div className="flex items-start gap-4 mb-6">
           {/* Large Doctor Photo */}
           <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
             <img
@@ -62,7 +61,7 @@ export const BodyWeightHero = () => {
             <h4 className="font-satoshi font-bold text-foreground text-lg mb-1">
               Dr. Saptarshi Bhattacharya
             </h4>
-            <p className="font-satoshi text-secondary text-sm mb-2">
+            <p className="font-satoshi text-sm mb-2" style={{ color: '#000000' }}>
               Chief Medical Advisor, EarlyFit
             </p>
             <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
@@ -73,7 +72,7 @@ export const BodyWeightHero = () => {
         </div>
 
         {/* Moving Conditions Strip with spacing */}
-        <div className="mb-4">
+        <div className="mb-6">
           <MovingConditionsStrip />
         </div>
 
@@ -83,11 +82,12 @@ export const BodyWeightHero = () => {
 
       {/* Desktop Layout */}
       <div className="hidden lg:flex min-h-screen">
-        {/* Left Column */}
-        <div className="w-[55%] flex flex-col justify-center px-12 xl:px-16">
-          <div className="max-w-2xl">
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-8">
-              <div className="flex items-center gap-4 mb-3">
+        {/* Left Column - 75% width */}
+        <div className="w-[75%] flex flex-col justify-center px-12 xl:px-16">
+          <div className="max-w-2xl mx-auto">
+            {/* Non-card header with line separator */}
+            <div className="text-center mb-8">
+              <div className="flex items-center gap-4 mb-4 justify-center">
                 <div className="w-10 h-10 flex-shrink-0">
                   <img
                     src="/lovable-uploads/dcdad922-7ea1-4d7e-be18-90f62ced083f.png"
@@ -95,40 +95,48 @@ export const BodyWeightHero = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#393f2d' }}>
+                <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
                   Weight Diagnosis Plan
                 </h1>
               </div>
+              <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
               <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
                 Weight loss starts with a diagnosis
               </h3>
             </div>
+
+            {/* Quote bubble pointing down from doctor */}
+            <div className="mb-8">
+              <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg mx-auto" />
+            </div>
             
-            <p className="font-satoshi font-bold text-xl text-foreground mb-8">
+            <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
               Lose up to 20% of your body weight.
             </p>
             
-            <Button 
-              variant="medical" 
-              size="lg" 
-              className="text-lg px-8 py-6"
-              onClick={handleDesktopCTAClick}
-            >
-              Start Your Diagnosis Journey
-            </Button>
+            <div className="text-center mb-8">
+              <Button 
+                variant="medical" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={handleDesktopCTAClick}
+              >
+                Start Your Diagnosis Journey
+              </Button>
+            </div>
 
-            {/* Moving Conditions Strip for Desktop with spacing */}
-            <div className="mt-12 mb-4">
-              <div className="w-full max-w-lg">
+            {/* Moving Conditions Strip for Desktop */}
+            <div className="mb-8">
+              <div className="w-full max-w-3xl mx-auto">
                 <MovingConditionsStrip />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column */}
-        <div className="w-[45%] flex flex-col items-center justify-center p-8">
-          <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg mb-6" />
+        {/* Right Column - 25% width */}
+        <div className="w-[25%] flex flex-col items-center justify-center p-8">
+          {/* This space will be used by the transformed floating CTA */}
         </div>
       </div>
     </div>

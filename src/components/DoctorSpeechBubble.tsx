@@ -1,3 +1,4 @@
+
 import doctorImage from "@/assets/dr-saptarshi.jpg";
 
 interface DoctorSpeechBubbleProps {
@@ -13,7 +14,7 @@ export const DoctorSpeechBubble = ({ quote, className = "", layout = "mobile" }:
         {/* Doctor Image */}
         <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
           <img
-            src={doctorImage}
+            src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
             alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
             className="w-full h-full object-cover"
           />
@@ -24,12 +25,16 @@ export const DoctorSpeechBubble = ({ quote, className = "", layout = "mobile" }:
           <div className="font-satoshi font-bold text-foreground text-lg">
             Dr. Saptarshi Bhattacharya
           </div>
-          <div className="font-satoshi text-secondary text-sm">
-            Top Endocrinologist, AIIMS
+          <div className="font-satoshi text-sm" style={{ color: '#000000' }}>
+            Chief Medical Advisor, EarlyFit
+          </div>
+          <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+            <p>DM Endocrinology (AIIMS)</p>
+            <p>MD (MAMC) & Apollo Hospital</p>
           </div>
         </div>
 
-        {/* Speech Bubble */}
+        {/* Speech Bubble pointing down from doctor */}
         <div className="relative bg-card rounded-2xl p-6 shadow-lg max-w-md">
           <blockquote className="font-unna text-lg text-foreground leading-relaxed">
             "{quote}"
@@ -46,7 +51,7 @@ export const DoctorSpeechBubble = ({ quote, className = "", layout = "mobile" }:
       {/* Doctor Image */}
       <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
         <img
-          src={doctorImage}
+          src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
           alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
           className="w-full h-full object-cover"
         />

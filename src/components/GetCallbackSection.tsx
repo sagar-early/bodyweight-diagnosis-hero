@@ -46,7 +46,7 @@ export const GetCallbackSection = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 transition-all duration-400 ease-in-out">
+    <div className="fixed left-0 right-0 z-40 transition-all duration-400 ease-in-out" style={{ bottom: '80px' }}>
       {state === 'compact' && (
         <div 
           className="px-6 py-3 shadow-2xl cursor-pointer"

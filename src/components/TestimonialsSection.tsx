@@ -71,10 +71,10 @@ export const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 lg:px-16" style={{ backgroundColor: '#434a35' }}>
+    <section className="py-8 px-4 lg:px-16" style={{ backgroundColor: '#E8E9E1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="font-unna text-3xl lg:text-4xl mb-4 text-white">
             Real Stories, Real Results
           </h2>
@@ -127,9 +127,9 @@ export const TestimonialsSection = () => {
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative min-h-fit">
-      {/* User Profile Image as Tag - square with rounded corners */}
-      <div className="absolute -top-4 -left-4 w-16 h-16 rounded-lg overflow-hidden shadow-lg border-4 border-white">
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible">
+      {/* User Profile Image as Tag - bigger square with rounded corners */}
+      <div className="absolute -top-6 -left-6 w-20 h-20 lg:w-24 lg:h-24 rounded-xl overflow-hidden shadow-lg border-2 border-white">
         <img
           src={testimonial.image}
           alt={testimonial.name}
@@ -138,9 +138,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
       </div>
 
       {/* Content with top padding to account for image tag */}
-      <div className="pt-6">
+      <div className="pt-8 lg:pt-10">
         {/* User Details - right aligned */}
-        <div className="mb-6 text-right">
+        <div className="mb-4 text-right">
           <div className="font-satoshi font-bold text-sm mb-1" style={{ color: '#393f2d' }}>
             {testimonial.name}
           </div>
@@ -150,8 +150,8 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         </div>
 
         {/* Quote with stylized quotation marks */}
-        <blockquote className="font-satoshi italic text-lg leading-relaxed relative" style={{ color: '#434a35' }}>
-          <span className="text-4xl absolute -left-2 -top-2 text-gray-300">"</span>
+        <blockquote className="font-satoshi italic text-base lg:text-lg leading-relaxed relative" style={{ color: '#434a35' }}>
+          <span className="text-3xl lg:text-4xl absolute -left-2 -top-2 text-gray-300">"</span>
           <span className="relative z-10">{testimonial.quote}</span>
         </blockquote>
       </div>
