@@ -33,6 +33,19 @@ export const BodyWeightHero = () => {
           </div>
         </div>
 
+        
+
+        {/* Speech Bubble pointing upwards */}
+        <div className="relative mb-4">
+          <div className="bg-card rounded-2xl p-4 shadow-lg relative">
+            <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
+              "{quote}"
+            </blockquote>
+            {/* Bubble tail pointing up */}
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+          </div>
+        </div>
+
         {/* Doctor Card with Credentials */}
         <div className="flex items-start gap-4 mb-4">
           {/* Large Doctor Photo */}
@@ -56,17 +69,6 @@ export const BodyWeightHero = () => {
               <p>DM Endocrinology (AIIMS)</p>
               <p>MD (MAMC) & Apollo Hospital</p>
             </div>
-          </div>
-        </div>
-
-        {/* Speech Bubble pointing upwards */}
-        <div className="relative mb-4">
-          <div className="bg-card rounded-2xl p-4 shadow-lg relative">
-            <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
-              "{quote}"
-            </blockquote>
-            {/* Bubble tail pointing up */}
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
           </div>
         </div>
 
