@@ -66,12 +66,12 @@ export const MedicalTeamSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 lg:px-16" style={{ backgroundColor: '#79855F' }}>
+    <section className="py-16 px-4 lg:px-16" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="font-unna text-3xl lg:text-4xl text-white mb-4">
-            Medically-Guided, Expert-Led
+          <h2 className="font-unna text-3xl lg:text-4xl mb-4" style={{ color: '#393f2d' }}>
+            Our Medical Experts
           </h2>
         </div>
 
@@ -122,8 +122,9 @@ export const MedicalTeamSection = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-white' : 'bg-white/30'
+                    index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
                   }`}
+                  style={{ backgroundColor: index === currentIndex ? '#393f2d' : '#ddd' }}
                 />
               ))}
             </div>
@@ -136,9 +137,9 @@ export const MedicalTeamSection = () => {
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   return (
-    <div className="text-center bg-white rounded-2xl p-6 shadow-lg h-full">
-      {/* Photo */}
-      <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full overflow-hidden mx-auto mb-4">
+    <div className="bg-white rounded-2xl p-6 shadow-lg h-full relative overflow-visible">
+      {/* Photo - bigger and square with rounded corners, overlapping */}
+      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-24 h-24 lg:w-32 lg:h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white z-10">
         <img
           src={member.image}
           alt={member.name}
@@ -146,20 +147,23 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
         />
       </div>
 
-      {/* Name */}
-      <h3 className="font-unna text-lg lg:text-xl mb-1" style={{ color: '#393f2d' }}>
-        {member.name}
-      </h3>
+      {/* Content with extra top padding */}
+      <div className="pt-16 lg:pt-20 text-center">
+        {/* Name */}
+        <h3 className="font-unna text-lg lg:text-xl mb-1" style={{ color: '#393f2d' }}>
+          {member.name}
+        </h3>
 
-      {/* Title */}
-      <p className="font-satoshi font-bold text-sm mb-3" style={{ color: '#798660' }}>
-        {member.title}
-      </p>
+        {/* Title */}
+        <p className="font-satoshi font-bold text-sm mb-3" style={{ color: '#798660' }}>
+          {member.title}
+        </p>
 
-      {/* Credentials */}
-      <p className="font-satoshi text-xs leading-relaxed" style={{ color: '#434a35' }}>
-        {member.credentials}
-      </p>
+        {/* Credentials */}
+        <p className="font-satoshi text-xs leading-relaxed" style={{ color: '#434a35' }}>
+          {member.credentials}
+        </p>
+      </div>
     </div>
   );
 };

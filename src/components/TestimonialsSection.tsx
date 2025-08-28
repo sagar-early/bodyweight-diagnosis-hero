@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Testimonial {
   id: number;
@@ -50,6 +50,26 @@ const testimonials: Testimonial[] = [
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Update current index based on scroll position for mobile
+  useEffect(() => {
+    const handleScroll = (event: Event) => {
+      const container = event.target as HTMLElement;
+      if (container?.classList?.contains('testimonial-scroll')) {
+        const scrollLeft = container.scrollLeft;
+        const cardWidth = container.children[0]?.clientWidth || 320;
+        const newIndex = Math.round(scrollLeft / cardWidth);
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    const scrollContainer = document.querySelector('.testimonial-scroll');
+    scrollContainer?.addEventListener('scroll', handleScroll);
+
+    return () => {
+      scrollContainer?.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <section className="py-16 px-4 lg:px-16" style={{ backgroundColor: '#434a35' }}>
       <div className="max-w-6xl mx-auto">
@@ -65,10 +85,10 @@ export const TestimonialsSection = () => {
           <div className="relative">
             {/* Testimonial Cards Container */}
             <div 
-              className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+              className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll"
               style={{ scrollBehavior: 'smooth' }}
             >
-              {testimonials.map((testimonial, index) => (
+              {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="flex-shrink-0 w-80 snap-center">
                   <TestimonialCard testimonial={testimonial} />
                 </div>
@@ -107,9 +127,9 @@ export const TestimonialsSection = () => {
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg h-full flex flex-col border border-gray-100 relative">
-      {/* User Profile Image as Tag */}
-      <div className="absolute -top-4 -left-4 w-20 h-20 rounded-lg overflow-hidden shadow-lg border-4 border-white">
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative min-h-fit">
+      {/* User Profile Image as Tag - square with rounded corners */}
+      <div className="absolute -top-4 -left-4 w-16 h-16 rounded-lg overflow-hidden shadow-lg border-4 border-white">
         <img
           src={testimonial.image}
           alt={testimonial.name}
@@ -118,9 +138,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
       </div>
 
       {/* Content with top padding to account for image tag */}
-      <div className="pt-8">
-        {/* User Details */}
-        <div className="mb-6">
+      <div className="pt-6">
+        {/* User Details - right aligned */}
+        <div className="mb-6 text-right">
           <div className="font-satoshi font-bold text-sm mb-1" style={{ color: '#393f2d' }}>
             {testimonial.name}
           </div>
@@ -130,7 +150,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         </div>
 
         {/* Quote with stylized quotation marks */}
-        <blockquote className="font-satoshi italic text-lg leading-relaxed flex-1 relative" style={{ color: '#434a35' }}>
+        <blockquote className="font-satoshi italic text-lg leading-relaxed relative" style={{ color: '#434a35' }}>
           <span className="text-4xl absolute -left-2 -top-2 text-gray-300">"</span>
           <span className="relative z-10">{testimonial.quote}</span>
         </blockquote>

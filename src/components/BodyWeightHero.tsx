@@ -4,7 +4,6 @@ import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MovingConditionsStrip } from "./MovingConditionsStrip";
-import doctorImage from "@/assets/dr-saptarshi.jpg";
 
 export const BodyWeightHero = () => {
   const quote = "For many with a BMI over 27, the first step isn't another diet, but a diagnosis";
@@ -22,23 +21,13 @@ export const BodyWeightHero = () => {
     <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
-        {/* Beautiful Header Section - Redesigned */}
-        <div className="text-center mb-8 pt-8">
-          <div 
-            className="relative rounded-3xl p-8 shadow-2xl border-2 border-white/20 backdrop-blur-sm"
-            style={{
-              background: 'linear-gradient(135deg, #927A9E 0%, #EED6B5 52%, #9CD212 99%)',
-            }}
-          >
-            {/* Decorative elements */}
-            <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-white/30"></div>
-            <div className="absolute bottom-2 left-2 w-3 h-3 rounded-full bg-white/20"></div>
-            
-            <h1 className="font-unna text-4xl mb-3" style={{ color: '#393f2d' }}>
+        {/* Simple Header Section */}
+        <div className="text-center mb-4 pt-8">
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+            <h1 className="font-unna text-3xl mb-2" style={{ color: '#393f2d' }}>
               Weight Diagnosis Plan
             </h1>
-            <div className="h-px bg-white/30 mx-8 mb-3"></div>
-            <h3 className="font-satoshi text-lg" style={{ color: '#434a35' }}>
+            <h3 className="font-satoshi text-base" style={{ color: '#798660' }}>
               Weight loss starts with a diagnosis
             </h3>
           </div>
@@ -71,7 +60,7 @@ export const BodyWeightHero = () => {
         </div>
 
         {/* Speech Bubble pointing upwards */}
-        <div className="relative mb-6">
+        <div className="relative mb-4">
           <div className="bg-card rounded-2xl p-4 shadow-lg relative">
             <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center">
               "{quote}"
@@ -81,8 +70,8 @@ export const BodyWeightHero = () => {
           </div>
         </div>
 
-        {/* Moving Conditions Strip with more spacing above */}
-        <div className="mt-6">
+        {/* Moving Conditions Strip with spacing */}
+        <div className="mb-4">
           <MovingConditionsStrip />
         </div>
 
@@ -95,30 +84,20 @@ export const BodyWeightHero = () => {
         {/* Left Column */}
         <div className="w-[55%] flex flex-col justify-center px-12 xl:px-16">
           <div className="max-w-2xl">
-            <div 
-              className="relative rounded-3xl p-8 shadow-2xl border-2 border-white/20 backdrop-blur-sm mb-8"
-              style={{
-                background: 'linear-gradient(135deg, #927A9E 0%, #EED6B5 52%, #9CD212 99%)',
-              }}
-            >
-              {/* Decorative elements */}
-              <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-white/30"></div>
-              <div className="absolute bottom-3 left-3 w-4 h-4 rounded-full bg-white/20"></div>
-              
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 flex-shrink-0">
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-8">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-10 h-10 flex-shrink-0">
                   <img
                     src="/lovable-uploads/dcdad922-7ea1-4d7e-be18-90f62ced083f.png"
                     alt="Weight Diagnosis Plan"
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h1 className="font-unna text-4xl xl:text-5xl" style={{ color: '#393f2d' }}>
+                <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#393f2d' }}>
                   Weight Diagnosis Plan
                 </h1>
               </div>
-              <div className="h-px bg-white/30 mx-4 mb-4"></div>
-              <h3 className="font-satoshi text-xl" style={{ color: '#434a35' }}>
+              <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
                 Weight loss starts with a diagnosis
               </h3>
             </div>
@@ -136,8 +115,8 @@ export const BodyWeightHero = () => {
               Start Your Diagnosis Journey
             </Button>
 
-            {/* Moving Conditions Strip for Desktop with more spacing */}
-            <div className="mt-16 mb-4">
+            {/* Moving Conditions Strip for Desktop with spacing */}
+            <div className="mt-12 mb-4">
               <div className="w-full max-w-lg">
                 <MovingConditionsStrip />
               </div>

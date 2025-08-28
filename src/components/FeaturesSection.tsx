@@ -1,3 +1,4 @@
+
 import { StarRating } from "./StarRating";
 import { Button } from "./ui/button";
 
@@ -6,6 +7,7 @@ interface Feature {
   title: string;
   tag: string;
   bullets: string[];
+  image: string;
 }
 
 const features: Feature[] = [
@@ -16,7 +18,8 @@ const features: Feature[] = [
     bullets: [
       "Find the real reason for your weight gain.",
       "Easy sample collection from your home."
-    ]
+    ],
+    image: "/lovable-uploads/5406704c-cba5-4b09-84c3-70707de745c2.png"
   },
   {
     id: 2,
@@ -25,7 +28,8 @@ const features: Feature[] = [
     bullets: [
       "Understand the 'why' behind your weight.",
       "A personal video call with our doctor."
-    ]
+    ],
+    image: "/lovable-uploads/ea7fc330-9e2f-4f3c-aa02-4e6478f3e341.png"
   },
   {
     id: 3,
@@ -34,105 +38,32 @@ const features: Feature[] = [
     bullets: [
       "A diet plan made just for you.",
       "Turns your health report into daily meals."
-    ]
+    ],
+    image: "/lovable-uploads/b181c7c1-696d-4a00-9b73-89cafe154488.png"
   }
 ];
 
-const FeatureBanner = ({ featureId, tag }: { featureId: number; tag: string }) => {
-  const bannerImages = {
-    1: (
-      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-primary/20 rounded-lg relative overflow-visible">
-        {/* Feature Tag - positioned to overflow outside */}
-        <div 
-          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
-          style={{ backgroundColor: '#393f2d' }}
-        >
-          {tag}
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg"></div>
-        <div className="relative flex items-center justify-between w-full px-4 h-full">
-          <div className="flex items-center">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
-            <span className="text-xs font-satoshi text-primary font-medium">Professional</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-xs font-satoshi text-primary font-medium mr-3">Comfortable</span>
-            <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
-            </div>
-          </div>
-        </div>
+const FeatureBanner = ({ feature }: { feature: Feature }) => {
+  return (
+    <div className="w-full h-32 lg:h-48 rounded-lg relative overflow-visible">
+      {/* Feature Tag - positioned to overflow outside */}
+      <div 
+        className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
+        style={{ backgroundColor: '#393f2d' }}
+      >
+        {feature.tag}
       </div>
-    ),
-    2: (
-      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg relative overflow-visible">
-        {/* Feature Tag - positioned to overflow outside */}
-        <div 
-          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
-          style={{ backgroundColor: '#393f2d' }}
-        >
-          {tag}
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg"></div>
-        <div className="relative flex items-center justify-between w-full px-4 h-full">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center mr-3">
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <span className="text-xs font-satoshi text-primary font-medium">Patient</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-xs font-satoshi text-primary font-medium mr-3">Doctor</span>
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
-          </div>
-        </div>
+      
+      {/* Feature Image */}
+      <div className="w-full h-full rounded-lg overflow-hidden">
+        <img
+          src={feature.image}
+          alt={feature.title}
+          className="w-full h-full object-cover"
+        />
       </div>
-    ),
-    3: (
-      <div className="w-full h-32 lg:h-48 bg-gradient-to-r from-accent/20 to-secondary/20 rounded-lg relative overflow-visible">
-        {/* Feature Tag - positioned to overflow outside */}
-        <div 
-          className="absolute -top-2 -left-4 px-4 py-2 rounded-lg font-satoshi font-medium shadow-lg z-10 text-white text-base"
-          style={{ backgroundColor: '#393f2d' }}
-        >
-          {tag}
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-green-50 rounded-lg"></div>
-        <div className="relative flex items-center justify-between w-full px-4 h-full">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center mr-3">
-              <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-            <span className="text-xs font-satoshi text-primary font-medium">Nutritionist</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-xs font-satoshi text-primary font-medium mr-3">Plan</span>
-            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  };
-
-  return bannerImages[featureId as keyof typeof bannerImages] || null;
+    </div>
+  );
 };
 
 export const FeaturesSection = () => {
@@ -145,7 +76,7 @@ export const FeaturesSection = () => {
     <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-2">
+        <div className="text-center mb-4">
           <p className="font-satoshi text-xs text-secondary mb-1">Weight Diagnosis Plan</p>
           <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4">
             The First Step to Medically-Guided Weight Loss
@@ -166,13 +97,13 @@ export const FeaturesSection = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden space-y-8">
+        <div className="lg:hidden space-y-6">
           {features.map((feature) => (
             <div key={feature.id} className="flex flex-col gap-4">
               {/* Banner Image with Tag */}
-              <FeatureBanner featureId={feature.id} tag={feature.tag} />
+              <FeatureBanner feature={feature} />
 
-              {/* Content - No heading, just bullet points */}
+              {/* Content - bullet points only */}
               <div className="space-y-2">
                 {feature.bullets.map((bullet, index) => (
                   <div key={index} className="flex items-start gap-3">
@@ -193,10 +124,10 @@ export const FeaturesSection = () => {
             <div key={feature.id} className={`flex items-center gap-12 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
               {/* Image */}
               <div className="flex-1">
-                <FeatureBanner featureId={feature.id} tag={feature.tag} />
+                <FeatureBanner feature={feature} />
               </div>
 
-              {/* Content - No heading, just bullet points */}
+              {/* Content - bullet points only */}
               <div className="flex-1">
                 <div className="space-y-4">
                   {feature.bullets.map((bullet, bulletIndex) => (

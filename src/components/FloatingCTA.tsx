@@ -6,23 +6,23 @@ interface FloatingCTAProps {
 }
 
 export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isCircular, setIsCircular] = useState(false);
+  const [scrollState, setScrollState] = useState<'semicircle' | 'circle' | 'hidden'>('semicircle');
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const featuresSection = document.querySelector('[data-section="features"]');
+      const featuresTop = featuresSection?.getBoundingClientRect().top || 0;
       
-      // Show when user is on first page (hero section)
-      if (scrollY <= 150) {
-        setIsVisible(true);
-        setIsCircular(false);
-      } else if (scrollY > 150 && scrollY <= window.innerHeight * 0.8) {
-        setIsVisible(true);
-        setIsCircular(true);
+      // Hide when user scrolls very little (100-200px)
+      if (scrollY <= 200) {
+        setScrollState('semicircle');
+      } else if (featuresTop > 100) {
+        // Show circle when between medical conditions and features section
+        setScrollState('circle');
       } else {
-        setIsVisible(false);
-        setIsCircular(false);
+        setScrollState('hidden');
       }
     };
 
@@ -31,32 +31,41 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
   }, []);
 
   const handleClick = () => {
-    // Scroll to next section
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    // Scroll to features section
+    const featuresSection = document.querySelector('[data-section="features"]');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  if (!isVisible) return null;
+  if (scrollState === 'hidden') return null;
+
+  const isCircle = scrollState === 'circle';
 
   return (
     <div 
-      className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 ${className} animate-pulse-gentle cursor-pointer z-50 transition-all duration-500`}
+      className={`fixed transition-all duration-300 ease-in-out ${className} cursor-pointer z-40`}
       style={{
         background: 'linear-gradient(180deg, rgba(146, 122, 158, 0.8) 0%, rgba(238, 214, 181, 0.8) 70%, rgba(156, 210, 18, 0.8) 100%)',
-        borderRadius: isCircular ? '50%' : '50% 50% 0 0',
-        width: isCircular ? '120px' : '90%',
-        height: isCircular ? '120px' : '25vh',
-        maxWidth: isCircular ? '120px' : '400px',
-        opacity: 0.8
+        borderRadius: isCircle ? '50%' : '50% 50% 0 0',
+        width: isCircle ? '140px' : '90%',
+        height: isCircle ? '140px' : '25vh',
+        maxWidth: isCircle ? '140px' : '400px',
+        opacity: 0.8,
+        bottom: isCircle ? 'auto' : '16px',
+        left: '50%',
+        transform: isCircle ? 'translate(-50%, -50%)' : 'translateX(-50%)',
+        top: isCircle ? '50%' : 'auto',
+        position: isCircle ? 'absolute' : 'fixed'
       }}
       onClick={handleClick}
     >
       <div className="h-full flex flex-col items-center justify-center text-center p-4">
-        {/* Simplified Content */}
         <div style={{ color: '#393f2d' }}>
-          <p className={`font-satoshi font-bold ${isCircular ? 'text-sm' : 'text-xl'} mb-1`}>
+          <p className={`font-satoshi font-bold ${isCircle ? 'text-sm' : 'text-xl'} mb-1`}>
             20% weight loss in 6 months
           </p>
-          <p className={`font-satoshi font-semibold ${isCircular ? 'text-xs' : 'text-lg'}`}>
+          <p className={`font-satoshi font-semibold ${isCircle ? 'text-xs' : 'text-lg'}`}>
             Start now!
           </p>
         </div>

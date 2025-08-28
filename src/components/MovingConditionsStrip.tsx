@@ -36,11 +36,11 @@ const metabolicConditions = [
 
 export const MovingConditionsStrip = () => {
   return (
-    <div className="w-full mb-6">
-      {/* Complete section with green background */}
+    <div className="w-full mb-4">
+      {/* Complete section with updated background color */}
       <div 
         className="rounded-lg p-4"
-        style={{ backgroundColor: '#9CD212' }}
+        style={{ backgroundColor: '#434a35' }}
       >
         {/* Headline */}
         <h3 className="font-satoshi text-sm lg:text-base text-white mb-3 text-center">
@@ -49,7 +49,7 @@ export const MovingConditionsStrip = () => {
 
         {/* Moving Strip */}
         <div className="overflow-hidden rounded-lg">
-          <div className="flex animate-scroll-fast">
+          <div className="flex animate-scroll-faster">
             {/* First set */}
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
