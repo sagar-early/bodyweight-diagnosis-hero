@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 interface FormData {
   name: string;
@@ -11,6 +11,7 @@ interface FormData {
 export const GetCallbackSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [state, setState] = useState<'compact' | 'form' | 'success'>('compact');
+  const [hasSubmittedOnce, setHasSubmittedOnce] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     mobile: '',
@@ -19,13 +20,15 @@ export const GetCallbackSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (hasSubmittedOnce) return; // Don't show if user has already submitted
+      
       const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       setIsVisible(scrollPercentage >= 60);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasSubmittedOnce]);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -34,6 +37,7 @@ export const GetCallbackSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setState('success');
+    setHasSubmittedOnce(true);
     
     // Auto-hide after 5 seconds
     setTimeout(() => {
@@ -43,10 +47,14 @@ export const GetCallbackSection = () => {
     }, 5000);
   };
 
+  const handleClose = () => {
+    setState('compact');
+  };
+
   if (!isVisible) return null;
 
   return (
-    <div className="fixed left-0 right-0 z-40 transition-all duration-400 ease-in-out" style={{ bottom: '80px' }}>
+    <div className="fixed left-0 right-0 z-40 transition-all duration-400 ease-in-out bottom-0">
       {state === 'compact' && (
         <div 
           className="px-6 py-3 shadow-2xl cursor-pointer"
@@ -73,7 +81,15 @@ export const GetCallbackSection = () => {
       )}
 
       {state === 'form' && (
-        <div className="bg-white px-6 py-6 shadow-2xl">
+        <div className="bg-white px-6 py-6 shadow-2xl relative">
+          {/* Close button */}
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+          >
+            <X className="w-5 h-5" style={{ color: '#393f2d' }} />
+          </button>
+
           <div className="max-w-2xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -150,7 +166,7 @@ export const GetCallbackSection = () => {
                 Thank you!
               </h3>
               <p className="font-satoshi" style={{ color: '#393f2d' }}>
-                We'll call you in your preferred slot.
+                One of our Nutrition Expert will call you in your preferred slot.
               </p>
             </div>
           </div>

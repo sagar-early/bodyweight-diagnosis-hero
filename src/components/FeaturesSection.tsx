@@ -64,11 +64,6 @@ const FeatureBanner = ({ feature }: { feature: Feature }) => {
 };
 
 export const FeaturesSection = () => {
-  const handleBookTestClick = () => {
-    // Scroll to contact or booking section
-    console.log("Book test clicked");
-  };
-
   return (
     <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
@@ -141,40 +136,68 @@ export const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Hide CTA Section on Mobile */}
-        <div className="hidden lg:block mt-8 p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
-          <div className="text-center">
-            <h3 className="font-unna text-2xl lg:text-3xl text-foreground mb-4">
-              Ready to Start Your Diagnosis?
-            </h3>
-            <p className="font-satoshi text-foreground mb-6 text-lg">
-              Book your comprehensive metabolic test today and take the first step towards sustainable weight loss.
-            </p>
-            
-            {/* Pricing */}
-            <div className="bg-white rounded-xl p-6 mb-6 inline-block shadow-lg">
-              <div className="flex items-center justify-center gap-4">
-                <div className="text-center">
-                  <p className="font-satoshi text-2xl font-bold text-primary">₹2,999</p>
-                  <p className="font-satoshi text-sm text-muted-foreground line-through">₹4,999</p>
+        {/* New CTA Section - Moved from bottom */}
+        <div className="hidden lg:block mt-16">
+          <div 
+            className="relative rounded-2xl shadow-lg p-8 text-center"
+            style={{
+              background: 'linear-gradient(135deg, #927A9E 0%, #EED6B5 52%, #9CD212 99%)'
+            }}
+          >
+            {/* Header Text */}
+            <div className="mb-6">
+              <h2 className="font-unna text-3xl lg:text-4xl mb-4" style={{ color: '#393f2d' }}>
+                Ready to Take the First Step?
+              </h2>
+              <p className="font-satoshi text-lg" style={{ color: '#434a35' }}>
+                This is your starting point to medically-guided weight loss
+              </p>
+            </div>
+
+            {/* Inner White Card with reduced padding */}
+            <div className="bg-white rounded-xl shadow-xl p-4 mb-6 max-w-2xl mx-auto">
+              <div className="lg:flex lg:items-center lg:justify-between lg:gap-6">
+                {/* Left Side - Pricing */}
+                <div className="lg:flex-1 mb-4 lg:mb-0">
+                  <div className="font-satoshi font-bold text-3xl lg:text-4xl mb-2" style={{ color: '#393f2d' }}>
+                    ₹1,799
+                  </div>
+                  <div className="font-satoshi text-base line-through" style={{ color: '#939f79' }}>
+                    MRP ₹4,999
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="font-satoshi font-semibold text-foreground">Complete Diagnosis Package</p>
-                  <p className="font-satoshi text-sm text-secondary">35+ Metabolic Markers + Doctor Consultation</p>
+
+                {/* Right Side - Package Details */}
+                <div className="lg:flex-1 text-left">
+                  <h3 className="font-unna text-lg lg:text-xl mb-3" style={{ color: '#393f2d' }}>
+                    The Early™ Clarity Kit
+                  </h3>
+                  <div className="space-y-2 font-satoshi text-sm" style={{ color: '#434a35' }}>
+                    <div className="flex items-center gap-2">
+                      <span style={{ color: '#9CD212' }}>✓</span>
+                      <span>Full Body Blood Test</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span style={{ color: '#9CD212' }}>✓</span>
+                      <span>Doctor & Nutritionist Consultation</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span style={{ color: '#9CD212' }}>✓</span>
+                      <span>1-Week Personal Diet Plan</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Button inside white card */}
+                <div className="lg:flex-1 mt-4 lg:mt-0 lg:text-center">
+                  <Button 
+                    className="font-satoshi font-bold text-white text-base px-6 py-3 rounded-full hover:transform hover:-translate-y-1 hover:shadow-xl transition-all duration-200 w-full lg:w-auto"
+                    style={{ backgroundColor: '#393f2d' }}
+                  >
+                    Start My Diagnosis
+                  </Button>
                 </div>
               </div>
-            </div>
-            
-            <div>
-              <Button 
-                variant="medical" 
-                size="lg" 
-                className="text-lg px-8 py-6"
-                onClick={handleBookTestClick}
-                id="book-test-cta"
-              >
-                Book Your Test Now
-              </Button>
             </div>
           </div>
         </div>

@@ -74,14 +74,14 @@ export const MovingConditionsStrip = () => {
 
         {/* Moving Strip */}
         <div className="overflow-hidden rounded-lg">
-          <div className="flex animate-scroll-faster">
+          <div className="flex animate-scroll-ultra-fast">
             {/* First set */}
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
               return (
-                <div key={condition.id} className="flex flex-col items-center justify-center mx-6 flex-shrink-0 min-w-[120px]">
-                  <div className="w-12 h-12 flex items-center justify-center mb-2">
-                    <IconComponent className="w-8 h-8 text-white" />
+                <div key={condition.id} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-3">
+                    <IconComponent className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
                   </div>
                   <span className="font-satoshi text-xs text-white whitespace-nowrap text-center leading-tight">
                     {condition.name}
@@ -93,9 +93,9 @@ export const MovingConditionsStrip = () => {
             {metabolicConditions.map((condition) => {
               const IconComponent = condition.icon;
               return (
-                <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-6 flex-shrink-0 min-w-[120px]">
-                  <div className="w-12 h-12 flex items-center justify-center mb-2">
-                    <IconComponent className="w-8 h-8 text-white" />
+                <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-3">
+                    <IconComponent className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
                   </div>
                   <span className="font-satoshi text-xs text-white whitespace-nowrap text-center leading-tight">
                     {condition.name}

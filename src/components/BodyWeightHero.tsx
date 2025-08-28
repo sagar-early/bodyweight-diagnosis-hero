@@ -21,13 +21,13 @@ export const BodyWeightHero = () => {
     <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
-        {/* Simple Header Section */}
-        <div className="text-center mb-6 pt-8">
+        {/* Simple Header Section with reduced padding */}
+        <div className="text-center mb-4 pt-4">
           <div className="px-4">
             <h1 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
               Weight Diagnosis Plan
             </h1>
-            <div className="w-16 h-px mx-auto mb-3" style={{ backgroundColor: '#393f2d' }}></div>
+            <div className="w-16 h-px mx-auto mb-2" style={{ backgroundColor: '#393f2d' }}></div>
             <h3 className="font-satoshi text-base" style={{ color: '#798660' }}>
               Weight loss starts with a diagnosis
             </h3>
@@ -80,12 +80,12 @@ export const BodyWeightHero = () => {
         <FloatingCTA />
       </div>
 
-      {/* Desktop Layout */}
+      {/* Desktop Layout - New Structure */}
       <div className="hidden lg:flex min-h-screen">
-        {/* Left Column - 75% width */}
-        <div className="w-[75%] flex flex-col justify-center px-12 xl:px-16">
-          <div className="max-w-2xl mx-auto">
-            {/* Non-card header with line separator */}
+        {/* Left Column - 50% width */}
+        <div className="w-1/2 flex flex-col justify-center px-12 xl:px-16">
+          <div className="max-w-2xl">
+            {/* Weight Diagnosis Plan - Non-card with line separator */}
             <div className="text-center mb-8">
               <div className="flex items-center gap-4 mb-4 justify-center">
                 <div className="w-10 h-10 flex-shrink-0">
@@ -105,11 +105,11 @@ export const BodyWeightHero = () => {
               </h3>
             </div>
 
-            {/* Quote bubble pointing down from doctor */}
+            {/* Moving Conditions Strip for Desktop */}
             <div className="mb-8">
-              <DoctorSpeechBubble quote={desktopQuote} layout="desktop" className="w-full max-w-lg mx-auto" />
+              <MovingConditionsStrip />
             </div>
-            
+
             <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
               Lose up to 20% of your body weight.
             </p>
@@ -124,19 +124,45 @@ export const BodyWeightHero = () => {
                 Start Your Diagnosis Journey
               </Button>
             </div>
-
-            {/* Moving Conditions Strip for Desktop */}
-            <div className="mb-8">
-              <div className="w-full max-w-3xl mx-auto">
-                <MovingConditionsStrip />
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Right Column - 25% width */}
-        <div className="w-[25%] flex flex-col items-center justify-center p-8">
-          {/* This space will be used by the transformed floating CTA */}
+        {/* Right Column - 50% width */}
+        <div className="w-1/2 flex flex-col items-center justify-center p-8">
+          {/* Doctor Section */}
+          <div className="flex flex-col items-center">
+            {/* Doctor Image */}
+            <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
+              <img
+                src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
+                alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Credentials */}
+            <div className="text-center mb-6">
+              <div className="font-satoshi font-bold text-foreground text-lg">
+                Dr. Saptarshi Bhattacharya
+              </div>
+              <div className="font-satoshi text-sm" style={{ color: '#000000' }}>
+                Chief Medical Advisor, EarlyFit
+              </div>
+              <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+                <p>DM Endocrinology (AIIMS)</p>
+                <p>MD (MAMC) & Apollo Hospital</p>
+              </div>
+            </div>
+
+            {/* Speech Bubble pointing down from doctor */}
+            <div className="relative bg-card rounded-2xl p-6 shadow-lg max-w-md">
+              <blockquote className="font-unna text-lg text-foreground leading-relaxed">
+                "{desktopQuote}"
+              </blockquote>
+              {/* Bubble tail pointing up to doctor */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

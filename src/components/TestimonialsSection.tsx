@@ -71,21 +71,21 @@ export const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="py-8 px-4 lg:px-16" style={{ backgroundColor: '#E8E9E1' }}>
+    <section className="py-6 px-4 lg:px-16" style={{ backgroundColor: '#798660' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="font-unna text-3xl lg:text-4xl mb-4 text-white">
             Real Stories, Real Results
           </h2>
         </div>
 
-        {/* Mobile Layout */}
+        {/* Mobile Layout with increased spacing */}
         <div className="lg:hidden">
           <div className="relative">
-            {/* Testimonial Cards Container */}
+            {/* Testimonial Cards Container with increased gap for image visibility */}
             <div 
-              className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll"
+              className="flex gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-4"
               style={{ scrollBehavior: 'smooth' }}
             >
               {testimonials.map((testimonial) => (
@@ -127,9 +127,9 @@ export const TestimonialsSection = () => {
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible">
-      {/* User Profile Image as Tag - bigger square with rounded corners */}
-      <div className="absolute -top-6 -left-6 w-20 h-20 lg:w-24 lg:h-24 rounded-xl overflow-hidden shadow-lg border-2 border-white">
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible min-h-fit">
+      {/* User Profile Image as Tag - bigger square with rounded corners and proper mobile spacing */}
+      <div className="absolute -top-8 -left-8 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white">
         <img
           src={testimonial.image}
           alt={testimonial.name}
@@ -138,7 +138,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
       </div>
 
       {/* Content with top padding to account for image tag */}
-      <div className="pt-8 lg:pt-10">
+      <div className="pt-12 lg:pt-14">
         {/* User Details - right aligned */}
         <div className="mb-4 text-right">
           <div className="font-satoshi font-bold text-sm mb-1" style={{ color: '#393f2d' }}>

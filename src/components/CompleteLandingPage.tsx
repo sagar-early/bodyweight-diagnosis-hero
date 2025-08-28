@@ -5,7 +5,6 @@ import { TestimonialsSection } from "./TestimonialsSection";
 import { MedicalTeamSection } from "./MedicalTeamSection";
 import { AsSeenInSection } from "./AsSeenInSection";
 import { StickyFooterCTA } from "./StickyFooterCTA";
-import { FinalCTASection } from "./FinalCTASection";
 import { FAQSection } from "./FAQSection";
 import { GetCallbackSection } from "./GetCallbackSection";
 
@@ -22,8 +21,8 @@ export const CompleteLandingPage = () => {
         <FeaturesSection />
       </div>
       
-      {/* Testimonials Section - Background 434a35 */}
-      <div style={{ backgroundColor: '#434a35' }}>
+      {/* Testimonials Section - Background #798660 */}
+      <div style={{ backgroundColor: '#798660' }}>
         <TestimonialsSection />
       </div>
       
@@ -40,11 +39,6 @@ export const CompleteLandingPage = () => {
       {/* As Featured In Section - Background FAF8F1 */}
       <div style={{ backgroundColor: '#FAF8F1' }}>
         <AsSeenInSection />
-      </div>
-
-      {/* Final CTA Section - Desktop Only */}
-      <div className="hidden lg:block" style={{ backgroundColor: '#FAF8F1' }}>
-        <FinalCTASection />
       </div>
       
       {/* Sticky Footer CTA (Mobile Only) */}

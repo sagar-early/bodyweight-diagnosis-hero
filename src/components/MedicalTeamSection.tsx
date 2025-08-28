@@ -66,20 +66,20 @@ export const MedicalTeamSection = () => {
   };
 
   return (
-    <section className="py-8 px-4 lg:px-16" style={{ backgroundColor: '#FAF8F1' }}>
+    <section className="py-6 px-4 lg:px-16" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="font-unna text-3xl lg:text-4xl mb-4" style={{ color: '#393f2d' }}>
             Our Medical Experts
           </h2>
         </div>
 
-        {/* Mobile Carousel */}
+        {/* Mobile Carousel with increased spacing */}
         <div className="lg:hidden">
           <div className="relative">
             <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex gap-4 pb-4">
+              <div className="flex gap-8 pb-4 px-4">
                 {teamMembers.map((member) => (
                   <div key={member.id} className="flex-shrink-0 w-64">
                     <TeamMemberCard member={member} />
@@ -138,8 +138,8 @@ export const MedicalTeamSection = () => {
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg h-full relative overflow-visible">
-      {/* Photo - bigger and square with rounded corners, overlapping more on mobile */}
-      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-28 h-28 lg:w-36 lg:h-36 rounded-xl overflow-hidden shadow-lg border-4 border-white z-10">
+      {/* Photo - bigger and square with rounded corners, overlapping more on mobile with proper spacing */}
+      <div className="absolute -top-12 -left-8 w-32 h-32 lg:w-40 lg:h-40 rounded-xl overflow-hidden shadow-lg border-4 border-white z-10">
         <img
           src={member.image}
           alt={member.name}
@@ -148,7 +148,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       </div>
 
       {/* Content with extra top padding */}
-      <div className="pt-20 lg:pt-24 text-center">
+      <div className="pt-24 lg:pt-28 text-center">
         {/* Name */}
         <h3 className="font-unna text-lg lg:text-xl mb-1" style={{ color: '#393f2d' }}>
           {member.name}
