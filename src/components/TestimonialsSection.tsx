@@ -56,19 +56,38 @@ export const TestimonialsSection = () => {
       const container = event.target as HTMLElement;
       if (container?.classList?.contains('testimonial-scroll')) {
         const scrollLeft = container.scrollLeft;
-        const cardWidth = container.children[0]?.clientWidth || 320;
-        const newIndex = Math.round(scrollLeft / cardWidth);
-        setCurrentIndex(newIndex);
+        // Adjust cardWidth to include the gap for more accurate index calculation
+        const card = container.children[0] as HTMLElement;
+        const cardWidth = card?.offsetWidth || 0;
+        const gap = parseInt(window.getComputedStyle(container).gap) || 24; // 24px is gap-6
+        const totalCardWidth = cardWidth + gap;
+        const newIndex = Math.round(scrollLeft / totalCardWidth);
+        
+        if (newIndex !== currentIndex) {
+          setCurrentIndex(newIndex);
+        }
       }
     };
 
     const scrollContainer = document.querySelector('.testimonial-scroll');
-    scrollContainer?.addEventListener('scroll', handleScroll);
+    scrollContainer?.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       scrollContainer?.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [currentIndex]); // Add currentIndex to dependency array
+
+  // Function to scroll to the selected testimonial
+  const scrollToTestimonial = (index: number) => {
+    const scrollContainer = document.querySelector('.testimonial-scroll');
+    if (scrollContainer) {
+      const card = scrollContainer.children[0] as HTMLElement;
+      const cardWidth = card?.offsetWidth || 0;
+      const gap = parseInt(window.getComputedStyle(scrollContainer).gap) || 24;
+      const scrollPosition = index * (cardWidth + gap);
+      scrollContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="py-6 px-4 lg:px-16" style={{ backgroundColor: '#798660' }}>
@@ -80,12 +99,12 @@ export const TestimonialsSection = () => {
           </h2>
         </div>
 
-        {/* Mobile Layout with increased spacing */}
+        {/* Mobile Layout with increased spacing and padding fix */}
         <div className="lg:hidden">
           <div className="relative">
-            {/* Testimonial Cards Container with increased gap for image visibility */}
-            <div 
-              className="flex gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-4"
+            {/* Testimonial Cards Container with top padding and adjusted gap */}
+            <div
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-4 pt-10" // <-- CHANGE IS HERE
               style={{ scrollBehavior: 'smooth' }}
             >
               {testimonials.map((testimonial) => (
@@ -100,7 +119,7 @@ export const TestimonialsSection = () => {
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => scrollToTestimonial(index)} // <-- UPDATED to scroll
                   className={`w-3 h-3 rounded-full transition-colors ${
                     index === currentIndex ? 'bg-white' : 'bg-white/30'
                   }`}
@@ -110,9 +129,9 @@ export const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Desktop Layout */}
+        {/* Desktop Layout with increased gap */}
         <div className="hidden lg:block">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-10"> {/* <-- CHANGE IS HERE */}
             {testimonials.slice(0, 3).map((testimonial) => (
               <div key={testimonial.id}>
                 <TestimonialCard testimonial={testimonial} />
@@ -125,11 +144,12 @@ export const TestimonialsSection = () => {
   );
 };
 
+// The TestimonialCard component remains the same
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible min-h-fit">
       {/* User Profile Image as Tag - bigger square with rounded corners and proper mobile spacing */}
-      <div className="absolute -top-8 -left-8 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white">
+      <div className="absolute -top-8 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white">
         <img
           src={testimonial.image}
           alt={testimonial.name}
