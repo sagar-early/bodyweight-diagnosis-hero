@@ -62,7 +62,7 @@ export const BodyWeightHero = () => {
             </p>
             <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
               <p>DM Endocrinology (AIIMS)</p>
-              <p>MD (MAMC), MBBS</p>
+              <p>MD (MAMC) & Apollo Hospital</p>
             </div>
           </div>
         </div>
@@ -86,14 +86,10 @@ export const BodyWeightHero = () => {
               {/* Weight Diagnosis Plan - Non-card with line separator, NO ICON */}
               <div className="text-center mb-8">
                 <div className="flex items-center gap-4 mb-4 justify-center">
-                  <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
+                  <h2 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
                     Weight Diagnosis Plan
-                  </h1>
+                  </h2>
                 </div>
-                <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
-                <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
-                  Weight loss starts with a diagnosis
-                </h3>
               </div>
 
               {/* Moving Conditions Strip for Desktop - moved to hero */}
@@ -142,7 +138,7 @@ export const BodyWeightHero = () => {
                 </div>
                 <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
                   <p>DM Endocrinology (AIIMS)</p>
-                  <p>MD (MAMC) & Apollo Hospital</p>
+                  <p>MD (MAMC), MBBS</p>
                 </div>
               </div>
 
