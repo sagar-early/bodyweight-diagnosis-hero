@@ -19,8 +19,8 @@ const features: Feature[] = [
     bullets: [
       "Find the real reason for your weight gain."
     ],
-    desktopImage: "/lovable-uploads/5406704c-cba5-4b09-84c3-70707de745c2.png",
-    mobileImage: "/lovable-uploads/5406704c-cba5-4b09-84c3-70707de745c2.png"
+    desktopImage: "/lovable-uploads/feature-desktop.png",
+    mobileImage: "/lovable-uploads/feature-mobile.png"
   },
   {
     id: 2,
@@ -29,8 +29,8 @@ const features: Feature[] = [
     bullets: [
       "Understand the 'why' behind your weight."
     ],
-    desktopImage: "/lovable-uploads/ea7fc330-9e2f-4f3c-aa02-4e6478f3e341.png",
-    mobileImage: "/lovable-uploads/ea7fc330-9e2f-4f3c-aa02-4e6478f3e341.png"
+    desktopImage: "/lovable-uploads/feature-desktop.png",
+    mobileImage: "/lovable-uploads/feature-mobile.png"
   },
   {
     id: 3,
@@ -39,8 +39,8 @@ const features: Feature[] = [
     bullets: [
       "A diet plan made just for you."
     ],
-    desktopImage: "/lovable-uploads/b181c7c1-696d-4a00-9b73-89cafe154488.png",
-    mobileImage: "/lovable-uploads/b181c7c1-696d-4a00-9b73-89cafe154488.png"
+    desktopImage: "/lovable-uploads/feature-desktop.png",
+    mobileImage: "/lovable-uploads/feature-mobile.png"
   }
 ];
 
