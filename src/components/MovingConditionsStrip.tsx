@@ -80,7 +80,7 @@ export const MovingConditionsStrip = () => {
             {/* First set */}
             {metabolicConditions.map((condition) => (
               <div key={condition.id} className="flex flex-col items-center justify-center mx-1 flex-shrink-0 min-w-[70px]">
-                <div className="w-12 h-12 flex items-center justify-center mb-1 rounded-lg overflow-hidden bg-white">
+                <div className="w-12 h-12 flex items-center justify-center mb-1 rounded-lg overflow-hidden">
                   <img 
                     src={condition.image} 
                     alt={condition.name}
@@ -95,7 +95,7 @@ export const MovingConditionsStrip = () => {
             {/* Duplicate set for seamless loop */}
             {metabolicConditions.map((condition) => (
               <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-1 flex-shrink-0 min-w-[70px]">
-                <div className="w-12 h-12 flex items-center justify-center mb-1 rounded-lg overflow-hidden bg-white">
+                <div className="w-12 h-12 flex items-center justify-center mb-1 rounded-lg overflow-hidden">
                   <img 
                     src={condition.image} 
                     alt={condition.name}
@@ -112,7 +112,7 @@ export const MovingConditionsStrip = () => {
       </div>
 
       {/* Desktop version - Full width strip with padding for icons only */}
-      <div className="hidden lg:block py-2">
+      <div className="hidden lg:block py-4" style={{ backgroundColor: '#798660' }}>
         {/* Headline */}
         <h3 className="font-satoshi text-base text-white mb-4 text-center">
           Medical Conditions That Could Possibly Be Behind Your Weight Gain
@@ -124,7 +124,7 @@ export const MovingConditionsStrip = () => {
             {/* First set */}
             {metabolicConditions.map((condition) => (
               <div key={condition.id} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">
-                <div className="w-16 h-16 flex items-center justify-center mb-2 rounded-lg overflow-hidden bg-white">
+                <div className="w-16 h-16 flex items-center justify-center mb-2 rounded-lg overflow-hidden">
                   <img 
                     src={condition.image} 
                     alt={condition.name}
@@ -139,7 +139,7 @@ export const MovingConditionsStrip = () => {
             {/* Duplicate set for seamless loop */}
             {metabolicConditions.map((condition) => (
               <div key={`duplicate-${condition.id}`} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">
-                <div className="w-16 h-16 flex items-center justify-center mb-2 rounded-lg overflow-hidden bg-white">
+                <div className="w-16 h-16 flex items-center justify-center mb-2 rounded-lg overflow-hidden">
                   <img 
                     src={condition.image} 
                     alt={condition.name}

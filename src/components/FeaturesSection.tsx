@@ -57,11 +57,14 @@ const FeatureBanner = ({ feature }: { feature: Feature }) => {
       
       {/* Feature Image */}
       <div className="w-full h-full rounded-lg overflow-hidden">
-        <img
-          src={window.innerWidth >= 1024 ? feature.desktopImage : feature.mobileImage}
-          alt={feature.title}
-          className="w-full h-full object-cover"
-        />
+        <picture>
+          <source media="(min-width: 1024px)" srcSet="/lovable-uploads/des.png" />
+          <img
+            src="/lovable-uploads/mob.png"
+            alt={feature.title}
+            className="w-full h-full object-cover"
+          />
+        </picture>
       </div>
     </div>
   );

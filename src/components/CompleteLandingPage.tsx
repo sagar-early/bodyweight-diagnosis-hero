@@ -11,7 +11,7 @@ import { GetCallbackSection } from "./GetCallbackSection";
 export const CompleteLandingPage = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Background FAF8F1 */}
+      {/* Hero Section - Background FAF8F1 (includes medical conditions strip for desktop) */}
       <div style={{ backgroundColor: '#FAF8F1' }}>
         <BodyWeightHero />
       </div>
