@@ -6,8 +6,8 @@ import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MovingConditionsStrip } from "./MovingConditionsStrip";
 
 export const BodyWeightHero = () => {
-  const quote = "People above a BMI of 27 often come looking for GLP-1s. Mounjaro or Wegovy are safest and most effective when guided by doctors, nutritionists, and specialized diagnostics.";
-  const desktopQuote = "People above a BMI of 27 often come looking for GLP-1s. Mounjaro or Wegovy are safest and most effective when guided by doctors, nutritionists, and specialized diagnostics.";
+  const quote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
+  const desktopQuote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
 
   const handleDesktopCTAClick = () => {
     // Scroll to features section
@@ -25,12 +25,12 @@ export const BodyWeightHero = () => {
       <div className="text-center mb-4 pt-2">
         <div className="px-4">
           <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
-            Pre-GLP Assessment
+            I've tried everything
           </h2>
         </div>
       </div>
 
-      {/* Speech Bubble pointing leftwards with reduced padding */}
+      {/* Speech Bubble pointing leftwards */}
       <div className="relative mb-8">
         <div className="bg-card rounded-2xl p-2 shadow-lg relative">
           <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center mb-4">
@@ -42,7 +42,7 @@ export const BodyWeightHero = () => {
       </div>
 
       {/* Doctor Card with increased bottom margin */}
-      <div className="flex items-start gap-4 mb-6">
+      <div className="flex items-start gap-2 mb-6">
         {/* Large Doctor Photo */}
         <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
           <img
@@ -67,7 +67,7 @@ export const BodyWeightHero = () => {
         </div>
       </div>
 
-      {/* Moving Conditions Strip with spacing */}
+      {/* Moving Conditions Strip with spacing (margin top is handled by section above) */}
       <div className="mb-6">
         <MovingConditionsStrip />
       </div>
@@ -76,18 +76,24 @@ export const BodyWeightHero = () => {
       <FloatingCTA />
     </div>
 
-      {/* Desktop Layout - Reduced padding */}
+      {/* Desktop Layout - New Structure */}
       <div className="hidden lg:block">
-        {/* Hero Section - Reduced top padding */}
-        <div className="min-h-[70vh] flex pt-8">
+        {/* Hero Section */}
+        <div className="min-h-screen flex">
           {/* Left Column - 50% width */}
           <div className="w-1/2 flex flex-col justify-center px-12 xl:px-16">
             <div className="max-w-2xl">
-              {/* Weight Diagnosis Plan - Remove line and tagline for desktop */}
+              {/* Weight Diagnosis Plan - Non-card with line separator, NO ICON */}
               <div className="text-center mb-8">
-                <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
-                  Weight Diagnosis Plan
-                </h1>
+                <div className="flex items-center gap-4 mb-4 justify-center">
+                  <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
+                    Weight Diagnosis Plan
+                  </h1>
+                </div>
+                <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
+                <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
+                  Weight loss starts with a diagnosis
+                </h3>
               </div>
 
               <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
@@ -148,8 +154,8 @@ export const BodyWeightHero = () => {
         </div>
       </div>
 
-      {/* Desktop Medical Conditions Strip - Minimal padding */}
-      <div className="hidden lg:block py-1" style={{ backgroundColor: '#798660' }}>
+      {/* Desktop Medical Conditions Strip - Full width below hero */}
+      <div className="hidden lg:block" style={{ backgroundColor: '#798660' }}>
         <MovingConditionsStrip />
       </div>
     </div>
