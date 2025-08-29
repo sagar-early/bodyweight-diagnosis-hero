@@ -19,8 +19,8 @@ const features: Feature[] = [
     bullets: [
       "Find the real reason for your weight gain."
     ],
-    desktopImage: "/lovable-uploads/desktop-features.png",
-    mobileImage: "/lovable-uploads/mobile-features.png"
+    desktopImage: "/lovable-uploads/feature-desktop.png",
+    mobileImage: "/lovable-uploads/feature-mobile.png"
   },
   {
     id: 2,
@@ -29,8 +29,8 @@ const features: Feature[] = [
     bullets: [
       "Understand the 'why' behind your weight."
     ],
-    desktopImage: "/lovable-uploads/desktop-features.png",
-    mobileImage: "/lovable-uploads/mobile-features.png"
+    desktopImage: "/lovable-uploads/feature-desktop.png",
+    mobileImage: "/lovable-uploads/feature-mobile.png"
   },
   {
     id: 3,
@@ -39,8 +39,8 @@ const features: Feature[] = [
     bullets: [
       "A diet plan made just for you."
     ],
-    desktopImage: "/lovable-uploads/desktop-features.png",
-    mobileImage: "/lovable-uploads/mobile-features.png"
+    desktopImage: "/lovable-uploads/feature-desktop.png",
+    mobileImage: "/lovable-uploads/feature-mobile.png"
   }
 ];
 
@@ -57,14 +57,11 @@ const FeatureBanner = ({ feature }: { feature: Feature }) => {
       
       {/* Feature Image */}
       <div className="w-full h-full rounded-lg overflow-hidden">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet={feature.desktopImage} />
-          <img
-            src={feature.mobileImage}
-            alt={feature.title}
-            className="w-full h-full object-cover"
-          />
-        </picture>
+        <img
+          src={window.innerWidth >= 1024 ? feature.desktopImage : feature.mobileImage}
+          alt={feature.title}
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );
