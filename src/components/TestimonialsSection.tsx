@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 interface Testimonial {
@@ -12,38 +11,31 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote: "I never imagined my insulin resistance was the real problem. The diagnosis was a wake-up call. The doctors at Early didn't just give me a diet; they gave me answers.",
-    name: "Priya S.",
-    demographics: "34, Bangalore",
-    image: "/lovable-uploads/35596b19-5162-4746-b39a-e843a757732b.png"
+    quote: "Loved the Early Diagnosis Plan, the endocrinologist heard me out so patiently. My labs pointed to insulin resistance which explained why weight loss has been so hard for so long. I'm now working with their nutritionist who is very knowledgeable.",
+    name: "Sangeeta P.",
+    demographics: "59",
+    image: "/lovable-uploads/3d0527e2-aca9-4b92-a278-4e756901fe22.png"
   },
   {
     id: 2,
-    quote: "Early finally helped me understand my body. The personalized approach made all the difference and I lost weight sustainably.",
-    name: "Anita M.",
-    demographics: "28, Mumbai",
-    image: "/lovable-uploads/07969a95-c2f8-4906-9963-5f41136444e7.png"
+    quote: "I always thought I lacked the willpower to loose weight till Early's metabolic diagnosis plan with their convenient at home blood collection, endocrinologist and nutritionist consult helped me discover that my metabolism was the problem. I have lost 7 kgs already in a month, never felt this healthier before.",
+    name: "Arun S.",
+    demographics: "68",
+    image: "/lovable-uploads/0ef1be24-2e5a-4c0a-a831-d4e8bf151ec8.png"
   },
   {
     id: 3,
-    quote: "The comprehensive metabolic test revealed everything I needed to know. My PCOS symptoms improved significantly.",
-    name: "Meera R.",
-    demographics: "31, Delhi",
-    image: "/lovable-uploads/8a638733-910f-4baf-83b3-2ccfc31f3c2e.png"
+    quote: "I've failed at every diet and fad since college and honestly was skeptical about this too. Early's is such a one stop solution for weight loss, they find out whats wrong and then bring in personalised treatment and help for you that includes nutrition plan, fitness plan and timely doctor consults. Weight loss never felt such a no brainer.",
+    name: "Anushree S.",
+    demographics: "38",
+    image: "/lovable-uploads/0fe4c2c5-c84d-4774-bdd5-fbc4395ca026.png"
   },
   {
     id: 4,
-    quote: "Finally found the root cause of my weight issues. The medical team's guidance was incredible and life-changing.",
-    name: "Kavya P.",
-    demographics: "29, Hyderabad",
-    image: "/lovable-uploads/2e8263f8-69fd-4d48-986f-0083fef5a145.png"
-  },
-  {
-    id: 5,
-    quote: "The doctors helped me understand my thyroid issues and I lost weight safely with their medical supervision.",
-    name: "Suresh K.",
-    demographics: "35, Chennai",
-    image: "/lovable-uploads/b17a32a9-9c21-4099-a8dd-b7ff2b42e847.png"
+    quote: "Even with regular gym sessions, I was pre-diabetic. No matter how hard I tried my weight had hit a plateau, thats when my gym trainer suggested to me check out Early , and I can't thank him enough for that, its been 2 months and I have lost 6kgs already by following home cooked food, light exercise and habits that are right for me and specially my metabolism. Early gave me so much clarity.",
+    name: "Mohit G.",
+    demographics: "40",
+    image: "/lovable-uploads/aa1b1295-7bac-4cc1-ae10-ad3ba7d13a73.png"
   }
 ];
 
@@ -103,7 +95,7 @@ export const TestimonialsSection = () => {
           <div className="relative">
             {/* Testimonial Cards Container with corrected padding */}
             <div
-              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-10 pt-10" // <-- CHANGE IS HERE
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-10 pt-10"
               style={{ scrollBehavior: 'smooth' }}
             >
               {testimonials.map((testimonial) => (
@@ -143,7 +135,6 @@ export const TestimonialsSection = () => {
   );
 };
 
-
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible min-h-fit">
@@ -162,9 +153,6 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         <div className="mb-4 text-right">
           <div className="font-satoshi font-bold text-sm mb-1" style={{ color: '#393f2d' }}>
             {testimonial.name}
-          </div>
-          <div className="font-satoshi text-sm" style={{ color: '#798660' }}>
-            {testimonial.demographics}
           </div>
         </div>
 

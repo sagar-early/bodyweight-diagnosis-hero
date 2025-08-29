@@ -66,7 +66,7 @@ const metabolicConditions = [
 
 export const MovingConditionsStrip = () => {
   return (
-    <div className="w-full mb-4 lg:mb-0">
+    <div className="w-full mb-0">
       {/* Mobile version - Complete section with updated background color */}
       <div className="lg:hidden rounded-lg p-2" style={{ backgroundColor: '#798660' }}>
         {/* Headline */}
@@ -111,16 +111,16 @@ export const MovingConditionsStrip = () => {
         </div>
       </div>
 
-      {/* Desktop version - Full width strip with padding for icons only */}
+      {/* Desktop version - Full width strip with increased padding for icons */}
       <div className="hidden lg:block py-4" style={{ backgroundColor: '#798660' }}>
         {/* Headline */}
         <h3 className="font-satoshi text-base text-white mb-4 text-center">
           Medical Conditions That Could Possibly Be Behind Your Weight Gain
         </h3>
 
-        {/* Moving Strip - Full width background with padded content */}
+        {/* Moving Strip - Full width background with increased padding for content */}
         <div className="overflow-hidden">
-          <div className="flex animate-scroll-fast px-16">
+          <div className="flex animate-scroll-fast px-32">
             {/* First set */}
             {metabolicConditions.map((condition) => (
               <div key={condition.id} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">

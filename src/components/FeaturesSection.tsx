@@ -1,4 +1,3 @@
-
 import { StarRating } from "./StarRating";
 import { Button } from "./ui/button";
 
@@ -17,30 +16,32 @@ const features: Feature[] = [
     title: "Full Body Check-up at Home",
     tag: "1. Full Body Check-up at Home",
     bullets: [
-      "Find the real reason for your weight gain."
+      "Find the root cause of your weight gain with our 35+ marker test.",
+      "Fast, easy, and convenient sample collection from your home."
     ],
-    desktopImage: "/lovable-uploads/feature-desktop.png",
-    mobileImage: "/lovable-uploads/feature-mobile.png"
+    desktopImage: "/lovable-uploads/des.png",
+    mobileImage: "/lovable-uploads/mob.png"
   },
   {
     id: 2,
-    title: "The Doctor's Advice",
-    tag: "2. The Doctor's Advice",
+    title: "Consult with a Top Endocrinologist",
+    tag: "2. Consult with a Top Endocrinologist",
     bullets: [
-      "Understand the 'why' behind your weight."
+      "A 1-on-1 video call to understand the 'why' behind your weight.",
+      "Get advice from a super-specialist doctor for weight loss."
     ],
-    desktopImage: "/lovable-uploads/feature-desktop.png",
-    mobileImage: "/lovable-uploads/feature-mobile.png"
+    desktopImage: "/lovable-uploads/des.png",
+    mobileImage: "/lovable-uploads/mob.png"
   },
   {
     id: 3,
-    title: "Personalized Nutrition Blueprint",
-    tag: "3. Personalized Nutrition Blueprint",
+    title: "Personalized Nutrition Plan",
+    tag: "3. Personalized Nutrition Plan",
     bullets: [
-      "A diet plan made just for you."
+      "A practical diet plan based on your medical results and lifestyle."
     ],
-    desktopImage: "/lovable-uploads/feature-desktop.png",
-    mobileImage: "/lovable-uploads/feature-mobile.png"
+    desktopImage: "/lovable-uploads/des.png",
+    mobileImage: "/lovable-uploads/mob.png"
   }
 ];
 
