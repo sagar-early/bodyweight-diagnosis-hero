@@ -6,8 +6,8 @@ import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MovingConditionsStrip } from "./MovingConditionsStrip";
 
 export const BodyWeightHero = () => {
-  const quote = "For many with a BMI over 27, the first step isn't another diet, but a diagnosis";
-  const desktopQuote = "For many with a BMI over 27, the first step isn't another diet, but a diagnosis";
+  const quote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
+  const desktopQuote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
 
   const handleDesktopCTAClick = () => {
     // Scroll to features section
@@ -25,7 +25,7 @@ export const BodyWeightHero = () => {
       <div className="text-center mb-4 pt-2">
         <div className="px-4">
           <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
-            Weight Diagnosis Plan
+            I've tried everything
           </h2>
         </div>
       </div>
