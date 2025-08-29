@@ -90,10 +90,6 @@ export const BodyWeightHero = () => {
                     Weight Diagnosis Plan
                   </h1>
                 </div>
-                <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
-                <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
-                  Weight loss starts with a diagnosis
-                </h3>
               </div>
 
               <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
