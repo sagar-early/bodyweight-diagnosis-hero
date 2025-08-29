@@ -43,7 +43,7 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
 
   return (
     <div 
-      className={`transition-all duration-300 ease-in-out ${className} cursor-pointer z-40 ${!isCircle ? 'animate-bounce-slow' : ''} ${isCircle ? 'lg:relative lg:mx-auto lg:my-8' : 'fixed'}`}
+      className={`transition-all duration-300 ease-in-out ${className} cursor-pointer z-40 ${!isCircle ? 'animate-bounce-slow' : ''}`}
       style={{
         background: 'linear-gradient(180deg, rgba(146, 122, 158, 0.8) 0%, rgba(238, 214, 181, 0.8) 70%, rgba(156, 210, 18, 0.8) 100%)',
         borderRadius: isCircle ? '50%' : '50% 50% 0 0',
@@ -51,11 +51,12 @@ export const FloatingCTA = ({ className = "" }: FloatingCTAProps) => {
         height: isCircle ? '180px' : '25vh',
         maxWidth: isCircle ? '180px' : '100%',
         opacity: 0.8,
-        bottom: isCircle ? (window.innerWidth >= 1024 ? 'auto' : '25vh') : '0px',
-        left: isCircle ? (window.innerWidth >= 1024 ? 'auto' : '50%') : '0',
+        position: isCircle ? 'static' : 'fixed',
+        bottom: isCircle ? 'auto' : '0px',
+        left: isCircle ? 'auto' : '0',
         right: isCircle ? 'auto' : '0',
-        transform: isCircle ? (window.innerWidth >= 1024 ? 'none' : 'translate(-50%, 0)') : 'none',
-        position: isCircle && window.innerWidth >= 1024 ? 'relative' : 'fixed'
+        transform: isCircle ? 'none' : 'none',
+        margin: isCircle ? '0 auto' : '0'
       }}
       onClick={handleClick}
     >

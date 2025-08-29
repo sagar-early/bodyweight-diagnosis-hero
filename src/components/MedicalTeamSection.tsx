@@ -66,10 +66,10 @@ export const MedicalTeamSection = () => {
   };
 
   return (
-    <section className="py-2 px-4 lg:px-16" style={{ backgroundColor: '#FAF8F1' }}>
+    <section className="py-2 px-4 lg:px-16 lg:pb-12" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-6">
+        {/* Section Header with increased padding for desktop */}
+        <div className="text-center mb-6 lg:mb-12">
           <h2 className="font-unna text-3xl lg:text-4xl" style={{ color: '#393f2d' }}>
             Our Medical Experts
           </h2>

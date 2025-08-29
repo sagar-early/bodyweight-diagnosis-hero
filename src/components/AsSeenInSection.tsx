@@ -3,23 +3,20 @@ const AsSeenInSection = () => {
   const newsItems = [
     {
       id: 1,
-      title: "Revolutionary Weight Loss Approach",
-      description: "Early's medical-first approach is changing how people lose weight permanently."
+      title: "Earlyfit launched India's first doctor-led GLP-1 weight loss program",
+      description: "Led by a team of Senior Endocrinologists",
+      link: "https://tptv.in/earlyfit-launched-indias-first-doctor-led-glp-1-weight-loss-program-led-by-a-team-of-senior-endocrinologists"
     },
     {
       id: 2,
-      title: "Diagnosis Before Diet",
-      description: "Why medical testing should be the first step in every weight loss journey."
-    },
-    {
-      id: 3,
-      title: "Beyond Calories",
-      description: "How metabolic health testing reveals the real reasons behind weight gain."
+      title: "Earlyfit launched India's first doctor-led GLP-1 weight loss program",
+      description: "Led by a team of Senior Endocrinologists",
+      link: "https://www.hindustanmetro.com/earlyfit-launched-indias-first-doctor-led-glp-1-weight-loss-program-led-by-a-team-of-senior-endocrinologists/"
     }
   ];
 
   return (
-    <section className="py-6 px-4 lg:px-16 pb-36 lg:pb-6" style={{ backgroundColor: '#FAF8F1' }}>
+    <section className="py-6 px-4 lg:px-16 pb-36 lg:pb-12" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-6">
@@ -41,10 +38,12 @@ const AsSeenInSection = () => {
           </div>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8">
+        {/* Desktop Layout - Center aligned with 2 cards */}
+        <div className="hidden lg:flex lg:justify-center lg:gap-8">
           {newsItems.map((item) => (
-            <NewsCard key={item.id} item={item} />
+            <div key={item.id} className="w-full max-w-md">
+              <NewsCard item={item} />
+            </div>
           ))}
         </div>
       </div>
@@ -52,16 +51,22 @@ const AsSeenInSection = () => {
   );
 };
 
-const NewsCard = ({ item }: { item: { id: number; title: string; description: string } }) => {
+const NewsCard = ({ item }: { item: { id: number; title: string; description: string; link: string } }) => {
   return (
-    <div className="rounded-2xl p-6 shadow-lg h-full" style={{ backgroundColor: '#434a35' }}>
+    <a 
+      href={item.link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block rounded-2xl p-6 shadow-lg h-full hover:transform hover:scale-105 transition-transform duration-200" 
+      style={{ backgroundColor: '#434a35' }}
+    >
       <h3 className="font-unna text-xl mb-3 text-white">
         {item.title}
       </h3>
       <p className="font-satoshi text-sm leading-relaxed text-gray-300">
         {item.description}
       </p>
-    </div>
+    </a>
   );
 };
 

@@ -30,9 +30,9 @@ export const BodyWeightHero = () => {
         </div>
       </div>
 
-      {/* Speech Bubble pointing leftwards */}
+      {/* Speech Bubble pointing leftwards with reduced padding */}
       <div className="relative mb-8">
-        <div className="bg-card rounded-2xl p-4 shadow-lg relative">
+        <div className="bg-card rounded-2xl p-2 shadow-lg relative">
           <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center mb-4">
             {quote}
           </blockquote>
@@ -67,7 +67,7 @@ export const BodyWeightHero = () => {
         </div>
       </div>
 
-      {/* Moving Conditions Strip with spacing (margin top is handled by section above) */}
+      {/* Moving Conditions Strip with spacing */}
       <div className="mb-6">
         <MovingConditionsStrip />
       </div>
@@ -76,24 +76,18 @@ export const BodyWeightHero = () => {
       <FloatingCTA />
     </div>
 
-      {/* Desktop Layout - New Structure */}
+      {/* Desktop Layout - Reduced padding */}
       <div className="hidden lg:block">
-        {/* Hero Section */}
-        <div className="min-h-screen flex">
+        {/* Hero Section - Reduced top padding */}
+        <div className="min-h-[70vh] flex pt-8">
           {/* Left Column - 50% width */}
           <div className="w-1/2 flex flex-col justify-center px-12 xl:px-16">
             <div className="max-w-2xl">
-              {/* Weight Diagnosis Plan - Non-card with line separator, NO ICON */}
+              {/* Weight Diagnosis Plan - Remove line and tagline for desktop */}
               <div className="text-center mb-8">
-                <div className="flex items-center gap-4 mb-4 justify-center">
-                  <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
-                    Weight Diagnosis Plan
-                  </h1>
-                </div>
-                <div className="w-24 h-px mx-auto mb-4" style={{ backgroundColor: '#393f2d' }}></div>
-                <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
-                  Weight loss starts with a diagnosis
-                </h3>
+                <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
+                  Weight Diagnosis Plan
+                </h1>
               </div>
 
               <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
@@ -154,8 +148,8 @@ export const BodyWeightHero = () => {
         </div>
       </div>
 
-      {/* Desktop Medical Conditions Strip - Full width below hero */}
-      <div className="hidden lg:block" style={{ backgroundColor: '#798660' }}>
+      {/* Desktop Medical Conditions Strip - Minimal padding */}
+      <div className="hidden lg:block py-1" style={{ backgroundColor: '#798660' }}>
         <MovingConditionsStrip />
       </div>
     </div>
