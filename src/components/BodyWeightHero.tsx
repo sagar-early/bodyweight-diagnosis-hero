@@ -1,55 +1,165 @@
-import { Button } from "@/components/ui/button";
-import { DoctorProfile } from "./DoctorProfile";
+
 import { FloatingCTA } from "./FloatingCTA";
+import { DoctorProfile } from "./DoctorProfile";
+import { Button } from "./ui/button";
+import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MovingConditionsStrip } from "./MovingConditionsStrip";
 
 export const BodyWeightHero = () => {
-  return (
-    <section className="relative min-h-screen flex flex-col" style={{ backgroundColor: '#FAF8F1' }}>
-      {/* Main Hero Content */}
-      <div className="container mx-auto px-4 py-12 lg:py-24 flex-grow">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left Side: Text Content */}
-          <div className="text-center lg:text-left">
-            <h1 className="font-unna text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4" style={{ color: '#393f2d' }}>
-              Unlock Your Body's Hidden Potential
-            </h1>
-            <p className="font-satoshi text-lg lg:text-xl text-secondary mb-8" style={{ color: '#434a35' }}>
-              Discover the root cause of your weight gain with our at-home metabolic test and doctor-led guidance.
-            </p>
-            <Button className="bg-green-700 text-white font-bold py-3 px-6 rounded-full hover:bg-green-800 transition-colors">
-              Start Your Journey
-            </Button>
-          </div>
+  const quote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
+  const desktopQuote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
 
-          {/* Right Side: Image and Doctor Profile */}
-          <div className="relative">
-            <img
-              src="/hero-image.png"
-              alt="Woman with healthy food"
-              className="rounded-2xl shadow-lg w-full"
-            />
-            <div className="absolute bottom-0 left-0 p-4">
-              <DoctorProfile layout="horizontal" className="bg-white/80 rounded-full backdrop-blur-md p-2" />
-            </div>
+  const handleDesktopCTAClick = () => {
+    // Scroll to features section
+    const featuresSection = document.querySelector('[data-section="features"]');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
+      {/* Mobile Layout */}
+      <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
+      {/* Simple Header Section with increased bottom margin */}
+      <div className="text-center mb-4 pt-2">
+        <div className="px-4">
+          <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
+            I've tried everything
+          </h2>
+        </div>
+      </div>
+
+      {/* Speech Bubble pointing leftwards */}
+      <div className="relative mb-8">
+        <div className="bg-card rounded-2xl p-1 shadow-lg relative">
+          <blockquote className="font-unna text-lg text-foreground leading-relaxed text-center mb-4">
+            {quote}
+          </blockquote>
+          {/* Bubble tail pointing down and moved to the left */}
+          <div className="absolute -bottom-3 left-12 w-6 h-6 bg-card rotate-45"></div>
+        </div>
+      </div>
+
+      {/* Doctor Card with increased bottom margin */}
+      <div className="flex items-start gap-2 mb-6">
+        {/* Large Doctor Photo */}
+        <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
+          <img
+            src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
+            alt="Dr. Saptarshi Bhattacharya"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Doctor Credentials */}
+        <div className="flex-1">
+          <h4 className="font-satoshi font-bold text-foreground text-lg mb-1">
+            Dr. Saptarshi Bhattacharya
+          </h4>
+          <p className="font-satoshi text-sm mb-2" style={{ color: '#000000' }}>
+            Chief Medical Advisor, EarlyFit
+          </p>
+          <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+            <p>DM Endocrinology (AIIMS)</p>
+            <p>MD (MAMC), MBBS</p>
           </div>
         </div>
       </div>
 
-      {/* Medical Conditions Strip for Desktop - positioned at bottom with no margin */}
-      <div className="hidden lg:block mt-auto">
+      {/* Moving Conditions Strip with spacing (margin top is handled by section above) */}
+      <div className="mb-6">
         <MovingConditionsStrip />
       </div>
 
-      {/* Mobile Floating CTA */}
-      <div className="lg:hidden">
-        <FloatingCTA />
-      </div>
+      {/* Enhanced Floating CTA */}
+      <FloatingCTA />
+    </div>
 
-      {/* Mobile Medical Conditions Strip */}
-      <div className="lg:hidden">
-        <MovingConditionsStrip />
+      {/* Desktop Layout - New Structure with integrated medical conditions */}
+      <div className="hidden lg:block">
+        {/* Hero Section with Medical Conditions Strip at bottom */}
+        <div className="min-h-screen flex flex-col">
+          {/* Main Hero Content */}
+          <div className="flex-1 flex">
+            {/* Left Column - 50% width */}
+            <div className="w-1/2 flex flex-col justify-center px-12 xl:px-16">
+              <div className="max-w-2xl">
+                {/* Weight Diagnosis Plan - Non-card with NO line separator */}
+                <div className="text-center mb-8">
+                  <div className="flex items-center gap-4 mb-4 justify-center">
+                    <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
+                      Weight Diagnosis Plan
+                    </h1>
+                  </div>
+                  <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
+                    Weight loss starts with a diagnosis
+                  </h3>
+                </div>
+
+                <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
+                  Lose up to 20% of your body weight.
+                </p>
+                
+                <div className="text-center mb-8">
+                  <Button 
+                    variant="medical" 
+                    size="lg" 
+                    className="text-lg px-8 py-6 text-white"
+                    style={{ backgroundColor: '#434a35' }}
+                    onClick={handleDesktopCTAClick}
+                  >
+                    Start Your Diagnosis Journey
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - 50% width */}
+            <div className="w-1/2 flex flex-col items-center justify-center p-8">
+              {/* Doctor Section */}
+              <div className="flex flex-col items-center">
+                {/* Doctor Image */}
+                <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
+                  <img
+                    src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
+                    alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Credentials */}
+                <div className="text-center mb-6">
+                  <div className="font-satoshi font-bold text-foreground text-lg">
+                    Dr. Saptarshi Bhattacharya
+                  </div>
+                  <div className="font-satoshi text-sm" style={{ color: '#000000' }}>
+                    Chief Medical Advisor, EarlyFit
+                  </div>
+                  <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
+                    <p>DM Endocrinology (AIIMS)</p>
+                    <p>MD (MAMC) & Apollo Hospital</p>
+                  </div>
+                </div>
+
+                {/* Speech Bubble pointing down from doctor with reduced padding */}
+                <div className="relative bg-card rounded-2xl p-4 shadow-lg max-w-md">
+                  <blockquote className="font-unna text-lg text-foreground leading-relaxed">
+                    {desktopQuote}
+                  </blockquote>
+                  {/* Bubble tail pointing up to doctor */}
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rotate-45"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Medical Conditions Strip integrated at bottom of hero */}
+          <div className="mt-auto">
+            <MovingConditionsStrip />
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
