@@ -120,7 +120,7 @@ export const MovingConditionsStrip = () => {
 
         {/* Moving Strip - Full width background with padded content */}
         <div className="overflow-hidden">
-          <div className="flex animate-scroll-fast px-16">
+          <div className="flex animate-scroll-fast px-32">
             {/* First set */}
             {metabolicConditions.map((condition) => (
               <div key={condition.id} className="flex flex-col items-center justify-center mx-3 flex-shrink-0 min-w-[100px]">

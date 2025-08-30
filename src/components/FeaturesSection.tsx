@@ -14,30 +14,32 @@ interface Feature {
 const features: Feature[] = [
   {
     id: 1,
-    title: "Full Body Check-up at Home",
-    tag: "1. Full Body Check-up at Home",
+    title: "Full Body Home Check-up",
+    tag: "1. Full Body Home Check-up",
     bullets: [
-      "Find the real reason for your weight gain."
+      "Find the root cause of your weight gain with our 35+ marker test.",
+      "Fast, easy, and convenient sample collection from your home."
     ],
     desktopImage: "/lovable-uploads/feature-desktop.png",
     mobileImage: "/lovable-uploads/feature-mobile.png"
   },
   {
     id: 2,
-    title: "The Doctor's Advice",
-    tag: "2. The Doctor's Advice",
+    title: "Consult with a Top Endocrinologist",
+    tag: "2. Consult with a Top Endocrinologist",
     bullets: [
-      "Understand the 'why' behind your weight."
+      "A 1-on-1 video call to understand the 'why' behind your weight.",
+      "Get advice from a super-specialist doctor for weight loss."
     ],
     desktopImage: "/lovable-uploads/feature-desktop.png",
     mobileImage: "/lovable-uploads/feature-mobile.png"
   },
   {
     id: 3,
-    title: "Personalized Nutrition Blueprint",
-    tag: "3. Personalized Nutrition Blueprint",
+    title: "Personalized Nutrition Plan",
+    tag: "3. Personalized Nutrition Plan",
     bullets: [
-      "A diet plan made just for you."
+      "A practical diet plan based on your medical results and lifestyle."
     ],
     desktopImage: "/lovable-uploads/feature-desktop.png",
     mobileImage: "/lovable-uploads/feature-mobile.png"
@@ -81,7 +83,7 @@ export const FeaturesSection = () => {
 
         {/* Section Header */}
         <div className="text-center mb-4">
-          <p className="font-satoshi text-xs text-secondary mb-1" style={{ color: '#000000' }}>Weight Diagnosis Plan</p>
+          <p className="font-satoshi text-xs text-secondary mb-1" style={{ color: '#000000' }}>The "I've tried everything" Plan</p>
           <h2 className="font-unna text-3xl lg:text-4xl text-foreground mb-4" style={{ color: '#000000' }}>
             The First Step to Medically-Guided Weight Loss
           </h2>
@@ -182,20 +184,20 @@ export const FeaturesSection = () => {
                 {/* Right Side - Package Details */}
                 <div className="lg:flex-1 text-left">
                   <h3 className="font-unna text-lg lg:text-xl mb-3" style={{ color: '#393f2d' }}>
-                    The Early™ Clarity Kit
+                    The "I've tried everything" Plan
                   </h3>
                   <div className="space-y-2 font-satoshi text-sm" style={{ color: '#434a35' }}>
                     <div className="flex items-center gap-2">
                       <span style={{ color: '#9CD212' }}>✓</span>
-                      <span>Full Body Blood Test</span>
+                      <span>Full Body Home Check-up</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span style={{ color: '#9CD212' }}>✓</span>
-                      <span>Doctor & Nutritionist Consultation</span>
+                      <span>Consult with a Top Endocrinologist</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span style={{ color: '#9CD212' }}>✓</span>
-                      <span>1-Week Personal Diet Plan</span>
+                      <span>Personalized Nutrition Plan</span>
                     </div>
                   </div>
                 </div>

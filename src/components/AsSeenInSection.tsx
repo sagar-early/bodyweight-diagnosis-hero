@@ -3,15 +3,15 @@ const AsSeenInSection = () => {
   const newsItems = [
     {
       id: 1,
-      title: "Earlyfit launched India's first doctor-led GLP-1 weight loss program",
-      description: "Led by a team of Senior Endocrinologists",
-      link: "https://tptv.in/earlyfit-launched-indias-first-doctor-led-glp-1-weight-loss-program-led-by-a-team-of-senior-endocrinologists"
+      title: "Revolutionary Weight Loss Program Launches in India",
+      description: "EarlyFit introduces India's first doctor-led GLP-1 weight loss program with senior endocrinologists - HindustanMetro",
+      link: "https://www.hindustanmetro.com/earlyfit-launched-indias-first-doctor-led-glp-1-weight-loss-program-led-by-a-team-of-senior-endocrinologists/"
     },
     {
       id: 2,
-      title: "Earlyfit launched India's first doctor-led GLP-1 weight loss program",
-      description: "Led by a team of Senior Endocrinologists",
-      link: "https://www.hindustanmetro.com/earlyfit-launched-indias-first-doctor-led-glp-1-weight-loss-program-led-by-a-team-of-senior-endocrinologists/"
+      title: "Medical Breakthrough in Weight Management",
+      description: "EarlyFit's innovative approach to weight loss with specialist endocrinologist team makes headlines - TPTV News",
+      link: "https://tptv.in/earlyfit-launched-indias-first-doctor-led-glp-1-weight-loss-program-led-by-a-team-of-senior-endocrinologists"
     }
   ];
 

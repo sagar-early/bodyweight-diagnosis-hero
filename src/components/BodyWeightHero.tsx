@@ -6,8 +6,8 @@ import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MovingConditionsStrip } from "./MovingConditionsStrip";
 
 export const BodyWeightHero = () => {
-  const quote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
-  const desktopQuote = "When people come to me with a BMI above 27, they have already tried everything - diets, workouts, fads. For them, I recommend a root-cause diagnosis.";
+  const quote = "When people come to me trying to lose weight they've already tried several \"fixes\". A GLP1-1 based therapy along with lifestyle changes may help in such situations";
+  const desktopQuote = "When people come to me trying to lose weight they've already tried several \"fixes\". A GLP1-1 based therapy along with lifestyle changes may help in such situations";
 
   const handleDesktopCTAClick = () => {
     // Scroll to features section
@@ -25,7 +25,7 @@ export const BodyWeightHero = () => {
       <div className="text-center mb-4 pt-2">
         <div className="px-4">
           <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
-            I've tried everything
+            The "I've tried everything" Plan
           </h2>
         </div>
       </div>
@@ -89,7 +89,7 @@ export const BodyWeightHero = () => {
                 <div className="text-center mb-8">
                   <div className="flex items-center gap-4 mb-4 justify-center">
                     <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
-                      Weight Diagnosis Plan
+                      The "I've tried everything" Plan
                     </h1>
                   </div>
                   <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
@@ -143,7 +143,7 @@ export const BodyWeightHero = () => {
                 </div>
 
                 {/* Speech Bubble pointing down from doctor with reduced padding */}
-                <div className="relative bg-card rounded-2xl p-4 shadow-lg max-w-md">
+                <div className="relative bg-card rounded-2xl p-3 shadow-lg max-w-md">
                   <blockquote className="font-unna text-lg text-foreground leading-relaxed">
                     {desktopQuote}
                   </blockquote>
@@ -154,8 +154,8 @@ export const BodyWeightHero = () => {
             </div>
           </div>
 
-          {/* Medical Conditions Strip integrated at bottom of hero */}
-          <div className="mt-auto">
+          {/* Medical Conditions Strip integrated at bottom of hero with minimal padding */}
+          <div className="mt-auto mb-0">
             <MovingConditionsStrip />
           </div>
         </div>

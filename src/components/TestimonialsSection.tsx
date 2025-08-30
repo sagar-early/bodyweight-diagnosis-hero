@@ -12,38 +12,31 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote: "I never imagined my insulin resistance was the real problem. The diagnosis was a wake-up call. The doctors at Early didn't just give me a diet; they gave me answers.",
-    name: "Priya S.",
-    demographics: "34, Bangalore",
-    image: "/lovable-uploads/35596b19-5162-4746-b39a-e843a757732b.png"
+    quote: "Loved the Early Diagnosis Plan, the endocrinologist heard me out so patiently. My labs pointed to insulin resistance which explained why weight loss has been so hard for so long. I'm now working with their nutritionist who is very knowledgeable.",
+    name: "Sangeeta P.",
+    demographics: "59, Bangalore",
+    image: "/lovable-uploads/c8b4fe7a-6fa2-45ae-ab98-ce2621d63d26.png"
   },
   {
     id: 2,
-    quote: "Early finally helped me understand my body. The personalized approach made all the difference and I lost weight sustainably.",
-    name: "Anita M.",
-    demographics: "28, Mumbai",
-    image: "/lovable-uploads/07969a95-c2f8-4906-9963-5f41136444e7.png"
+    quote: "I always thought I lacked the willpower to loose weight till Early's metabolic diagnosis plan with their convenient at home blood collection, endocrinologist and nutritionist consult helped me discover that my metabolism was the problem. I have lost 7 kgs already in a month, never felt this healthier before.",
+    name: "Arun S.",
+    demographics: "68, Mumbai",
+    image: "/lovable-uploads/3d4b4e4b-cadb-4a64-a798-0f8dbaa5fadc.png"
   },
   {
     id: 3,
-    quote: "The comprehensive metabolic test revealed everything I needed to know. My PCOS symptoms improved significantly.",
-    name: "Meera R.",
-    demographics: "31, Delhi",
-    image: "/lovable-uploads/8a638733-910f-4baf-83b3-2ccfc31f3c2e.png"
+    quote: "I've failed at every diet and fad since college and honestly was skeptical about this too. Early's is such a one stop solution for weight loss, they find out whats wrong and then bring in personalised treatment and help for you that includes nutrition plan, fitness plan and timely doctor consults. Weight loss never felt such a no brainer.",
+    name: "Anushree S.",
+    demographics: "38, Kolkata",
+    image: "/lovable-uploads/68979620-f2be-4352-b747-ceee5b6d999e.png"
   },
   {
     id: 4,
-    quote: "Finally found the root cause of my weight issues. The medical team's guidance was incredible and life-changing.",
-    name: "Kavya P.",
-    demographics: "29, Hyderabad",
-    image: "/lovable-uploads/2e8263f8-69fd-4d48-986f-0083fef5a145.png"
-  },
-  {
-    id: 5,
-    quote: "The doctors helped me understand my thyroid issues and I lost weight safely with their medical supervision.",
-    name: "Suresh K.",
-    demographics: "35, Chennai",
-    image: "/lovable-uploads/b17a32a9-9c21-4099-a8dd-b7ff2b42e847.png"
+    quote: "Even with regular gym sessions, I was pre-diabetic. No matter how hard I tried my weight had hit a plateau, thats when my gym trainer suggested to me check out Early , and I can't thank him enough for that, its been 2 months and I have lost 6kgs already by following home cooked food, light exercise and habits that are right for me and specially my metabolism. Early gave me so much clarity.",
+    name: "Mohit G.",
+    demographics: "40, Gurgaon",
+    image: "/lovable-uploads/99a06c5f-1be9-42e2-a546-b496293685b5.png"
   }
 ];
 
@@ -92,7 +85,7 @@ export const TestimonialsSection = () => {
     <section className="py-6 lg:px-16" style={{ backgroundColor: '#798660' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-6 px-4">
+        <div className="text-center mb-6 px-4 lg:mb-12">
           <h2 className="font-unna text-3xl lg:text-4xl mb-4 text-white">
             Real Stories, Real Results
           </h2>
@@ -103,7 +96,7 @@ export const TestimonialsSection = () => {
           <div className="relative">
             {/* Testimonial Cards Container with corrected padding */}
             <div
-              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-10 pt-10" // <-- CHANGE IS HERE
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-10 pt-10"
               style={{ scrollBehavior: 'smooth' }}
             >
               {testimonials.map((testimonial) => (

@@ -26,11 +26,16 @@ const faqs: FAQ[] = [
   },
   {
     id: 2,
+    question: "Who are Endocrinologists and why do I need one?",
+    answer: "Endocrinologists are super-specialist doctors who are experts in hormones. Hormones control your metabolism, hunger, and how your body stores fat. Our endocrinologists will use your test results to find the hormonal root cause of your weight gain and create a medical plan that works with your body's biology."
+  },
+  {
+    id: 3,
     question: "How do I get started after I pay?",
     answer: "The process is simple and we guide you every step of the way. After your purchase, one of our Care Coordinators will reach out to you on WhatsApp within a few hours to confirm your details and schedule a convenient time for your at-home blood test."
   },
   {
-    id: 3,
+    id: 4,
     question: "What are the next steps after my diagnosis?",
     answer: (
       <div className="space-y-4">
@@ -49,7 +54,7 @@ const faqs: FAQ[] = [
     )
   },
   {
-    id: 4,
+    id: 5,
     question: "Is this plan safe and trustworthy?",
     answer: "Absolutely. Every part of our plan is designed and overseen by our team of medical experts, including specialist doctors and senior nutritionists. We use only NABL-certified labs for all our tests to ensure the highest standards of accuracy and safety."
   }
