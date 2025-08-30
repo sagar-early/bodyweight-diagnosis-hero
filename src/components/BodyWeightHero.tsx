@@ -103,7 +103,7 @@ export const BodyWeightHero = () => {
                   <Button variant="medical" size="lg" className="text-lg px-8 py-6 text-white" style={{
                   backgroundColor: '#434a35'
                 }} onClick={handleDesktopCTAClick}>
-                    Start Your Diagnosis Journey
+                    Start Your Journey
                   </Button>
                 </div>
               </div>
