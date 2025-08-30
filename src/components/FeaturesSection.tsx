@@ -76,10 +76,6 @@ export const FeaturesSection = () => {
   return (
     <section className="py-8 px-4 lg:px-16" data-section="features" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
-        {/* Floating CTA Space Placeholder for Desktop */}
-        <div className="hidden lg:block h-48 mb-8" id="floating-cta-space">
-          {/* This space is reserved for the floating CTA when it transforms */}
-        </div>
 
         {/* Section Header */}
         <div className="text-center mb-4">
