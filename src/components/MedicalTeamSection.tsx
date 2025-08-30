@@ -66,7 +66,7 @@ export const MedicalTeamSection = () => {
   };
 
   return (
-    <section className="py-2 px-4 lg:px-16 lg:pb-12" style={{ backgroundColor: '#FAF8F1' }}>
+    <section className="py-2 px-8 lg:px-16 lg:pb-12" style={{ backgroundColor: '#FAF8F1' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header with increased padding for desktop */}
         <div className="text-center mb-6 lg:mb-12">
