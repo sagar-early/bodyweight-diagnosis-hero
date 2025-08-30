@@ -72,7 +72,7 @@ export const BodyWeightHero = () => {
       </div>
 
       {/* Enhanced Floating CTA */}
-      <FloatingCTA />
+      <FloatingCTA className="lg:hidden" />
     </div>
 
       {/* Desktop Layout - New Structure with integrated medical conditions */}
