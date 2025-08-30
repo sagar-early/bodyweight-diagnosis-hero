@@ -170,7 +170,7 @@ export const FeaturesSection = () => {
                 {/* Left Side - Pricing */}
                 <div className="lg:flex-1 mb-4 lg:mb-0">
                   <div className="font-satoshi font-bold text-3xl lg:text-4xl mb-2" style={{ color: '#393f2d' }}>
-                    ₹1,799
+                    ₹2,199
                   </div>
                   <div className="font-satoshi text-base line-through" style={{ color: '#939f79' }}>
                     MRP ₹4,999

@@ -28,7 +28,7 @@ export const FinalCTASection = () => {
               {/* Left Side - Pricing */}
               <div className="lg:flex-1 mb-6 lg:mb-0">
                 <div className="font-satoshi font-bold text-4xl lg:text-5xl mb-2" style={{ color: '#393f2d' }}>
-                  ₹1,799
+                  ₹2,199
                 </div>
                 <div className="font-satoshi text-lg line-through" style={{ color: '#939f79' }}>
                   MRP ₹4,999

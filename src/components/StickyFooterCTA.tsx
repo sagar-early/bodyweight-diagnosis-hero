@@ -23,7 +23,7 @@ export const StickyFooterCTA = () => {
       <div className="flex items-center justify-between">
         {/* Price Details */}
         <div style={{ color: '#434a35' }}>
-          <div className="font-satoshi font-bold text-lg">₹1,799</div>
+          <div className="font-satoshi font-bold text-lg">₹2,199</div>
           <div className="font-satoshi text-sm line-through opacity-70">MRP ₹4,999</div>
         </div>
         
