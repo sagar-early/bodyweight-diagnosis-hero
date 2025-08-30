@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -43,7 +44,7 @@ const testimonials: Testimonial[] = [
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Effect to handle scroll detection
+  // Effect to handle scroll detection for mobile
   useEffect(() => {
     const handleScroll = (event: Event) => {
       const container = event.target as HTMLElement;
@@ -69,7 +70,7 @@ export const TestimonialsSection = () => {
     };
   }, [currentIndex]);
 
-  // Function to scroll to a specific card
+  // Function to scroll to a specific card on mobile
   const scrollToTestimonial = (index: number) => {
     const scrollContainer = document.querySelector('.testimonial-scroll');
     if (scrollContainer) {
@@ -81,13 +82,28 @@ export const TestimonialsSection = () => {
     }
   };
 
+  // Desktop navigation functions
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % Math.ceil(testimonials.length / 2));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + Math.ceil(testimonials.length / 2)) % Math.ceil(testimonials.length / 2));
+  };
+
+  const getVisibleTestimonials = () => {
+    const testimonialsPerSlide = 2;
+    const startIndex = currentIndex * testimonialsPerSlide;
+    return testimonials.slice(startIndex, startIndex + testimonialsPerSlide);
+  };
+
   return (
     <section className="py-6 lg:px-16" style={{ backgroundColor: '#798660' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-6 px-4 lg:mb-12">
-          <h2 className="font-unna text-3xl lg:text-4xl mb-4 text-white">
-            Real Stories, Real Results
+          <h2 className="font-unna text-2xl lg:text-3xl mb-4 text-white">
+            "From 'I've Tried Everything' to Thriving"
           </h2>
         </div>
 
@@ -122,12 +138,40 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:block px-4">
-          <div className="grid grid-cols-3 gap-10">
-            {testimonials.slice(0, 3).map((testimonial) => (
-              <div key={testimonial.id}>
-                <TestimonialCard testimonial={testimonial} />
-              </div>
+        <div className="hidden lg:block">
+          <div className="relative pt-16 mb-8">
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+            >
+              <ChevronLeft className="w-6 h-6" style={{ color: '#393f2d' }} />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+            >
+              <ChevronRight className="w-6 h-6" style={{ color: '#393f2d' }} />
+            </button>
+
+            {/* Testimonials Grid - Now showing 2 cards */}
+            <div className="grid grid-cols-2 gap-8 px-4">
+              {getVisibleTestimonials().map((testimonial) => (
+                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              ))}
+            </div>
+          </div>
+          
+          {/* Indicators */}
+          <div className="flex justify-center mt-6 gap-2">
+            {Array.from({ length: Math.ceil(testimonials.length / 2) }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex ? 'bg-white' : 'bg-white/30'
+                }`}
+              />
             ))}
           </div>
         </div>
@@ -135,7 +179,6 @@ export const TestimonialsSection = () => {
     </section>
   );
 };
-
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
