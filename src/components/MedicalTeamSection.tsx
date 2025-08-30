@@ -75,13 +75,13 @@ export const MedicalTeamSection = () => {
           </h2>
         </div>
 
-        {/* Mobile Carousel -- CORRECTED */}
+        {/* Mobile Carousel -- Updated to show 1.1 cards */}
         <div className="lg:hidden">
           <div className="relative">
             <div className="overflow-x-auto scrollbar-hide pt-16">
-              <div className="flex gap-8 pb-4 px-8">
+              <div className="flex gap-4 pb-4 px-4">
                 {teamMembers.map((member) => (
-                  <div key={member.id} className="flex-shrink-0 w-64">
+                  <div key={member.id} className="flex-shrink-0 w-[calc(100vw-6rem)]">
                     <TeamMemberCard member={member} />
                   </div>
                 ))}
