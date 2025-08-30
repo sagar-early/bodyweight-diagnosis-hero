@@ -10,8 +10,9 @@ interface FormData {
 
 export const GetCallbackSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [state, setState] = useState<'compact' | 'form' | 'success'>('compact');
+  const [state, setState] = useState<'compact' | 'form' | 'success' | 'error'>('compact');
   const [hasSubmittedOnce, setHasSubmittedOnce] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     mobile: '',
@@ -34,17 +35,59 @@ export const GetCallbackSection = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateMobile = (mobile: string) => {
+    const mobileRegex = /^[0-9]{10}$/;
+    return mobileRegex.test(mobile);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setState('success');
-    setHasSubmittedOnce(true);
     
-    // Auto-hide after 5 seconds
-    setTimeout(() => {
-      setIsVisible(false);
-      setState('compact');
-      setFormData({ name: '', mobile: '', timeSlot: '' });
-    }, 5000);
+    if (!validateMobile(formData.mobile)) {
+      setState('error');
+      setTimeout(() => {
+        setState('form');
+      }, 3000);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('mobile', formData.mobile);
+      formDataToSend.append('timeSlot', formData.timeSlot);
+
+      const response = await fetch('https://usebasin.com/f/6eb15177c7ef', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (response.ok) {
+        setState('success');
+        setHasSubmittedOnce(true);
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          setIsVisible(false);
+          setState('compact');
+          setFormData({ name: '', mobile: '', timeSlot: '' });
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setState('error');
+      
+      // Show error for 3 seconds then return to form
+      setTimeout(() => {
+        setState('form');
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
@@ -98,6 +141,7 @@ export const GetCallbackSection = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#393f2d] transition-colors"
@@ -115,9 +159,12 @@ export const GetCallbackSection = () => {
                   </span>
                   <input
                     type="tel"
+                    name="mobile"
                     value={formData.mobile}
                     onChange={(e) => handleInputChange('mobile', e.target.value)}
                     className="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:outline-none focus:border-[#393f2d] transition-colors"
+                    placeholder="Enter 10 digit number"
+                    maxLength={10}
                     required
                   />
                 </div>
@@ -128,24 +175,26 @@ export const GetCallbackSection = () => {
                   Preferred Callback Time
                 </label>
                 <select
+                  name="timeSlot"
                   value={formData.timeSlot}
                   onChange={(e) => handleInputChange('timeSlot', e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#393f2d] transition-colors"
                   required
                 >
                   <option value="">Select a time slot</option>
-                  <option value="morning">Morning (9 AM - 12 PM)</option>
-                  <option value="afternoon">Afternoon (12 PM - 3 PM)</option>
-                  <option value="evening">Evening (3 PM - 6 PM)</option>
+                  <option value="8AM-12PM">8AM-12PM</option>
+                  <option value="12PM-4PM">12PM-4PM</option>
+                  <option value="4PM-8PM">4PM-8PM</option>
                 </select>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-lg font-satoshi font-medium text-white transition-all hover:shadow-lg"
+                disabled={isSubmitting}
+                className="w-full py-3 rounded-lg font-satoshi font-medium text-white transition-all hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ backgroundColor: '#393f2d' }}
               >
-                Request My Callback
+                {isSubmitting ? 'Submitting...' : 'Request My Callback'}
               </button>
             </form>
           </div>
@@ -167,6 +216,27 @@ export const GetCallbackSection = () => {
               </h3>
               <p className="font-satoshi" style={{ color: '#393f2d' }}>
                 One of our Nutrition Expert will call you in your preferred slot.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {state === 'error' && (
+        <div 
+          className="px-6 py-4 shadow-2xl"
+          style={{ backgroundColor: '#ffebee' }}
+        >
+          <div className="max-w-6xl mx-auto flex items-center">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full mr-4" style={{ backgroundColor: '#f44336' }}>
+              <X className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="font-satoshi font-bold text-lg" style={{ color: '#d32f2f' }}>
+                Failed to capture your data
+              </h3>
+              <p className="font-satoshi" style={{ color: '#d32f2f' }}>
+                Please try again or check your internet connection.
               </p>
             </div>
           </div>
