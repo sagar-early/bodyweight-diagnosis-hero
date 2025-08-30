@@ -1,30 +1,31 @@
-
 import { FloatingCTA } from "./FloatingCTA";
 import { DoctorProfile } from "./DoctorProfile";
 import { Button } from "./ui/button";
 import { DoctorSpeechBubble } from "./DoctorSpeechBubble";
 import { MovingConditionsStrip } from "./MovingConditionsStrip";
-
 export const BodyWeightHero = () => {
   const quote = "When people come to me trying to lose weight they've already tried several \"fixes\". A GLP1-1 based therapy along with lifestyle changes may help in such situations";
   const desktopQuote = "When people come to me trying to lose weight they've already tried several \"fixes\". A GLP1-1 based therapy along with lifestyle changes may help in such situations";
-
   const handleDesktopCTAClick = () => {
     // Scroll to features section
     const featuresSection = document.querySelector('[data-section="features"]');
     if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
+      featuresSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FAF8F1' }}>
+  return <div className="min-h-screen" style={{
+    backgroundColor: '#FAF8F1'
+  }}>
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen p-4 pb-0">
       {/* Simple Header Section with increased bottom margin */}
       <div className="text-center mb-4 pt-2">
         <div className="px-4">
-          <h2 className="font-unna text-3xl mb-2" style={{ color: '#000000' }}>
+          <h2 style={{
+            color: '#000000'
+          }} className="font-unna mb-2 text-xl">
             The "I've tried everything" Plan
           </h2>
         </div>
@@ -45,11 +46,7 @@ export const BodyWeightHero = () => {
       <div className="flex items-start gap-2 mb-6">
         {/* Large Doctor Photo */}
         <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
-          <img
-            src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
-            alt="Dr. Saptarshi Bhattacharya"
-            className="w-full h-full object-cover"
-          />
+          <img src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png" alt="Dr. Saptarshi Bhattacharya" className="w-full h-full object-cover" />
         </div>
 
         {/* Doctor Credentials */}
@@ -57,7 +54,9 @@ export const BodyWeightHero = () => {
           <h4 className="font-satoshi font-bold text-foreground text-lg mb-1">
             Dr. Saptarshi Bhattacharya
           </h4>
-          <p className="font-satoshi text-sm mb-2" style={{ color: '#000000' }}>
+          <p className="font-satoshi text-sm mb-2" style={{
+            color: '#000000'
+          }}>
             Chief Medical Advisor, EarlyFit
           </p>
           <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
@@ -88,11 +87,15 @@ export const BodyWeightHero = () => {
                 {/* Weight Diagnosis Plan - Non-card with NO line separator */}
                 <div className="text-center mb-8">
                   <div className="flex items-center gap-4 mb-4 justify-center">
-                    <h1 className="font-unna text-3xl xl:text-4xl" style={{ color: '#000000' }}>
+                    <h1 className="font-unna text-3xl xl:text-4xl" style={{
+                    color: '#000000'
+                  }}>
                       The "I've tried everything" Plan
                     </h1>
                   </div>
-                  <h3 className="font-satoshi text-lg" style={{ color: '#798660' }}>
+                  <h3 className="font-satoshi text-lg" style={{
+                  color: '#798660'
+                }}>
                     Weight loss starts with a diagnosis
                   </h3>
                 </div>
@@ -102,13 +105,9 @@ export const BodyWeightHero = () => {
                 </p>
                 
                 <div className="text-center mb-8">
-                  <Button 
-                    variant="medical" 
-                    size="lg" 
-                    className="text-lg px-8 py-6 text-white"
-                    style={{ backgroundColor: '#434a35' }}
-                    onClick={handleDesktopCTAClick}
-                  >
+                  <Button variant="medical" size="lg" className="text-lg px-8 py-6 text-white" style={{
+                  backgroundColor: '#434a35'
+                }} onClick={handleDesktopCTAClick}>
                     Start Your Diagnosis Journey
                   </Button>
                 </div>
@@ -121,11 +120,7 @@ export const BodyWeightHero = () => {
               <div className="flex flex-col items-center">
                 {/* Doctor Image */}
                 <div className="w-48 h-48 rounded-full overflow-hidden mb-6">
-                  <img
-                    src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png"
-                    alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="/lovable-uploads/73496776-77af-4785-9093-075e1291fea0.png" alt="Dr. Saptarshi Bhattacharya - Top Endocrinologist" className="w-full h-full object-cover" />
                 </div>
                 
                 {/* Credentials */}
@@ -133,7 +128,9 @@ export const BodyWeightHero = () => {
                   <div className="font-satoshi font-bold text-foreground text-lg">
                     Dr. Saptarshi Bhattacharya
                   </div>
-                  <div className="font-satoshi text-sm" style={{ color: '#000000' }}>
+                  <div className="font-satoshi text-sm" style={{
+                  color: '#000000'
+                }}>
                     Chief Medical Advisor, EarlyFit
                   </div>
                   <div className="font-satoshi text-xs text-muted-foreground leading-relaxed">
@@ -160,6 +157,5 @@ export const BodyWeightHero = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
