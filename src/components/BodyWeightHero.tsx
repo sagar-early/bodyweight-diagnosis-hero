@@ -93,11 +93,6 @@ export const BodyWeightHero = () => {
                       The "I've tried everything" Plan
                     </h1>
                   </div>
-                  <h3 className="font-satoshi text-lg" style={{
-                  color: '#798660'
-                }}>
-                    Weight loss starts with a diagnosis
-                  </h3>
                 </div>
 
                 <p className="font-satoshi font-bold text-xl text-foreground mb-8 text-center">
@@ -107,7 +102,9 @@ export const BodyWeightHero = () => {
                 <div className="text-center mb-8">
                   <Button variant="medical" size="lg" className="text-lg px-8 py-6 text-white" style={{
                   backgroundColor: '#434a35'
-                }} onClick={handleDesktopCTAClick}>Start Your Journey</Button>
+                }} onClick={handleDesktopCTAClick}>
+                    Start Your Diagnosis Journey
+                  </Button>
                 </div>
               </div>
             </div>
