@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -44,22 +43,7 @@ const testimonials: Testimonial[] = [
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Desktop navigation functions
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % Math.ceil(testimonials.length / 2));
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + Math.ceil(testimonials.length / 2)) % Math.ceil(testimonials.length / 2));
-  };
-
-  const getVisibleTestimonials = () => {
-    const testimonialsPerSlide = 2;
-    const startIndex = currentIndex * testimonialsPerSlide;
-    return testimonials.slice(startIndex, startIndex + testimonialsPerSlide);
-  };
-
-  // Effect to handle scroll detection for mobile
+  // Effect to handle scroll detection
   useEffect(() => {
     const handleScroll = (event: Event) => {
       const container = event.target as HTMLElement;
@@ -85,7 +69,7 @@ export const TestimonialsSection = () => {
     };
   }, [currentIndex]);
 
-  // Function to scroll to a specific card (mobile)
+  // Function to scroll to a specific card
   const scrollToTestimonial = (index: number) => {
     const scrollContainer = document.querySelector('.testimonial-scroll');
     if (scrollContainer) {
@@ -102,21 +86,21 @@ export const TestimonialsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-6 px-4 lg:mb-12">
-          <h2 className="font-unna text-2xl lg:text-3xl mb-4 text-white">
-            From "I've Tried Everything" to Thriving
+          <h2 className="font-unna text-3xl lg:text-4xl mb-4 text-white">
+            Real Stories, Real Results
           </h2>
         </div>
 
         {/* Mobile Layout */}
         <div className="lg:hidden">
           <div className="relative">
-            {/* Testimonial Cards Container */}
+            {/* Testimonial Cards Container with corrected padding */}
             <div
-              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-6"
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory testimonial-scroll px-10 pt-10"
               style={{ scrollBehavior: 'smooth' }}
             >
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="flex-shrink-0 w-80 snap-center py-6">
+                <div key={testimonial.id} className="flex-shrink-0 w-80 snap-center">
                   <TestimonialCard testimonial={testimonial} />
                 </div>
               ))}
@@ -139,41 +123,11 @@ export const TestimonialsSection = () => {
 
         {/* Desktop Layout */}
         <div className="hidden lg:block px-4">
-          <div className="relative pt-8 mb-8">
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6" style={{ color: '#393f2d' }} />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-            >
-              <ChevronRight className="w-6 h-6" style={{ color: '#393f2d' }} />
-            </button>
-
-            {/* Testimonial Cards Grid */}
-            <div className="grid grid-cols-2 gap-10">
-              {getVisibleTestimonials().map((testimonial) => (
-                <div key={testimonial.id}>
-                  <TestimonialCard testimonial={testimonial} />
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Indicators */}
-          <div className="flex justify-center mt-6 gap-2">
-            {Array.from({ length: Math.ceil(testimonials.length / 2) }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-white' : 'bg-white/30'
-                }`}
-              />
+          <div className="grid grid-cols-3 gap-10">
+            {testimonials.slice(0, 3).map((testimonial) => (
+              <div key={testimonial.id}>
+                <TestimonialCard testimonial={testimonial} />
+              </div>
             ))}
           </div>
         </div>
@@ -182,21 +136,16 @@ export const TestimonialsSection = () => {
   );
 };
 
+
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible h-full">
-      {/* User Profile Image with partial border */}
-      <div className="absolute -top-6 -left-2 lg:-top-7 lg:-left-3 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg">
-        {/* Partial border effect */}
-        <div className="absolute inset-0 rounded-xl border-2 border-white" 
-             style={{
-               clipPath: 'polygon(0% 0%, 100% 0%, 100% 60%, 70% 100%, 0% 100%)'
-             }}>
-        </div>
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 relative overflow-visible min-h-fit">
+      {/* User Profile Image with new positioning */}
+      <div className="absolute -top-6 -left-2 lg:-top-7 lg:-left-3 w-24 h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden shadow-lg border-2 border-white">
         <img
           src={testimonial.image}
           alt={testimonial.name}
-          className="w-full h-full object-cover rounded-xl"
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -216,7 +165,6 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         <blockquote className="font-satoshi italic text-base lg:text-lg leading-relaxed relative" style={{ color: '#434a35' }}>
           <span className="text-3xl lg:text-4xl absolute -left-2 -top-2 text-gray-300">"</span>
           <span className="relative z-10">{testimonial.quote}</span>
-          <span className="text-3xl lg:text-4xl absolute -bottom-4 right-0 text-gray-300">"</span>
         </blockquote>
       </div>
     </div>
